@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1258253540603928132}
   - component: {fileID: 1258253540603928133}
   - component: {fileID: 1258253540603928129}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bala_azul
   m_TagString: Untagged
   m_Icon: {fileID: 0}

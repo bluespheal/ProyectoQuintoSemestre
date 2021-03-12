@@ -214,7 +214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127889561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.35, y: 0.57438064, z: -4.34}
+  m_LocalPosition: {x: -7.01, y: 0.57438064, z: -4.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -553,11 +553,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3379d75d4295b6244800b11aaa375462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dispararRojo: 0
+  dispararAzul: 0
+  dispararAmbos: 1
+  cadencia: 1.5
   posicionBala: {fileID: 1452325517}
   posicionRayo: {fileID: 1575443277}
   prefab_bala_azul: {fileID: 1258253540603928122, guid: b0dad7ca14311db4daafb9b1c7ab4397, type: 3}
   prefab_bala_rojo: {fileID: 3337223074418940135, guid: b9ef93ffd7e12774c9ab871ab8e95f01, type: 3}
-  cadencia: 1.5
   detection:
     serializedVersion: 2
     m_Bits: 16

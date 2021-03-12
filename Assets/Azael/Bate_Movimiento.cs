@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Bate_Movimiento : MonoBehaviour
 {
-    Vector3 puntoA;
+    Vector3 playerPos;
 
     private void Start()
     {
-        puntoA = gameObject.transform.position;
+        playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
     }
 
     void Update()
     {
-        Rotar();
+        //Rotar();
     }
 
     void Rotar()
@@ -23,11 +23,16 @@ public class Bate_Movimiento : MonoBehaviour
 
     void Regresar()
     {
-
+        LeanTween.move(gameObject, playerPos, 1.0f);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         Regresar();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
     }
 }

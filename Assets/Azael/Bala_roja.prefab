@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3337223074418940129}
   - component: {fileID: 3337223074418940134}
   - component: {fileID: 3337223074418940130}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bala_roja
   m_TagString: Untagged
   m_Icon: {fileID: 0}
