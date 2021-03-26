@@ -1,32 +1,47 @@
+//Movimiento y ataque de la torreta
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Torreta : MonoBehaviour
 {
+    [Header("Tipo de disparo")]
+    public bool dispararRojo;
+    public bool dispararAzul;
+    public bool dispararAmbos = true;
+    public float cadencia = 1.0f;
+    float cadenciaInicial;
+
+    [Header("Transforms")]
     public GameObject posicionBala;
     public GameObject posicionRayo;
+    Transform posInicial;
 
+    [Header("Prefabs")]
     public GameObject prefab_bala_azul;
     public GameObject prefab_bala_rojo;
 
-    public float cadencia = 1.5f;
-
+    [Header("Layer a disparar")]
     public LayerMask detection;
 
-    void Start()
+    private void Start()
     {
+        posInicial = gameObject.transform;
+        cadenciaInicial = cadencia;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-
+        //Morir
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            LeanTween.pauseAll();
+            cadencia = cadenciaInicial; //Reiniciar cadencia
         }
     }
 
@@ -34,6 +49,7 @@ public class Torreta : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Regresar();
         }
     }
 
@@ -41,12 +57,19 @@ public class Torreta : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            posicionRayo.transform.LookAt(other.transform);
-            posicionRayo.transform.rotation = Quaternion.Euler(0.0f, posicionRayo.transform.localEulerAngles.y, posicionRayo.transform.localEulerAngles.z);
-            transform.LookAt(other.transform);
-            transform.rotation = Quaternion.Euler(0.0f, transform.localEulerAngles.y, transform.localEulerAngles.z); //Bloquear rotación X
+            //Rotar siguiendo la posicion del personaje
+            Vector3 objetivo = other.transform.position - transform.position;
+            objetivo.y = 0.0f;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.5f);
+            posicionRayo.transform.rotation = Quaternion.RotateTowards(posicionRayo.transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.5f);
             Detection();
         }
+    }
+
+    private void Regresar()
+    {
+        LeanTween.rotate(gameObject, posInicial.position, 1.0f);
+        LeanTween.rotate(posicionRayo.gameObject, posInicial.position, 1.0f);
     }
 
     private void Detection()
@@ -73,27 +96,39 @@ public class Torreta : MonoBehaviour
         }
     }
 
+    public void Shoot()
+    {
+        GameObject bala;
+
+        if (dispararAmbos)
+        {
+            int randNum = Random.Range(0, 20);
+
+            if (randNum < 10)
+            {
+                bala = prefab_bala_azul;
+            }
+            else
+            {
+                bala = prefab_bala_rojo;
+            }
+
+            Instantiate(bala, posicionBala.transform.position, posicionBala.transform.rotation);
+        }
+        else if(dispararAzul)
+        {
+            bala = prefab_bala_azul;
+            Instantiate(bala, posicionBala.transform.position, posicionBala.transform.rotation);
+        }
+        else if(dispararRojo)
+        {
+            bala = prefab_bala_rojo;
+            Instantiate(bala, posicionBala.transform.position, posicionBala.transform.rotation);
+        }
+    }
 
     private void OnGUI()
     {
         Debug.DrawRay(posicionRayo.transform.position, posicionRayo.transform.forward * 15, Color.red);
     }
-
-    public void Shoot()
-    {
-        GameObject bala;
-        int randNum = Random.Range(0, 20);
-
-        if(randNum < 10)
-        {
-            bala = prefab_bala_azul;
-        }
-        else
-        {
-            bala = prefab_bala_rojo;
-        }
-        
-        Instantiate(bala, posicionBala.transform.position, posicionBala.transform.rotation);
-    }
-
 }
