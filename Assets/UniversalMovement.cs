@@ -5,9 +5,8 @@ using UnityEngine;
 public class UniversalMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public float speed = 10f;
+    public float speed = 1f;
     public float rotationTime = 0.5f;
-
     protected virtual void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -18,10 +17,10 @@ public class UniversalMovement : MonoBehaviour
         {
             return;
         }
-        Debug.Log(globalDirection);
+        //Debug.Log(globalDirection);
         Vector3 direction = transform.right * globalDirection.x + transform.forward * globalDirection.z;
         
-        controller.Move(direction * speed * Time.deltaTime);
+        controller.SimpleMove(direction * speed);
         if (globalDirection.z == -1 && globalDirection.x == 0)
             return;
         Rotate(direction.normalized);

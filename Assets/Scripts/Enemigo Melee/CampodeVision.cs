@@ -23,6 +23,7 @@ public class CampodeVision : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        //Debug.Log(other);
         GameObject objetivo = other.gameObject;
         string tag = objetivo.tag;
         if(tag.Equals(tagObjetivo) == false)

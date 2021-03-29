@@ -6,6 +6,7 @@ public class CondicionVista : Condiciones
 {
     public override bool Test(MeleeMachine agente)
     {
-        return agente.target;
+        //Debug.Log(agente.target);
+        return (agente.target && !agente.meleeRange );
     }
 }

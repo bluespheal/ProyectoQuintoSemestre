@@ -10,6 +10,8 @@ public class EstadoPersecucion : Estado
     public override void OnEnable()
     {
         base.OnEnable();
+        agente.anim.SetBool("run",true);
+        Debug.Log("Entro a run");
         if (indicator)
         {
             indicator.SetActive(true);
@@ -22,6 +24,7 @@ public class EstadoPersecucion : Estado
         if (indicator)
         {
             indicator.SetActive(false);
+            agente.anim.SetBool("run", false);
         }
     }
 
@@ -34,7 +37,15 @@ public class EstadoPersecucion : Estado
         }
         var dircetion = agente.target.transform.position - gameObject.transform.position;
         dircetion.Normalize();
+        //dircetion.y = 0.0f;
         //Transformamos la posicion global en local para perseguir de forma correcta
         movementController.Move(gameObject.transform.InverseTransformDirection(dircetion));
+        //Recrear gravedad
+        
+    }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        //Debug.Log(hit.collider);
+
     }
 }

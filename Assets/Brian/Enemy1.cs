@@ -30,7 +30,7 @@ public class Enemy1 : MonoBehaviour
     public void DefineColor()
     {
         color = Random.Range(0, 2);
-        print(color);
+        //print(color);
         if(color == 0)
         {
             imRed = false;
