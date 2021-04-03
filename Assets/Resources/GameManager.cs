@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public static float tiempoTranscurrido;
     public static float puntos;
     public static bool gameover;
+    public static List<GameObject> cuentaEnemigos = new List<GameObject>();
+    public static GameObject puerta;
 
     private void Awake()
     {
@@ -28,19 +30,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(tiempoRestante > 0 && !gameover)
-        {
-            tiempoRestante -= Time.deltaTime;
-        }
-        if(tiempoRestante <= 0 && !gameover)
-        {
-            gameover = true;
-        }
+        
     }
 
     public void startGame()
     {
-        tiempoRestante = 10;
         gameover = false;
         puntos = 0;
     }
@@ -48,5 +42,23 @@ public class GameManager : MonoBehaviour
     public void endGame()
     {
 
+    }
+
+    public static void ContarEnemigo(GameObject enemigo)
+    {
+        cuentaEnemigos.Add(enemigo);
+    }
+    public static void DescontarEnemigo(GameObject enemigo)
+    {
+        cuentaEnemigos.Remove(enemigo);
+        if (cuentaEnemigos.Count == 0)
+        {
+            puerta.SetActive(false);
+        }
+    }
+
+    public static void ContarPuerta(GameObject _puerta)
+    {
+        puerta = _puerta;
     }
 }

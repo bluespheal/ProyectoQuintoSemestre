@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Cubemap_757f6e4f6ce3473290c00b4f4adbb849:
-        m_Texture: {fileID: 8900000, guid: f1767cf8f816da645a2cca204af0350c, type: 3}
+        m_Texture: {fileID: 8900000, guid: f618b52224474d840a7f34001594205d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Cubemap_7f97cf56b7a64674b202065b831a63c0:
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_4ec51185b1314bf49b710c9bdda932a4: 0.22
+    - Vector1_4ec51185b1314bf49b710c9bdda932a4: 1.5
     - Vector1_6d8e37ef8eec474d9dd95f4b2a99bd0f: 0.33
     - Vector1_b00344cfb93e4c5db7d81ec665e39b08: 25
     - Vector1_b068d197447c4e218daa3de08d597f6a: 1.12
