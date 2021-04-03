@@ -8,7 +8,6 @@ public class Lanzar_Armas : MonoBehaviour
     public GameObject bateRojo_prefab;
     public Transform lanzamientoPos;
     public float fuerza;
-    public float distancia;
 
     void Update()
     {
@@ -22,6 +21,7 @@ public class Lanzar_Armas : MonoBehaviour
         }
     }
 
+    //Lanzar bate
     public void Lanzar(GameObject _bate)
     {
         GameObject bate = Instantiate(_bate, lanzamientoPos.position, lanzamientoPos.rotation);

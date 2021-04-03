@@ -212,7 +212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90163941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45850003, y: 2, z: 8.71}
+  m_LocalPosition: {x: 0.45850003, y: -5.44, z: 8.71}
   m_LocalScale: {x: 9.3416, y: 7.6198, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -410,11 +410,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e5a1215d4063f43bd1fc2ddcf94e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bateAzul_prefab: {fileID: 4625515347082572825, guid: d4b3dfa2d766ac047bd3a5e980d6f440, type: 3}
-  bateRojo_prefab: {fileID: 4625515347082572825, guid: d4b3dfa2d766ac047bd3a5e980d6f440, type: 3}
+  bateAzul_prefab: {fileID: 5401289141324026380, guid: a510dd9530092c04bb93292e43a55d7d, type: 3}
+  bateRojo_prefab: {fileID: 5401289141324026380, guid: a510dd9530092c04bb93292e43a55d7d, type: 3}
   lanzamientoPos: {fileID: 1842559064}
-  fuerza: 10
-  distancia: 0
+  fuerza: 15
 --- !u!114 &286179078
 MonoBehaviour:
   m_ObjectHideFlags: 0
