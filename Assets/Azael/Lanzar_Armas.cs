@@ -1,23 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Lanzar_Armas : MonoBehaviour
 {
     public GameObject bateAzul_prefab;
     public GameObject bateRojo_prefab;
     public Transform lanzamientoPos;
+    public Image haircross;
     public float fuerza;
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(Input.GetKeyUp(KeyCode.Mouse0))
         {
+            haircross.enabled = false;
             Lanzar(bateRojo_prefab);
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyUp(KeyCode.Mouse1))
         {
+            haircross.enabled = false;
             Lanzar(bateAzul_prefab);
+        }
+        if(Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
+        {
+            haircross.enabled = true;
         }
     }
 

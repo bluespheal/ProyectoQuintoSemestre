@@ -61,7 +61,10 @@ public class Bate_Movimiento : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Destruir el objeto al entrar al trigger del jugador
-        Destroy(gameObject);
+        if(other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnDestroy()
