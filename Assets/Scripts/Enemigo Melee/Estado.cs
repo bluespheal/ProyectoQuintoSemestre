@@ -2,18 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 [RequireComponent(typeof(MeleeMachine))]
 public class Estado : MonoBehaviour
 {
     //Se encarga de cambiar entre cada estado (script)
     public MeleeMachine agente;
     public List<Transicion> transiciones = new List<Transicion>();
-    protected UniversalMovement movementController;
+    public NavMeshAgent nav;
+    
+    //protected UniversalMovement movementController;
     private void Awake()
     {
         //obtenemos el Objeto que queremos cambiar de estados automaticamente
         agente = GetComponent<MeleeMachine>();
-        movementController = GetComponent<UniversalMovement>();
+        nav = GetComponent<NavMeshAgent>();
+        //movementController = GetComponent<UniversalMovement>();
     }
 
     public virtual void OnEnable()
