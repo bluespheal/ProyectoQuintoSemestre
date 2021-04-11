@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EstadoIdle : Estado
 {
+    //Aun en desarrollo
     public override void OnEnable()
     {
         base.OnEnable();

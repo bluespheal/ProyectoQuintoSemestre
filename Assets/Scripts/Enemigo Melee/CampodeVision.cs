@@ -57,7 +57,7 @@ public class CampodeVision : MonoBehaviour
         //Si el jugador sale de nuestro campo de vision...
         if(infoMelee.target!=null && other.gameObject == infoMelee.target)
         {
-            //... ya no segimos al jugador
+            //... perdemos el "taeget" del jugador
             infoMelee.target = null;
         }
     }

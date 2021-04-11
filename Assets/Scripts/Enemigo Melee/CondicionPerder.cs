@@ -7,6 +7,7 @@ public class CondicionPerder : Condiciones
 {
     public override bool Test(MeleeMachine agente)
     {
-        return agente.target == null;
+        //Revisamos que el agente ya no pueda ver al jugador y no este atacando
+        return (agente.target == null && !agente.attacking);
     }
 }
