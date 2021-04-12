@@ -25,12 +25,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110426705}
-  m_LocalRotation: {x: -0, y: -0.46778947, z: -0, w: 0.8838399}
-  m_LocalPosition: {x: 0.406, y: 1.402, z: 0.598}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.08568318, y: -0.7185058, z: 0.11720796, w: 0.68019867}
+  m_LocalPosition: {x: -6.3663106, y: 5.893279, z: 37.568146}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
-  m_Father: {fileID: 5741214210047179079}
-  m_RootOrder: 2
+  m_Father: {fileID: 2241121570599219934}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -55.782, z: 0}
 --- !u!65 &110426708
 BoxCollider:
@@ -591,7 +591,8 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.0510384e-29, y: 9.447606, z: 12.272215}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 110426706}
   m_Father: {fileID: 51908395089491586}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1126,7 +1127,6 @@ Transform:
   m_Children:
   - {fileID: 2882373074551022892}
   - {fileID: 2980715417085773949}
-  - {fileID: 110426706}
   - {fileID: 4740030036662189}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1218,6 +1218,7 @@ MonoBehaviour:
     objetivo: {fileID: 1781780993}
   - condicion: {fileID: 11400000, guid: 4251680a9219cf140a44bbc4e25cb9a5, type: 2}
     objetivo: {fileID: 1781780994}
+  nav: {fileID: 0}
 --- !u!114 &1781780993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1236,6 +1237,7 @@ MonoBehaviour:
     objetivo: {fileID: 1781780994}
   - condicion: {fileID: 11400000, guid: 73dbbc61d426c0046808c7544ae3deac, type: 2}
     objetivo: {fileID: 1964947549178555196}
+  nav: {fileID: 0}
   indicator: {fileID: 1104851187403513}
 --- !u!114 &1781780994
 MonoBehaviour:
@@ -1253,6 +1255,7 @@ MonoBehaviour:
   transiciones:
   - condicion: {fileID: 11400000, guid: ff911886cf385484b8fbc3588dc1a96f, type: 2}
     objetivo: {fileID: 1781780993}
+  nav: {fileID: 0}
 --- !u!114 &1781780995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1269,6 +1272,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   rb: {fileID: 0}
   meleeRange: 0
+  attacking: 0
 --- !u!114 &1781780996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2147,7 +2151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4740029122835090, guid: 2fb9237466bb67a4aba3a1257a0190fb, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4740029122835090, guid: 2fb9237466bb67a4aba3a1257a0190fb, type: 3}
       propertyPath: m_LocalPosition.x
