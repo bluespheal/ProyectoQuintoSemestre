@@ -4,27 +4,36 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    static GameManager controlador;
+    //Se crea una referencia para el mismo
+    static GameManager instance;
 
-    public static float tiempoRestante;
-    public static float tiempoTranscurrido;
-    public static float puntos;
-    public static bool gameover;
-    public static List<GameObject> cuentaEnemigos = new List<GameObject>();
-    public static GameObject puerta;
+    public float tiempoRestante;
+    public float tiempoTranscurrido;
+    public float puntos;
+    public bool gameover;
+    public List<GameObject> cuentaEnemigos = new List<GameObject>();
+    public GameObject puerta;
+    //Se hace un getter a la referencia para que se pueda acceder facilmente desde otros scripts 
+    public static GameManager Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
 
     private void Awake()
     {
-        if(controlador != null && controlador != this)
+        //Si ya existe otro Game Manager se autodestruye
+        if(instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
         }
-        controlador = this;
+        //Se referencia a si mismo
+        instance = this;
+        //Se le dice que no se destruya entre escenas
         DontDestroyOnLoad(gameObject);
-
-        gameover = true;
-
     }
     
 
@@ -35,20 +44,22 @@ public class GameManager : MonoBehaviour
 
     public void startGame()
     {
+        //Condiciones para cuando inicia el juego (Placeholders de momento)
         gameover = false;
         puntos = 0;
     }
 
     public void endGame()
     {
-
+        //Condiciones para cuando termina el juego 
     }
-
-    public static void ContarEnemigo(GameObject enemigo)
+    //Funcion que llaman los enemigos de cada nivel al crearse para que el GM los pueda contar
+    public void ContarEnemigo(GameObject enemigo)
     {
         cuentaEnemigos.Add(enemigo);
     }
-    public static void DescontarEnemigo(GameObject enemigo)
+    //Funcion que llaman los enemigos de cada nivel al morir para que el GM los pueda contar
+    public void DescontarEnemigo(GameObject enemigo)
     {
         cuentaEnemigos.Remove(enemigo);
         if (cuentaEnemigos.Count == 0)
@@ -56,8 +67,8 @@ public class GameManager : MonoBehaviour
             puerta.SetActive(false);
         }
     }
-
-    public static void ContarPuerta(GameObject _puerta)
+    //Funcion que llama la puerta de cada nivel al crearse para que el GM sepa cual abrir (Cambiar para que en el futuro ejecute una animacion)
+    public void ContarPuerta(GameObject _puerta)
     {
         puerta = _puerta;
     }

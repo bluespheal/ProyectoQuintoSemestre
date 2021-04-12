@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameAssets : MonoBehaviour
 {
-
+    //Se crea una referencia para el mismo
     private static GameAssets _i;
-
+    //Se hace un getter a la referencia para que se pueda acceder facilmente desde otros scripts 
     public static GameAssets i
     {
         get
@@ -16,8 +16,9 @@ public class GameAssets : MonoBehaviour
             return _i;
         }
     }
+    //Se define un array sin expansible para almacenar sonidos con su nombre
     public SoundAudioClip[] soundAudioClipArray;
-
+    //Se define una clase que reciba un sonido y su nombre para que se manden llamar facilmente
     [System.Serializable]
     public class SoundAudioClip
     {

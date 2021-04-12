@@ -6,7 +6,7 @@ public class puertaNivel : MonoBehaviour
 {
     private void Awake()
     {
-        GameManager.ContarPuerta(this.gameObject);
+        GameManager.Instance.ContarPuerta(this.gameObject);
         Debug.Log(this.gameObject);
     }
 }

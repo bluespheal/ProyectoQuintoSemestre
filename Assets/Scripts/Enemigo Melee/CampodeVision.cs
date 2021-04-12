@@ -24,27 +24,31 @@ public class CampodeVision : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         //Debug.Log(other);
+        //Analiza el objeto con el que colisiona
         GameObject objetivo = other.gameObject;
         string tag = objetivo.tag;
         if(tag.Equals(tagObjetivo) == false)
         {
             return;
         }
+        //Si es el jugador guarda  su posicion
         posicionActual = gameObject.transform.position;
         posicionObjetico = objetivo.transform.position;
         direccion = posicionObjetico - posicionActual;
-
+        //Dispara un Raycast para saber si no hay algo que lo oculte
         ray = new Ray(posicionActual, direccion.normalized);
         RaycastHit hit;
         Debug.DrawRay(posicionActual, direccion);
         if(Physics.Raycast(ray, out hit, direccion.magnitude))
         {
+            //Si tiene una vista directa lo vuelve su objetivo
             if (hit.collider.gameObject.tag.Equals(tagObjetivo))
             {
                 infoMelee.target = objetivo;
                 return;
             }
         }
+        //Eliminamos el tarjet para evitar errores
         infoMelee.target = null;
     }
 
@@ -53,7 +57,7 @@ public class CampodeVision : MonoBehaviour
         //Si el jugador sale de nuestro campo de vision...
         if(infoMelee.target!=null && other.gameObject == infoMelee.target)
         {
-            //... ya no segimos al jugador
+            //... perdemos el "taeget" del jugador
             infoMelee.target = null;
         }
     }

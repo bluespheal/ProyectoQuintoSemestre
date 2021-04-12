@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class EstadoIdle : Estado
 {
+    //Aun en desarrollo
     public override void OnEnable()
     {
         base.OnEnable();
         Debug.Log("Entro a idle");
         agente.anim.SetBool("idle", true);
         //Detenemos el movimento de la IA
-        movementController.Move(Vector3.zero);
+        //movementController.Move(Vector3.zero);
         //Nos aseguramos de que perdio el target
         agente.target = null;
     }

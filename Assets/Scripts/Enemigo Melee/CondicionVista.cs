@@ -7,6 +7,7 @@ public class CondicionVista : Condiciones
     public override bool Test(MeleeMachine agente)
     {
         //Debug.Log(agente.target);
-        return (agente.target && !agente.meleeRange );
+        //Rebisamos que nuestro agente pueda ver al jugador, no este en rango de ataque y no este atacando
+        return (agente.target && !agente.meleeRange && !agente.attacking);
     }
 }
