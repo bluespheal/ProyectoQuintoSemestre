@@ -279,7 +279,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5209150659612451695, guid: eaba201201c63cd47ac8d4ab9a60a0a5, type: 3}
+  - {fileID: 2100000, guid: 97ef09a29ed4c1e46808b4804d3997b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1166,6 +1166,9 @@ MonoBehaviour:
   imRed: 0
   imBlue: 0
   color: 0
+  red: {fileID: 2100000, guid: 97ef09a29ed4c1e46808b4804d3997b4, type: 2}
+  blue: {fileID: 2100000, guid: 82c31cfdfb4fd004587f7a868fe65452, type: 2}
+  model: {fileID: 848769362158149493}
 --- !u!54 &6619662440893086560
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1218,6 +1221,7 @@ MonoBehaviour:
     objetivo: {fileID: 1781780993}
   - condicion: {fileID: 11400000, guid: 4251680a9219cf140a44bbc4e25cb9a5, type: 2}
     objetivo: {fileID: 1781780994}
+  nav: {fileID: 0}
 --- !u!114 &1781780993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1236,6 +1240,7 @@ MonoBehaviour:
     objetivo: {fileID: 1781780994}
   - condicion: {fileID: 11400000, guid: 73dbbc61d426c0046808c7544ae3deac, type: 2}
     objetivo: {fileID: 1964947549178555196}
+  nav: {fileID: 0}
   indicator: {fileID: 1104851187403513}
 --- !u!114 &1781780994
 MonoBehaviour:
@@ -1253,6 +1258,7 @@ MonoBehaviour:
   transiciones:
   - condicion: {fileID: 11400000, guid: ff911886cf385484b8fbc3588dc1a96f, type: 2}
     objetivo: {fileID: 1781780993}
+  nav: {fileID: 0}
 --- !u!114 &1781780995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1269,6 +1275,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   rb: {fileID: 0}
   meleeRange: 0
+  attacking: 0
 --- !u!114 &1781780996
 MonoBehaviour:
   m_ObjectHideFlags: 0
