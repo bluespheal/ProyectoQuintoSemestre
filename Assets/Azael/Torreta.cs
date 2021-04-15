@@ -40,6 +40,7 @@ public class Torreta : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            //Pausar LeenTween para que gire si vuelve a detectar al jugador
             LeanTween.pauseAll();
             cadencia = cadenciaInicial; //Reiniciar cadencia
         }
@@ -57,7 +58,7 @@ public class Torreta : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //Rotar siguiendo la posicion del personaje
+            //Rotar siguiendo la posicion del jugador
             Vector3 objetivo = other.transform.position - transform.position;
             objetivo.y = 0.0f;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.5f);
@@ -66,12 +67,15 @@ public class Torreta : MonoBehaviour
         }
     }
 
+    //Volver a su posicion inicial
     private void Regresar()
     {
         LeanTween.rotate(gameObject, posInicial.position, 1.0f);
         LeanTween.rotate(posicionRayo.gameObject, posInicial.position, 1.0f);
     }
 
+
+    //Detectar si el rayo toca al jugador
     private void Detection()
     {
         RaycastHit hit;
@@ -100,6 +104,7 @@ public class Torreta : MonoBehaviour
     {
         GameObject bala;
 
+        //Disparar segun el tipo de bala elegido
         if (dispararAmbos)
         {
             int randNum = Random.Range(0, 20);

@@ -34,6 +34,6 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-
+        //Cargar el nivel 1
     }
 }
