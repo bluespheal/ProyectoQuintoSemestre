@@ -29,6 +29,7 @@ public class Torreta : MonoBehaviour
     {
         posInicial = gameObject.transform;
         cadenciaInicial = cadencia;
+        Idle();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -61,16 +62,30 @@ public class Torreta : MonoBehaviour
             //Rotar siguiendo la posicion del jugador
             Vector3 objetivo = other.transform.position - transform.position;
             objetivo.y = 0.0f;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.5f);
-            posicionRayo.transform.rotation = Quaternion.RotateTowards(posicionRayo.transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.5f);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.0f);
+            posicionRayo.transform.rotation = Quaternion.RotateTowards(posicionRayo.transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.0f);
             Detection();
         }
     }
 
-    //Volver a su posicion inicial
+    //Idle de la torreta, gira 90 grados a la derecha 
+    void Idle()
+    {
+        LeanTween.rotate(gameObject, new Vector3(0.0f, 90.0f, 0.0f), 2.0f).setOnComplete(Idle2);
+        LeanTween.rotate(posicionRayo.gameObject, new Vector3(0.0f, 90.0f, 0.0f), 2.0f);
+    }
+
+    //Y luego a la izquierda
+    void Idle2()
+    {
+        LeanTween.rotate(gameObject, new Vector3(0.0f, -89.0f, 0.0f), 2.0f).setOnComplete(Idle);
+        LeanTween.rotate(posicionRayo.gameObject, new Vector3(0.0f, -89.0f, 0.0f), 2.0f);
+    }
+
+    //Volver a su posicion inicial y luego a idle
     private void Regresar()
     {
-        LeanTween.rotate(gameObject, posInicial.position, 1.0f);
+        LeanTween.rotate(gameObject, posInicial.position, 1.0f).setOnComplete(Idle);
         LeanTween.rotate(posicionRayo.gameObject, posInicial.position, 1.0f);
     }
 
@@ -100,6 +115,7 @@ public class Torreta : MonoBehaviour
         }
     }
 
+    //Disparar, obviamente
     public void Shoot()
     {
         GameObject bala;
