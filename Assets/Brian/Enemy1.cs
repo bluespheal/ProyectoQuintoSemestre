@@ -9,6 +9,9 @@ public class Enemy1 : MonoBehaviour
     public bool imRed;
     public bool imBlue;
     public int color;
+    public Material red;
+    public Material blue;
+    public GameObject model;
 
     void Start()
     {
@@ -36,12 +39,14 @@ public class Enemy1 : MonoBehaviour
             imRed = false;
             imBlue = true;
             gameObject.layer = LayerMask.NameToLayer("Color1");
+            model.GetComponent<SkinnedMeshRenderer>().material = blue;
         }
         else
         {
             imRed = true;
             imBlue = false;
             gameObject.layer = LayerMask.NameToLayer("Color2");
+            model.GetComponent<SkinnedMeshRenderer>().material = red;
         }
     }
 
