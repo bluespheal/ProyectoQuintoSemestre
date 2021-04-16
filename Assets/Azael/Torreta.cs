@@ -25,10 +25,13 @@ public class Torreta : MonoBehaviour
     [Header("Layer a disparar")]
     public LayerMask detection;
 
+    public GameObject basee, canon;
+
     private void Start()
     {
-        posInicial = gameObject.transform;
+        posInicial = basee.transform;
         cadenciaInicial = cadencia;
+        Idle();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -40,6 +43,7 @@ public class Torreta : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            //Pausar LeenTween para que gire si vuelve a detectar al jugador
             LeanTween.pauseAll();
             cadencia = cadenciaInicial; //Reiniciar cadencia
         }
@@ -57,21 +61,42 @@ public class Torreta : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //Rotar siguiendo la posicion del personaje
+            //Rotar siguiendo la posicion del jugador
             Vector3 objetivo = other.transform.position - transform.position;
-            objetivo.y = 0.0f;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.5f);
-            posicionRayo.transform.rotation = Quaternion.RotateTowards(posicionRayo.transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.5f);
+            //Hacia donde rotar la base
+            Vector3 objetivo2 = other.transform.position - transform.position;
+            objetivo2.y = 0.0f;
+            canon.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 50.0f);
+            basee.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo2), Time.time * 50.0f);
+            posicionRayo.transform.rotation = Quaternion.RotateTowards(posicionRayo.transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.0f);
             Detection();
         }
     }
 
+    //Idle de la torreta, gira 90 grados a la derecha 
+    void Idle()
+    {
+        LeanTween.rotateLocal(basee, new Vector3(0.0f, 90.0f , 0.0f), 2.0f).setOnComplete(Idle2);
+        LeanTween.rotateLocal(posicionRayo.gameObject, new Vector3(0.0f, 90.0f, 0.0f), 2.0f);
+    }
+
+    //Y luego a la izquierda
+    void Idle2()
+    {
+        LeanTween.rotateLocal(basee, new Vector3(0.0f, -89.0f, 0.0f), 2.0f).setOnComplete(Idle);
+        LeanTween.rotateLocal(posicionRayo.gameObject, new Vector3(0.0f, -89.0f, 0.0f), 2.0f);
+    }
+
+    //Volver a su posicion inicial y luego a idle
     private void Regresar()
     {
-        LeanTween.rotate(gameObject, posInicial.position, 1.0f);
+        LeanTween.rotate(basee, posInicial.position, 1.0f).setOnComplete(Idle);
+        LeanTween.rotate(canon, posInicial.position, 1.0f);
         LeanTween.rotate(posicionRayo.gameObject, posInicial.position, 1.0f);
     }
 
+
+    //Detectar si el rayo toca al jugador
     private void Detection()
     {
         RaycastHit hit;
@@ -96,10 +121,12 @@ public class Torreta : MonoBehaviour
         }
     }
 
+    //Disparar, obviamente
     public void Shoot()
     {
         GameObject bala;
 
+        //Disparar segun el tipo de bala elegido
         if (dispararAmbos)
         {
             int randNum = Random.Range(0, 20);

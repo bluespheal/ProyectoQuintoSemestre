@@ -7,12 +7,13 @@ public class Lanzar_Armas : MonoBehaviour
 {
     public GameObject bateAzul_prefab;
     public GameObject bateRojo_prefab;
-    public Transform lanzamientoPos;
+    public Transform lanzamientoPos; //De donde saldra el arma
     public Image haircross;
     public float fuerza;
 
     void Update()
     {
+        //Al presionar el boton se enciende la mira y al soltarlo de lanza el arma
         if(Input.GetKeyUp(KeyCode.Mouse0))
         {
             haircross.enabled = false;
