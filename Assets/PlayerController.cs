@@ -11,15 +11,15 @@ public class PlayerController : MonoBehaviour
    
 
     [Header("Input variables")]
-    public InputMaster controls;
-    public PlayerMovement motor;
+    public InputMaster controls; // input manager
+    public PlayerMovement motor; // movement manager
 
     [Header("Scene Changer")]
-    public SceneChanger sceneChanger;
+    public SceneChanger sceneChanger; //scene manager
 
     [Header("Player and Camera Speeds")]
-    public float speed;
-    public float lookSpeed;
+    public float speed; //movement speed
+    public float lookSpeed; //camera speed
 
     [Header("States")]
     public bool alive;
@@ -29,12 +29,12 @@ public class PlayerController : MonoBehaviour
     public float fadeTimer;
 
 
-    [Header("View references")]
+    [Header("View references")]//Elements to change when the player doesn't move
     public Light globalLight1;
     public Light globalLight2;
     public Camera cam;
 
-    [Header("Timer variables")]
+    [Header("Timer variables")] //Timer that decreases/increases in relation to player movement.
     public float timer;
     public bool moving;
     public float timerWinRate;
@@ -43,13 +43,13 @@ public class PlayerController : MonoBehaviour
     [Header("Animation")]
     public Animator playerAnimator;
 
-    [Header("Hitbox")]
+    [Header("Hitbox")] //Player weapon hitboxes
     public float hitboxTime;
     public GameObject leftHitbox;
     public GameObject rightHitbox;
 
 
-    [Header("Ragdoll Parts List")]
+    [Header("Ragdoll Parts List")] //Bodyparts for ragdoll physics
     public List<Collider> ragdollParts = new List<Collider>();
 
     //Player and Camera movement vectors
@@ -215,7 +215,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeOut(float fadeTime) //
+    private IEnumerator FadeOut(float fadeTime) //Function to fade the screen after some time
     {
         yield return new WaitForSeconds(fadeTime);
         Fade();
@@ -227,7 +227,7 @@ public class PlayerController : MonoBehaviour
 
     public void Fade()
     {
-        fader.GetComponent<Animator>().SetTrigger("Fade");
+        fader.GetComponent<Animator>().SetTrigger("Fade"); 
     }
 
 }
