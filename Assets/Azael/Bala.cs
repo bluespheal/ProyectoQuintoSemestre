@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bala : MonoBehaviour
 {
     public float vel;
+    public bool reflected = false;
 
     void Start()
     {
@@ -14,8 +15,16 @@ public class Bala : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.forward * vel * Time.deltaTime);//Mover hacia adelante
-        //transform.Translate(Vector3.down * Time.deltaTime * (vel / 15));//Mover hacia abajo
+        if (!reflected)
+        {
+            transform.Translate(Vector3.forward * vel * Time.deltaTime);//Mover hacia adelante
+            //transform.Translate(Vector3.down * Time.deltaTime * (vel / 15));//Mover hacia abajo
+        }
+        else
+        {
+            transform.Translate(Vector3.back * (vel * 3) * Time.deltaTime);//Mover hacia atrás si es reflejado
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
