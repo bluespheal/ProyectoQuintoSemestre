@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class SceneWarp : MonoBehaviour
 {
-    public SceneChanger sceneChanger;
-    public string levelToWarpTo;
+    public SceneChanger sceneChanger; //Scene change manager
+    public string levelToWarpTo; // Scene to warp to
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision) //If player enters the collision, it warps to the designated scene.
     {
-        collision.gameObject.GetComponent<PlayerController>().Fade();
-        sceneChanger.ChangeLevel(levelToWarpTo);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerController>().Fade();
+            sceneChanger.ChangeLevel(levelToWarpTo);
+        }
     }
 }
