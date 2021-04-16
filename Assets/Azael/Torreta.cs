@@ -32,11 +32,21 @@ public class Torreta : MonoBehaviour
         posInicial = basee.transform;
         cadenciaInicial = cadencia;
         Idle();
+        GameManager.Instance.ContarEnemigo(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         //Morir
+        if(collision.gameObject.CompareTag("Bate") || collision.gameObject.CompareTag("Danger"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.DescontarEnemigo(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)

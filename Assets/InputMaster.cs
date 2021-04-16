@@ -57,6 +57,22 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""LanzarIzq"",
+                    ""type"": ""Button"",
+                    ""id"": ""c3a80876-b0a4-4203-bdff-1637463adcb8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LanzarDer"",
+                    ""type"": ""Button"",
+                    ""id"": ""fcf95153-8d3e-4ca7-a27e-719d8edddafb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -389,6 +405,28 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59e41219-5f6d-4e30-b5da-9e0bcb3df9d2"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LanzarIzq"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97aaf8e6-1ef7-42b4-b8bc-f192864a7b8d"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LanzarDer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -430,6 +468,8 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_Player_RightArm = m_Player.FindAction("RightArm", throwIfNotFound: true);
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
         m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
+        m_Player_LanzarIzq = m_Player.FindAction("LanzarIzq", throwIfNotFound: true);
+        m_Player_LanzarDer = m_Player.FindAction("LanzarDer", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -484,6 +524,8 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_RightArm;
     private readonly InputAction m_Player_Camera;
     private readonly InputAction m_Player_Mouse;
+    private readonly InputAction m_Player_LanzarIzq;
+    private readonly InputAction m_Player_LanzarDer;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -493,6 +535,8 @@ public class @InputMaster : IInputActionCollection, IDisposable
         public InputAction @RightArm => m_Wrapper.m_Player_RightArm;
         public InputAction @Camera => m_Wrapper.m_Player_Camera;
         public InputAction @Mouse => m_Wrapper.m_Player_Mouse;
+        public InputAction @LanzarIzq => m_Wrapper.m_Player_LanzarIzq;
+        public InputAction @LanzarDer => m_Wrapper.m_Player_LanzarDer;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -517,6 +561,12 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Mouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
                 @Mouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
                 @Mouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
+                @LanzarIzq.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLanzarIzq;
+                @LanzarIzq.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLanzarIzq;
+                @LanzarIzq.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLanzarIzq;
+                @LanzarDer.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLanzarDer;
+                @LanzarDer.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLanzarDer;
+                @LanzarDer.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLanzarDer;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -536,6 +586,12 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Mouse.started += instance.OnMouse;
                 @Mouse.performed += instance.OnMouse;
                 @Mouse.canceled += instance.OnMouse;
+                @LanzarIzq.started += instance.OnLanzarIzq;
+                @LanzarIzq.performed += instance.OnLanzarIzq;
+                @LanzarIzq.canceled += instance.OnLanzarIzq;
+                @LanzarDer.started += instance.OnLanzarDer;
+                @LanzarDer.performed += instance.OnLanzarDer;
+                @LanzarDer.canceled += instance.OnLanzarDer;
             }
         }
     }
@@ -565,5 +621,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         void OnRightArm(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
         void OnMouse(InputAction.CallbackContext context);
+        void OnLanzarIzq(InputAction.CallbackContext context);
+        void OnLanzarDer(InputAction.CallbackContext context);
     }
 }

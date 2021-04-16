@@ -14,17 +14,17 @@ public class Lanzar_Armas : MonoBehaviour
     void Update()
     {
         //Al presionar el boton se enciende la mira y al soltarlo de lanza el arma
-        if(Input.GetKeyUp(KeyCode.Mouse0))
+        if(Input.GetKeyUp(KeyCode.Q))
         {
             haircross.enabled = false;
             Lanzar(bateRojo_prefab);
         }
-        if (Input.GetKeyUp(KeyCode.Mouse1))
+        if (Input.GetKeyUp(KeyCode.E))
         {
             haircross.enabled = false;
             Lanzar(bateAzul_prefab);
         }
-        if(Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
+        if(Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E))
         {
             haircross.enabled = true;
         }

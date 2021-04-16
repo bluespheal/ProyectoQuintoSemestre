@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -52,6 +53,13 @@ public class PlayerController : MonoBehaviour
     [Header("Ragdoll Parts List")]
     public List<Collider> ragdollParts = new List<Collider>();
 
+    [Header("Lanzar Armas")]
+    public GameObject bateAzul_prefab;
+    public GameObject bateRojo_prefab;
+    public Transform lanzamientoPos; //De donde saldra el arma
+    public Image haircross;
+    public float fuerza;
+
     //Player and Camera movement vectors
     Vector2 moveInput;
     Vector2 lookInput;
@@ -73,6 +81,12 @@ public class PlayerController : MonoBehaviour
         controls = new InputMaster();
         controls.Player.LeftArm.performed += context => LeftArm();
         controls.Player.RightArm.performed += context => RightArm();
+
+        controls.Player.LanzarIzq.started += context => Apuntar();
+        controls.Player.LanzarIzq.canceled += context => Lanzar(bateRojo_prefab);
+
+        controls.Player.LanzarDer.started += context => Apuntar();
+        controls.Player.LanzarDer.canceled += context => Lanzar(bateAzul_prefab);
 
         vol = cam.GetComponent<Volume>();//gets Volume of camera for Post-processing
         vol.profile.TryGet(out colors); //assigns var colors the vol profile
@@ -156,6 +170,23 @@ public class PlayerController : MonoBehaviour
         {
             timer = 100;
         }
+
+        //Al presionar el boton se enciende la mira y al soltarlo de lanza el arma
+        
+    }
+
+    //Lanzar bate
+    public void Lanzar(GameObject _bate)
+    {
+        haircross.enabled = false;
+        GameObject bate = Instantiate(_bate, lanzamientoPos.position, lanzamientoPos.localRotation);
+        Rigidbody rb = bate.GetComponent<Rigidbody>();
+        rb.AddForce(this.transform.forward * fuerza, ForceMode.Impulse);
+    }
+
+    public void Apuntar()
+    {
+        haircross.enabled = true;
     }
 
     Vector3 getFinalVel(float x_axis, float z_axis) //Calculates movement vectors in the correct axes
