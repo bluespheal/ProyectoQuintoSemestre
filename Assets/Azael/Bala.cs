@@ -22,9 +22,15 @@ public class Bala : MonoBehaviour
         }
         else
         {
-            transform.Translate(Vector3.back * (vel * 3) * Time.deltaTime);//Mover hacia atrás si es reflejado
+            //transform.Translate(Vector3.back * (vel * 3) * Time.deltaTime);//Mover hacia atrás si es reflejado
+            transform.Translate(Vector3.forward * (vel * 3) * Time.deltaTime);
         }
 
+    }
+
+    public void Reflejar(Transform direccion)
+    {
+        transform.rotation = direccion.rotation; 
     }
 
     private void OnCollisionEnter(Collision collision)

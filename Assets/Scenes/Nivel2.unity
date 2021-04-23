@@ -2493,9 +2493,17 @@ PrefabInstance:
       value: 9.17
       objectReference: {fileID: 0}
     - target: {fileID: 9058932953698176629, guid: 26c9444396540bd46b0871aeb14547a6, type: 3}
+      propertyPath: dispararRojo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058932953698176629, guid: 26c9444396540bd46b0871aeb14547a6, type: 3}
       propertyPath: posicionRayo
       value: 
       objectReference: {fileID: 763068359}
+    - target: {fileID: 9058932953698176629, guid: 26c9444396540bd46b0871aeb14547a6, type: 3}
+      propertyPath: dispararAmbos
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26c9444396540bd46b0871aeb14547a6, type: 3}
 --- !u!1001 &1036522083
@@ -3613,6 +3621,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 833417777, guid: 8c756073ea9a3354c86c6776e249dccd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1527881782}
+    - target: {fileID: 1420493723, guid: 8c756073ea9a3354c86c6776e249dccd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1527881782}
     - target: {fileID: 5212040689946432996, guid: 8c756073ea9a3354c86c6776e249dccd, type: 3}
       propertyPath: haircross
       value: 
