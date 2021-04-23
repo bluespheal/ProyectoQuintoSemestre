@@ -22,6 +22,17 @@ public class Torreta : MonoBehaviour
     public GameObject prefab_bala_azul;
     public GameObject prefab_bala_rojo;
 
+    [Header("Color Variant")]
+    public bool imRed;
+    public bool imBlue;
+    public int color;
+    public Material red;
+    public Material blue;
+    public GameObject modelBase;
+    public GameObject modelBody;
+    public GameObject modelHead;
+
+
     [Header("Layer a disparar")]
     public LayerMask detection;
 
@@ -29,6 +40,7 @@ public class Torreta : MonoBehaviour
 
     private void Start()
     {
+        DefineColor();
         posInicial = basee.transform;
         cadenciaInicial = cadencia;
         Idle();
@@ -167,5 +179,29 @@ public class Torreta : MonoBehaviour
     private void OnGUI()
     {
         Debug.DrawRay(posicionRayo.transform.position, posicionRayo.transform.forward * 15, Color.red);
+    }
+
+    public void DefineColor()
+    {
+        color = Random.Range(0, 2);
+        //print(color);
+        if (color == 0)
+        {
+            imRed = false;
+            imBlue = true;
+            gameObject.layer = LayerMask.NameToLayer("Color1");
+            modelBase.GetComponent<MeshRenderer>().material = blue;
+            modelBody.GetComponent<MeshRenderer>().material = blue;
+            modelHead.GetComponent<MeshRenderer>().material = blue;
+        }
+        else
+        {
+            imRed = true;
+            imBlue = false;
+            gameObject.layer = LayerMask.NameToLayer("Color2");
+            modelBase.GetComponent<MeshRenderer>().material = red;
+            modelBody.GetComponent<MeshRenderer>().material = red;
+            modelHead.GetComponent<MeshRenderer>().material = red;
+        }
     }
 }

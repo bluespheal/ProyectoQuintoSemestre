@@ -5196,6 +5196,14 @@ MonoBehaviour:
   posicionRayo: {fileID: 373304812873665691}
   prefab_bala_azul: {fileID: 1258253540603928122, guid: b0dad7ca14311db4daafb9b1c7ab4397, type: 3}
   prefab_bala_rojo: {fileID: 3337223074418940135, guid: b9ef93ffd7e12774c9ab871ab8e95f01, type: 3}
+  imRed: 0
+  imBlue: 0
+  color: 0
+  red: {fileID: 2100000, guid: a904b055bdd837d4ab9b83b662ffa97f, type: 2}
+  blue: {fileID: 2100000, guid: 101b917dc01527746812aa1b6faa0592, type: 2}
+  modelBase: {fileID: 9056932123917670671}
+  modelBody: {fileID: 9058626365909344117}
+  modelHead: {fileID: 9058669943603123843}
   detection:
     serializedVersion: 2
     m_Bits: 16
