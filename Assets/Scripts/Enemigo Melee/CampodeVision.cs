@@ -13,7 +13,8 @@ public class CampodeVision : MonoBehaviour
     
     private void Awake()
     {
-        infoMelee = GetComponentInParent<MeleeMachine>();
+        if(!infoMelee)
+            infoMelee = GetComponentInParent<MeleeMachine>();
     }
 
     void Start()

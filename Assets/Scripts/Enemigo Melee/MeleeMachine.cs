@@ -12,7 +12,7 @@ public class MeleeMachine : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        GameManager.Instance.ContarEnemigo(this.gameObject);
+        //GameManager.Instance.ContarEnemigo(this.gameObject);
     }
 
     private void FixedUpdate()

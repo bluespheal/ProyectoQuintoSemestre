@@ -9,7 +9,7 @@ public class EstadoIdle : Estado
     {
         base.OnEnable();
         Debug.Log("Entro a idle");
-        agente.anim.SetBool("idle", true);
+        //agente.anim.SetBool("idle", true);
         //Detenemos el movimento de la IA
         //movementController.Move(Vector3.zero);
         //Nos aseguramos de que perdio el target
