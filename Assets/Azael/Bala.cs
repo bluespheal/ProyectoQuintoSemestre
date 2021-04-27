@@ -9,7 +9,8 @@ public class Bala : MonoBehaviour
 
     void Start()
     {
-        Invoke("Destructor", 10);//Destruir el objeto si no choca
+        //Invoke("Destructor", 10);//Destruir el objeto si no choca
+        Destroy(gameObject, 10.0f);
         transform.parent = null;
     }
 
@@ -36,14 +37,9 @@ public class Bala : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //Destriur al chocar con el jugador
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Barrera"))
         {
             Destroy(gameObject);
         }
-    }
-
-    void Destructor()
-    {
-        Destroy(gameObject);
     }
 }

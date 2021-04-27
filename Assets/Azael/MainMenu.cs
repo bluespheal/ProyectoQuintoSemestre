@@ -5,26 +5,26 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public Button ng;
+    public Button back;
     public GameObject options;
-    GameObject mainMenu;
+    public GameObject mainMenu;
+
+    WaitForSecondsRealtime esperar = new WaitForSecondsRealtime(0.6f);
 
     void Start()
     {
-        mainMenu = this.gameObject;    
+        ng.Select();
     }
 
     public void ActiveOptions()
     {
-        options.GetComponent<Animator>().SetBool("Transition", false);
-        //mainMenu.SetActive(false);
-        options.SetActive(true);
+        StartCoroutine(ActivarOP());
     }
 
     public void ActiveMainMenu()
     {
-        options.GetComponent<Animator>().SetBool("Transition", true);
-        //mainMenu.SetActive(true);
-        //options.SetActive(false);
+        StartCoroutine(ActivarMM());
     }
 
     public void Exit()
@@ -35,5 +35,23 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         //Cargar el nivel 1
+    }
+
+    IEnumerator ActivarOP()
+    {
+        options.SetActive(true);
+        options.GetComponent<Animator>().SetBool("Transition", false);
+        yield return esperar;
+        mainMenu.SetActive(false);
+        back.Select();
+    }
+
+    IEnumerator ActivarMM()
+    {
+        options.GetComponent<Animator>().SetBool("Transition", true);
+        mainMenu.SetActive(true);
+        yield return esperar;
+        options.SetActive(false);
+        ng.Select();
     }
 }

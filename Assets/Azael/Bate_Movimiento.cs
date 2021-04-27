@@ -18,6 +18,7 @@ public class Bate_Movimiento : MonoBehaviour
         //Obtener referencia al jugador
         player = GameObject.FindGameObjectWithTag("Player");
         posInicial = transform.position;
+        transform.rotation = player.transform.rotation;
     }
 
     void Update()

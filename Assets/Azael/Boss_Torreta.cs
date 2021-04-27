@@ -8,13 +8,13 @@ public class Boss_Torreta : MonoBehaviour
     public bool dispararRojo;
     public bool dispararAzul;
     public bool dispararAmbos = true;
-    public float cadencia = 1.0f;
+    public float cadencia;
     float cadenciaInicial;
 
     [Header("Transforms")]
     public GameObject posicionBala;
     public GameObject posicionRayo;
-    Transform posInicial;
+    //Transform posInicial;
 
     [Header("Prefabs")]
     public GameObject prefab_bala_azul;
@@ -23,14 +23,16 @@ public class Boss_Torreta : MonoBehaviour
     [Header("Layer a disparar")]
     public LayerMask detection;
 
-    public GameObject plataforma_base, canon;
+    public GameObject canon, canon_guard, barrera;
+
+    GameObject player;
 
     private void Start()
     {
-        posInicial = plataforma_base.transform;
+        //posInicial = plataforma_base.transform;
         cadenciaInicial = cadencia;
-        //Idle();
-        GameManager.Instance.ContarEnemigo(gameObject);
+        player = GameObject.FindGameObjectWithTag("Player");
+        //GameManager.Instance.ContarEnemigo(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -51,21 +53,39 @@ public class Boss_Torreta : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //Pausar LeenTween para que gire si vuelve a detectar al jugador
-            LeanTween.pauseAll();
             cadencia = cadenciaInicial; //Reiniciar cadencia
+        }
+        if (other.gameObject.CompareTag("Danger"))
+        {
+            SubirBarrera();
         }
     }
 
-    /*private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        /*if (other.gameObject.CompareTag("Player"))
         {
             Regresar();
         }
-    }*/
+        if (other.gameObject.CompareTag("Danger"))
+        {
+            BajarBarrera();
+        }*/
+    }
 
-    private void OnTriggerStay(Collider other)
+    private void Update()
+    {
+        Vector3 objetivo = player.transform.position - transform.position;
+        //Hacia donde rotar la base
+        Vector3 objetivo2 = player.transform.position - transform.position;
+        objetivo2.y = 0.0f;
+        canon.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 50.0f);
+        canon_guard.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo2), Time.time * 50.0f);
+        posicionRayo.transform.rotation = Quaternion.RotateTowards(posicionRayo.transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.0f);
+        Detection();
+    }
+
+    /*private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -75,11 +95,11 @@ public class Boss_Torreta : MonoBehaviour
             Vector3 objetivo2 = other.transform.position - transform.position;
             objetivo2.y = 0.0f;
             canon.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 50.0f);
-            plataforma_base.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo2), Time.time * 50.0f);
+            canon_guard.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo2), Time.time * 50.0f);
             posicionRayo.transform.rotation = Quaternion.RotateTowards(posicionRayo.transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.0f);
             Detection();
         }
-    }
+    }*/
 
     //Idle de la torreta, gira 90 grados a la derecha 
     /*void Idle()
@@ -119,15 +139,27 @@ public class Boss_Torreta : MonoBehaviour
                 if (cadencia <= 0.0f)
                 {
                     Shoot();
-                    cadencia = 1.5f;
+                    cadencia = cadenciaInicial;
                 }
             }
             else
             {
-                cadencia = 1.5f;
+                cadencia = cadenciaInicial;
             }
         }
     }
+
+    //Defenderse
+    public void SubirBarrera()
+    {
+        LeanTween.moveLocalY(barrera, 1.0f, 1.0f).setOnComplete(BajarBarrera);
+    }
+
+    public void BajarBarrera()
+    {
+        LeanTween.moveLocalY(barrera, -1.4f, 1.0f);
+    }
+
 
     //Disparar, obviamente
     public void Shoot()
@@ -164,6 +196,6 @@ public class Boss_Torreta : MonoBehaviour
 
     private void OnGUI()
     {
-        Debug.DrawRay(posicionRayo.transform.position, posicionRayo.transform.forward * 15, Color.red);
+        Debug.DrawRay(posicionRayo.transform.position, posicionRayo.transform.forward * 20, Color.red);
     }
 }

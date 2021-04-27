@@ -83,10 +83,10 @@ public class PlayerController : MonoBehaviour
         controls.Player.RightArm.performed += context => RightArm();
 
         controls.Player.LanzarIzq.started += context => Apuntar();
-        controls.Player.LanzarIzq.canceled += context => Lanzar(bateRojo_prefab);
+        controls.Player.LanzarIzq.canceled += context => Lanzar(bateAzul_prefab);
 
         controls.Player.LanzarDer.started += context => Apuntar();
-        controls.Player.LanzarDer.canceled += context => Lanzar(bateAzul_prefab);
+        controls.Player.LanzarDer.canceled += context => Lanzar(bateRojo_prefab);
 
         vol = cam.GetComponent<Volume>();//gets Volume of camera for Post-processing
         vol.profile.TryGet(out colors); //assigns var colors the vol profile
@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour
         haircross.enabled = false;
         GameObject bate = Instantiate(_bate, lanzamientoPos.position, lanzamientoPos.localRotation);
         Rigidbody rb = bate.GetComponent<Rigidbody>();
-        rb.AddForce(this.transform.forward * fuerza, ForceMode.Impulse);
+        rb.AddForce(cam.transform.forward * fuerza, ForceMode.Impulse);
     }
 
     public void Apuntar()
