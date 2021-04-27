@@ -50,4 +50,14 @@ public class Enemy1 : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        print("Pegame");
+        if(collision.gameObject.CompareTag("Bate"))
+        {
+            Destroy(this);
+        }
+    }
+
 }

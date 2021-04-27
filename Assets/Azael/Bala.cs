@@ -4,30 +4,42 @@ using UnityEngine;
 
 public class Bala : MonoBehaviour
 {
-    public float vel;
+    public float vel; //Velocidad
+    public bool reflected = false;
 
     void Start()
     {
-        Invoke("Destructor", 10);//Funcion para destruir el objeto si no choca
+        //Invoke("Destructor", 10);//Destruir el objeto si no choca
+        Destroy(gameObject, 10.0f);
         transform.parent = null;
     }
 
     void Update()
     {
-        transform.Translate(Vector3.forward * vel * Time.deltaTime);//Mover hacia adelante
-        //transform.Translate(Vector3.down * Time.deltaTime * (vel / 15));//Mover hacia abajo
+        if (!reflected)
+        {
+            transform.Translate(Vector3.forward * vel * Time.deltaTime);//Mover hacia adelante
+            //transform.Translate(Vector3.down * Time.deltaTime * (vel / 15));//Mover hacia abajo
+        }
+        else
+        {
+            //transform.Translate(Vector3.back * (vel * 3) * Time.deltaTime);//Mover hacia atrás si es reflejado
+            transform.Translate(Vector3.forward * (vel * 3) * Time.deltaTime);
+        }
+
+    }
+
+    public void Reflejar(Transform direccion)
+    {
+        transform.rotation = direccion.rotation; 
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        //Destriur al chocar con el jugador
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Barrera"))
         {
             Destroy(gameObject);
         }
-    }
-
-    void Destructor()
-    {
-        Destroy(gameObject);
     }
 }

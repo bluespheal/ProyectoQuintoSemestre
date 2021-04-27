@@ -22,24 +22,50 @@ public class Torreta : MonoBehaviour
     public GameObject prefab_bala_azul;
     public GameObject prefab_bala_rojo;
 
+    [Header("Color Variant")]
+    public bool imRed;
+    public bool imBlue;
+    public int color;
+    public Material red;
+    public Material blue;
+    public GameObject modelBase;
+    public GameObject modelBody;
+    public GameObject modelHead;
+
+
     [Header("Layer a disparar")]
     public LayerMask detection;
 
+    public GameObject basee, canon;
+
     private void Start()
     {
-        posInicial = gameObject.transform;
+        DefineColor();
+        posInicial = basee.transform;
         cadenciaInicial = cadencia;
+        Idle();
+        GameManager.Instance.ContarEnemigo(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         //Morir
+        if(collision.gameObject.CompareTag("Bate") || collision.gameObject.CompareTag("Danger"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.DescontarEnemigo(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            //Pausar LeenTween para que gire si vuelve a detectar al jugador
             LeanTween.pauseAll();
             cadencia = cadenciaInicial; //Reiniciar cadencia
         }
@@ -57,21 +83,42 @@ public class Torreta : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //Rotar siguiendo la posicion del personaje
+            //Rotar siguiendo la posicion del jugador
             Vector3 objetivo = other.transform.position - transform.position;
-            objetivo.y = 0.0f;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.5f);
-            posicionRayo.transform.rotation = Quaternion.RotateTowards(posicionRayo.transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.5f);
+            //Hacia donde rotar la base
+            Vector3 objetivo2 = other.transform.position - transform.position;
+            objetivo2.y = 0.0f;
+            canon.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 50.0f);
+            basee.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo2), Time.time * 50.0f);
+            posicionRayo.transform.rotation = Quaternion.RotateTowards(posicionRayo.transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.0f);
             Detection();
         }
     }
 
+    //Idle de la torreta, gira 90 grados a la derecha 
+    void Idle()
+    {
+        LeanTween.rotateLocal(basee, new Vector3(0.0f, 90.0f , 0.0f), 2.0f).setOnComplete(Idle2);
+        LeanTween.rotateLocal(posicionRayo.gameObject, new Vector3(0.0f, 90.0f, 0.0f), 2.0f);
+    }
+
+    //Y luego a la izquierda
+    void Idle2()
+    {
+        LeanTween.rotateLocal(basee, new Vector3(0.0f, -89.0f, 0.0f), 2.0f).setOnComplete(Idle);
+        LeanTween.rotateLocal(posicionRayo.gameObject, new Vector3(0.0f, -89.0f, 0.0f), 2.0f);
+    }
+
+    //Volver a su posicion inicial y luego a idle
     private void Regresar()
     {
-        LeanTween.rotate(gameObject, posInicial.position, 1.0f);
+        LeanTween.rotate(basee, posInicial.position, 1.0f).setOnComplete(Idle);
+        LeanTween.rotate(canon, posInicial.position, 1.0f);
         LeanTween.rotate(posicionRayo.gameObject, posInicial.position, 1.0f);
     }
 
+
+    //Detectar si el rayo toca al jugador
     private void Detection()
     {
         RaycastHit hit;
@@ -96,10 +143,12 @@ public class Torreta : MonoBehaviour
         }
     }
 
+    //Disparar, obviamente
     public void Shoot()
     {
         GameObject bala;
 
+        //Disparar segun el tipo de bala elegido
         if (dispararAmbos)
         {
             int randNum = Random.Range(0, 20);
@@ -130,5 +179,29 @@ public class Torreta : MonoBehaviour
     private void OnGUI()
     {
         Debug.DrawRay(posicionRayo.transform.position, posicionRayo.transform.forward * 15, Color.red);
+    }
+
+    public void DefineColor()
+    {
+        color = Random.Range(0, 2);
+        //print(color);
+        if (color == 0)
+        {
+            imRed = false;
+            imBlue = true;
+            gameObject.layer = LayerMask.NameToLayer("Color1");
+            modelBase.GetComponent<MeshRenderer>().material = blue;
+            modelBody.GetComponent<MeshRenderer>().material = blue;
+            modelHead.GetComponent<MeshRenderer>().material = blue;
+        }
+        else
+        {
+            imRed = true;
+            imBlue = false;
+            gameObject.layer = LayerMask.NameToLayer("Color2");
+            modelBase.GetComponent<MeshRenderer>().material = red;
+            modelBody.GetComponent<MeshRenderer>().material = red;
+            modelHead.GetComponent<MeshRenderer>().material = red;
+        }
     }
 }
