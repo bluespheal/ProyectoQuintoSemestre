@@ -18,7 +18,7 @@ public class FootStepsAudio : MonoBehaviour
 
     private void Step()
     {
-        audioSource.PlayOneShot(stepSound);
+        //audioSource.PlayOneShot(stepSound);
     }
     // Update is called once per frame
     void Update()

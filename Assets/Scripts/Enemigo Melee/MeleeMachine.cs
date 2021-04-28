@@ -12,7 +12,7 @@ public class MeleeMachine : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        GameManager.Instance.ContarEnemigo(this.gameObject);
+        //GameManager.Instance.ContarEnemigo(this.gameObject);
     }
 
     private void FixedUpdate()
@@ -28,10 +28,10 @@ public class MeleeMachine : MonoBehaviour
         }
         else
             meleeRange = false;
-        if (Input.GetKeyDown(KeyCode.R))
+        /*if (Input.GetKeyDown(KeyCode.R))
         {
             GameManager.Instance.DescontarEnemigo(this.gameObject);
             Destroy(this.gameObject);
-        }
+        }*/
     }
 }
