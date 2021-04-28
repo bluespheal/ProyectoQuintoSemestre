@@ -28,10 +28,10 @@ public class MeleeMachine : MonoBehaviour
         }
         else
             meleeRange = false;
-        if (Input.GetKeyDown(KeyCode.R))
+        /*if (Input.GetKeyDown(KeyCode.R))
         {
             GameManager.Instance.DescontarEnemigo(this.gameObject);
             Destroy(this.gameObject);
-        }
+        }*/
     }
 }
