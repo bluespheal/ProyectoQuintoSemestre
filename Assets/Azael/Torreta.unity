@@ -214,7 +214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127889561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.76, y: 0.57438064, z: -8.16}
+  m_LocalPosition: {x: -3.3, y: 1, z: 5.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -707,6 +707,14 @@ PrefabInstance:
     - target: {fileID: 9058603483769199457, guid: 26c9444396540bd46b0871aeb14547a6, type: 3}
       propertyPath: m_Name
       value: Torreta
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058980204786393141, guid: 26c9444396540bd46b0871aeb14547a6, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 9060280051253121995, guid: 26c9444396540bd46b0871aeb14547a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26c9444396540bd46b0871aeb14547a6, type: 3}

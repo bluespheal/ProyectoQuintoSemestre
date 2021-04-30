@@ -1,5 +1,4 @@
 //Movimiento y ataque de la torreta
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +9,7 @@ public class Torreta : MonoBehaviour
     public bool dispararRojo;
     public bool dispararAzul;
     public bool dispararAmbos = true;
-    public float cadencia = 1.0f;
+    public float cadencia;
     float cadenciaInicial;
 
     [Header("Transforms")]
@@ -37,6 +36,7 @@ public class Torreta : MonoBehaviour
     public LayerMask detection;
 
     public GameObject basee, canon;
+    public Animator anim;
 
     private void Start()
     {
@@ -44,7 +44,7 @@ public class Torreta : MonoBehaviour
         posInicial = basee.transform;
         cadenciaInicial = cadencia;
         Idle();
-        GameManager.Instance.ContarEnemigo(gameObject);
+       //GameManager.Instance.ContarEnemigo(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -58,7 +58,7 @@ public class Torreta : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.Instance.DescontarEnemigo(gameObject);
+        //GameManager.Instance.DescontarEnemigo(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -85,12 +85,13 @@ public class Torreta : MonoBehaviour
         {
             //Rotar siguiendo la posicion del jugador
             Vector3 objetivo = other.transform.position - transform.position;
+            objetivo.y = objetivo.y -1.0f;
             //Hacia donde rotar la base
             Vector3 objetivo2 = other.transform.position - transform.position;
             objetivo2.y = 0.0f;
             canon.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 50.0f);
             basee.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(objetivo2), Time.time * 50.0f);
-            posicionRayo.transform.rotation = Quaternion.RotateTowards(posicionRayo.transform.rotation, Quaternion.LookRotation(objetivo), Time.time * 1.0f);
+            posicionRayo.transform.rotation = Quaternion.RotateTowards(posicionRayo.transform.rotation, Quaternion.LookRotation(objetivo), Time.time);
             Detection();
         }
     }
@@ -129,16 +130,17 @@ public class Torreta : MonoBehaviour
         {
             if (hit.collider.gameObject.CompareTag("Player"))
             {
+                
                 cadencia -= Time.deltaTime;
                 if (cadencia <= 0.0f)
                 {
                     Shoot();
-                    cadencia = 1.5f;
+                    cadencia = cadenciaInicial;
                 }
             }
             else
             {
-                cadencia = 1.5f;
+                cadencia = cadenciaInicial;
             }
         }
     }
@@ -146,6 +148,9 @@ public class Torreta : MonoBehaviour
     //Disparar, obviamente
     public void Shoot()
     {
+        //Iniciar animacion
+        anim.SetTrigger("Disparar");
+
         GameObject bala;
 
         //Disparar segun el tipo de bala elegido
@@ -178,13 +183,12 @@ public class Torreta : MonoBehaviour
 
     private void OnGUI()
     {
-        Debug.DrawRay(posicionRayo.transform.position, posicionRayo.transform.forward * 15, Color.red);
+        Debug.DrawRay(posicionRayo.transform.position, posicionRayo.transform.forward * 20, Color.red);
     }
 
     public void DefineColor()
     {
         color = Random.Range(0, 2);
-        //print(color);
         if (color == 0)
         {
             imRed = false;
