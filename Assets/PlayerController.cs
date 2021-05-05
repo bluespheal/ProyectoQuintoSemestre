@@ -6,11 +6,10 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
-   
-
     [Header("Input variables")]
     public InputMaster controls; // input manager
     public PlayerMovement motor; // movement manager
@@ -24,6 +23,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("States")]
     public bool alive;
+    public bool shield;
+    public GameObject shieldGO;
+    public UnityEvent shield_Listener = new UnityEvent();
 
     [Header("Fade")]
     public GameObject fader;
@@ -91,8 +93,9 @@ public class PlayerController : MonoBehaviour
         vol = cam.GetComponent<Volume>();//gets Volume of camera for Post-processing
         vol.profile.TryGet(out colors); //assigns var colors the vol profile
 
-        SetRagdollParts();
-        
+        shield_Listener.AddListener(ToggleShield);
+
+        SetRagdollParts();        
     }
 
     private void Start()
@@ -238,9 +241,16 @@ public class PlayerController : MonoBehaviour
         hitbox.SetActive(false);
     }
 
+
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.gameObject.CompareTag("Danger")) // If colides with a "Danger" Tagged object, it dies
+        if(collision.collider.gameObject.CompareTag("Danger") && shield)
+        {
+            shield = false;
+            shield_Listener.Invoke();
+        }
+        else if (collision.collider.gameObject.CompareTag("Danger")) // If colides with a "Danger" Tagged object, it dies
         {
             alive = false;
         }
@@ -258,7 +268,12 @@ public class PlayerController : MonoBehaviour
 
     public void Fade()
     {
-        fader.GetComponent<Animator>().SetTrigger("Fade"); 
+        fader.GetComponent<Animator>().SetTrigger("Fade");
+    }
+
+    public void ToggleShield()
+    {
+        shieldGO.SetActive(!shieldGO.activeInHierarchy);
     }
 
 }
