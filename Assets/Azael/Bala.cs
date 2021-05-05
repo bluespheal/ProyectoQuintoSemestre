@@ -6,11 +6,14 @@ public class Bala : MonoBehaviour
 {
     public float vel; //Velocidad
     public bool reflected = false;
+    public ParticleSystem particles;
 
     void Start()
     {
         Invoke("Destructor", 10);//Destruir el objeto si no choca
         transform.parent = null;
+
+        particles = this.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>();
     }
 
     void Update()
@@ -29,6 +32,7 @@ public class Bala : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        particles.Play();
         //Destriur al chocar con el jugador
         if (collision.gameObject.CompareTag("Player"))
         {
