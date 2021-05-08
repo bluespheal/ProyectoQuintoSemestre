@@ -10,6 +10,7 @@ public static class SoundManager
         alerta,
         gas,
         puas,
+        nuevo
     }
     //Se declara un objeto que reproduce los sonidos y se puede reciclar
     static GameObject oneShotGameObject;

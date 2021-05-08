@@ -97,7 +97,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-
     }
 
     private void SetRagdollParts()
@@ -178,7 +177,7 @@ public class PlayerController : MonoBehaviour
     //Lanzar bate
     public void Lanzar(GameObject _bate)
     {
-        haircross.enabled = false;
+        //haircross.enabled = false;
         GameObject bate = Instantiate(_bate, lanzamientoPos.position, lanzamientoPos.localRotation);
         Rigidbody rb = bate.GetComponent<Rigidbody>();
         rb.AddForce(cam.transform.forward * fuerza, ForceMode.Impulse);
@@ -186,7 +185,7 @@ public class PlayerController : MonoBehaviour
 
     public void Apuntar()
     {
-        haircross.enabled = true;
+        //haircross.enabled = true;
     }
 
     Vector3 getFinalVel(float x_axis, float z_axis) //Calculates movement vectors in the correct axes

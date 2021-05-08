@@ -14,6 +14,7 @@ public class EstadoIdle : Estado
         //movementController.Move(Vector3.zero);
         //Nos aseguramos de que perdio el target
         agente.target = null;
+        agente.anim.SetBool("idle", true);
     }
     public override void OnDisable()
     {

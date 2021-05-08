@@ -43,6 +43,6 @@ public class EstadoPersecucion : Estado
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         //Debug.Log(hit.collider);
-
+        Debug.Log(Vector3.Distance(agente.target.transform.position, gameObject.transform.position));
     }
 }

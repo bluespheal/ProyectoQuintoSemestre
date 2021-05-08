@@ -28,8 +28,9 @@ public class EstadoAtaque : Estado
     //ejecuta 1 animacion de ataque si el estado de actaque esta activo
     public void hitReady()
     {
+        //Debug.Log(Vector3.Distance(agente.target.transform.position, gameObject.transform.position));
         if(agente.meleeRange)
-            agente.anim.SetTrigger("attack");
+            agente.anim.SetTrigger("hit");
         else
             agente.attacking = false;
 

@@ -19,7 +19,7 @@ public class MeleeMachine : MonoBehaviour
     {
         if (target)
         {
-            if (Vector3.Distance(target.transform.position, gameObject.transform.position) <= 1.3f)
+            if (Vector3.Distance(target.transform.position, gameObject.transform.position) <= 1.5f)
             {
                 meleeRange = true;
             }

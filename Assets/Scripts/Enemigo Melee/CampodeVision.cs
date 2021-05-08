@@ -26,37 +26,34 @@ public class CampodeVision : MonoBehaviour
     {
         //Debug.Log(other);
         //Analiza el objeto con el que colisiona
-        GameObject objetivo = other.gameObject;
-        string tag = objetivo.tag;
-        if(tag.Equals(tagObjetivo) == false)
+        if(other.gameObject.CompareTag("Player"))
         {
-            return;
-        }
-        //Si es el jugador guarda  su posicion
-        posicionActual = gameObject.transform.position;
-        posicionObjetico = objetivo.transform.position;
-        direccion = posicionObjetico - posicionActual;
-        //Dispara un Raycast para saber si no hay algo que lo oculte
-        ray = new Ray(posicionActual, direccion.normalized);
-        RaycastHit hit;
-        Debug.DrawRay(posicionActual, direccion);
-        if(Physics.Raycast(ray, out hit, direccion.magnitude))
-        {
-            //Si tiene una vista directa lo vuelve su objetivo
-            if (hit.collider.gameObject.tag.Equals(tagObjetivo))
+                //Si es el jugador guarda  su posicion
+            posicionActual = gameObject.transform.position;
+            posicionObjetico = other.transform.position;
+            direccion = posicionObjetico - posicionActual;
+            //Dispara un Raycast para saber si no hay algo que lo oculte
+            ray = new Ray(posicionActual, direccion.normalized);
+            RaycastHit hit;
+            Debug.DrawRay(posicionActual, direccion);
+            if(Physics.Raycast(ray, out hit, direccion.magnitude))
             {
-                infoMelee.target = objetivo;
-                return;
+                //Si tiene una vista directa lo vuelve su objetivo
+                if (hit.collider.gameObject.CompareTag("Player"))
+                {
+                    infoMelee.target = other.gameObject;
+                    return;
+                }
             }
         }
         //Eliminamos el tarjet para evitar errores
-        infoMelee.target = null;
+        //infoMelee.target = null;
     }
 
     private void OnTriggerExit(Collider other)
     {
         //Si el jugador sale de nuestro campo de vision...
-        if(infoMelee.target!=null && other.gameObject == infoMelee.target)
+        if(infoMelee.target!=null && other.gameObject.CompareTag("Player"))
         {
             //... perdemos el "taeget" del jugador
             infoMelee.target = null;
