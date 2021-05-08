@@ -8,7 +8,7 @@ public class EstadoIdle : Estado
     public override void OnEnable()
     {
         base.OnEnable();
-        Debug.Log("Entro a idle");
+        //Debug.Log("Entro a idle");
         //agente.anim.SetBool("idle", true);
         //Detenemos el movimento de la IA
         //movementController.Move(Vector3.zero);
