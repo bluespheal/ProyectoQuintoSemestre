@@ -59,8 +59,12 @@ public class PlayerController : MonoBehaviour
     public GameObject bateAzul_prefab;
     public GameObject bateRojo_prefab;
     public Transform lanzamientoPos; //De donde saldra el arma
-    public Image haircross;
+    public Image haircross; //Imagen de la mira
     public float fuerza;
+    public bool lanzadoAzul;
+    public bool lanzadoRojo;
+    public GameObject bateRojo;
+    public GameObject bateAzul;
 
     //Player and Camera movement vectors
     Vector2 moveInput;
@@ -73,6 +77,9 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(globalLight1);
+        DontDestroyOnLoad(globalLight2);
+
         //Assign initial values for certain variables.
         rb = gameObject.GetComponent<Rigidbody>();
         alive = true;
@@ -96,11 +103,6 @@ public class PlayerController : MonoBehaviour
         shield_Listener.AddListener(ToggleShield);
 
         SetRagdollParts();        
-    }
-
-    private void Start()
-    {
-
     }
 
     private void SetRagdollParts()
@@ -173,18 +175,30 @@ public class PlayerController : MonoBehaviour
         {
             timer = 100;
         }
-
-        //Al presionar el boton se enciende la mira y al soltarlo de lanza el arma
         
     }
 
     //Lanzar bate
     public void Lanzar(GameObject _bate)
     {
-        haircross.enabled = false;
-        GameObject bate = Instantiate(_bate, lanzamientoPos.position, lanzamientoPos.localRotation);
-        Rigidbody rb = bate.GetComponent<Rigidbody>();
-        rb.AddForce(cam.transform.forward * fuerza, ForceMode.Impulse);
+        if (_bate.name == "Bate_Rojo" && !lanzadoRojo)
+        {
+            bateRojo.SetActive(false);
+            lanzadoRojo = true;
+            haircross.enabled = false;
+            GameObject bate = Instantiate(_bate, lanzamientoPos.position, lanzamientoPos.localRotation);
+            Rigidbody rb = bate.GetComponent<Rigidbody>();
+            rb.AddForce(cam.transform.forward * fuerza, ForceMode.Impulse);
+        }
+        if (_bate.name == "Bate_Azul" && !lanzadoAzul)
+        {
+            bateAzul.SetActive(false);
+            lanzadoAzul = true;
+            haircross.enabled = false;
+            GameObject bate = Instantiate(_bate, lanzamientoPos.position, lanzamientoPos.localRotation);
+            Rigidbody rb = bate.GetComponent<Rigidbody>();
+            rb.AddForce(cam.transform.forward * fuerza, ForceMode.Impulse);
+        }
     }
 
     public void Apuntar()
@@ -213,6 +227,10 @@ public class PlayerController : MonoBehaviour
 
     public void LeftArm() //Code that runs when the left arm action is triggered
     {
+        if (lanzadoAzul)
+        {
+            return;
+        }
         if (alive)
         {
             playerAnimator.SetTrigger("Left");
@@ -222,6 +240,10 @@ public class PlayerController : MonoBehaviour
 
     public void RightArm() //Code that runs when the right arm action is triggered
     {
+        if(lanzadoRojo)
+        {
+            return;
+        }
         if (alive)
         {
             playerAnimator.SetTrigger("Right");
@@ -240,8 +262,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         hitbox.SetActive(false);
     }
-
-
 
     private void OnCollisionEnter(Collision collision)
     {

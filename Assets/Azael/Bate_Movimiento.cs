@@ -63,13 +63,24 @@ public class Bate_Movimiento : MonoBehaviour
     {
         //Destruir el objeto al entrar al trigger del jugador
         if(other.gameObject.CompareTag("Player"))
-        {
+        { 
             Destroy(gameObject);
         }
     }
 
     private void OnDestroy()
     {
+        PlayerController pc = player.GetComponent<PlayerController>();
+        if (this.gameObject.name == "Bate_Rojo(Clone)")
+        {
+            pc.lanzadoRojo = false;
+            pc.bateRojo.SetActive(true);
+        }
+        if (this.gameObject.name == "Bate_Azul(Clone)")
+        {
+            pc.lanzadoAzul = false;
+            pc.bateAzul.SetActive(true);
+        }
         choque = false;
     }
 }
