@@ -12,7 +12,7 @@ public class EstadoPersecucion : Estado
         base.OnEnable();
         //Empesamos a ejecutar la animacion de correr
         agente.anim.SetBool("run",true);
-        Debug.Log("Entro a run");
+        //Debug.Log("Entro a run");
         if (indicator)
         {
             indicator.SetActive(true);

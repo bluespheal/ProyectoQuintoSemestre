@@ -36,14 +36,12 @@ public class DisolbingController : MonoBehaviour
             StartCoroutine(Dissolve());
         }*/
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Danger"))
-        {
-            StartCoroutine(Dissolve());
-        }
-    }
+    
 
+    public void LamarDisolve()
+    {
+        StartCoroutine(Dissolve());
+    }
 
     IEnumerator Dissolve()
     {

@@ -11,16 +11,22 @@ public class Enemy1 : MonoBehaviour
     public int color;
     public Material red;
     public Material blue;
+    public Material eyes;
+    public Material[] newMaterials;
     public GameObject model;
+
+    string deadTag;
+    public DisolbingController ControlParticulas;
 
     void Start()
     {
+        newMaterials = new Material[2];
         currentHealth = maxHealth;
         DefineColor();
     }
     void Die()
     {
-
+        this.ControlParticulas.LamarDisolve();
     }
     public void TakeDamage(int damage)
     {
@@ -32,10 +38,14 @@ public class Enemy1 : MonoBehaviour
     }
     public void DefineColor()
     {
+        Debug.Log("Entre a Color");
         color = Random.Range(0, 2);
         //print(color);
         if(color == 0)
         {
+            deadTag = "bateRojo";
+            newMaterials[0] = eyes;
+            newMaterials[1] = blue;
             imRed = false;
             imBlue = true;
             gameObject.layer = LayerMask.NameToLayer("Azul");
@@ -43,6 +53,9 @@ public class Enemy1 : MonoBehaviour
         }
         else
         {
+            deadTag = "bateAzul";
+            newMaterials[0] = eyes;
+            newMaterials[1] = red;
             imRed = true;
             imBlue = false;
             gameObject.layer = LayerMask.NameToLayer("Rojo");
@@ -52,11 +65,9 @@ public class Enemy1 : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
-        print("Pegame");
-        if(collision.gameObject.CompareTag("Bate"))
+        if(collision.gameObject.CompareTag(deadTag))
         {
-            Destroy(this);
+            Die();
         }
     }
 
