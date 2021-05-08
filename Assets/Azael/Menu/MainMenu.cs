@@ -9,8 +9,10 @@ public class MainMenu : MonoBehaviour
     public Button back;
     public GameObject options;
     public GameObject mainMenu;
+    public int index;
+    public int maxIndex;
 
-    WaitForSecondsRealtime esperar = new WaitForSecondsRealtime(0.6f);
+    WaitForSecondsRealtime esperar = new WaitForSecondsRealtime(0.2f);
 
     void Start()
     {
@@ -40,6 +42,7 @@ public class MainMenu : MonoBehaviour
     IEnumerator ActivarOP()
     {
         options.SetActive(true);
+        yield return esperar;
         options.GetComponent<Animator>().SetBool("Transition", false);
         yield return esperar;
         mainMenu.SetActive(false);

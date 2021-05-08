@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: RayoPos
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -23,11 +23,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373304812873665691}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.85, z: 0}
+  m_LocalRotation: {x: -4.960458e-10, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 9052877178455050875}
+  m_Father: {fileID: 9052997994015089499}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9056932123917670671
@@ -60,7 +60,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9052877178455050875}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9064340143986782929
 MeshFilter:
@@ -4940,8 +4940,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9052877178455050875}
+  - component: {fileID: 1822683533}
   m_Layer: 0
-  m_Name: Torreta
+  m_Name: Enemigo_Torreta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4959,11 +4960,29 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 9052997994015089499}
-  - {fileID: 373304812873665688}
   - {fileID: 9060311597145104123}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1822683533
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9058603483769199457}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dc9852ee6e962aa4da60cfe422d4e27b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9058626365909344117
 GameObject:
   m_ObjectHideFlags: 0
@@ -5160,6 +5179,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9060139417355604129}
+  - {fileID: 373304812873665688}
   m_Father: {fileID: 9052877178455050875}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5191,7 +5211,7 @@ MonoBehaviour:
   dispararRojo: 0
   dispararAzul: 0
   dispararAmbos: 1
-  cadencia: 1
+  cadencia: 2.5
   posicionBala: {fileID: 9058980204786393141}
   posicionRayo: {fileID: 373304812873665691}
   prefab_bala_azul: {fileID: 1258253540603928122, guid: b0dad7ca14311db4daafb9b1c7ab4397, type: 3}
@@ -5209,6 +5229,7 @@ MonoBehaviour:
     m_Bits: 16
   basee: {fileID: 9058626365909344117}
   canon: {fileID: 9058669943603123843}
+  anim: {fileID: 1822683533}
 --- !u!135 &9058932953698176628
 SphereCollider:
   m_ObjectHideFlags: 0
