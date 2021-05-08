@@ -15,6 +15,8 @@ public class EnemyShield : MonoBehaviour
     public Material blue;
     public GameObject model;
     public GameObject shield;
+    public GameObject shieldR;
+    public GameObject shieldB;
 
     void Start()
     {
@@ -45,14 +47,14 @@ public class EnemyShield : MonoBehaviour
         {
             imRed = false;
             imBlue = true;
-            gameObject.layer = LayerMask.NameToLayer("Color1");
+            gameObject.layer = LayerMask.NameToLayer("Azul");
             model.GetComponent<SkinnedMeshRenderer>().material = blue;
         }
         else
         {
             imRed = true;
             imBlue = false;
-            gameObject.layer = LayerMask.NameToLayer("Color2");
+            gameObject.layer = LayerMask.NameToLayer("Rojo");
             model.GetComponent<SkinnedMeshRenderer>().material = red;
         }
     }
@@ -62,13 +64,15 @@ public class EnemyShield : MonoBehaviour
         //print(color);
         if (color == 0)
         {
-            gameObject.layer = LayerMask.NameToLayer("Color1");
-            shield.GetComponent<MeshRenderer>().material = blue;
+            shield.gameObject.layer = LayerMask.NameToLayer("Azul");
+            shieldB.SetActive(true);
+            shieldR.SetActive(false);
         }
         else
         {
-            gameObject.layer = LayerMask.NameToLayer("Color2");
-            shield.GetComponent<MeshRenderer>().material = red;
+            shield.gameObject.layer = LayerMask.NameToLayer("Rojo");
+            shieldB.SetActive(false);
+            shieldR.SetActive(true);
         }
     }
 

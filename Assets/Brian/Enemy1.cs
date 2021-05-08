@@ -38,14 +38,14 @@ public class Enemy1 : MonoBehaviour
         {
             imRed = false;
             imBlue = true;
-            gameObject.layer = LayerMask.NameToLayer("Color1");
+            gameObject.layer = LayerMask.NameToLayer("Azul");
             model.GetComponent<SkinnedMeshRenderer>().material = blue;
         }
         else
         {
             imRed = true;
             imBlue = false;
-            gameObject.layer = LayerMask.NameToLayer("Color2");
+            gameObject.layer = LayerMask.NameToLayer("Rojo");
             model.GetComponent<SkinnedMeshRenderer>().material = red;
         }
     }
