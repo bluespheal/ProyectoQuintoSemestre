@@ -1,4 +1,4 @@
-using System.Collections;
+sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -48,12 +48,8 @@ public class Enemy1 : MonoBehaviour
             newMaterials[1] = blue;
             imRed = false;
             imBlue = true;
-<<<<<<< Updated upstream
-            gameObject.layer = LayerMask.NameToLayer("Color1");
-=======
-            gameObject.layer = LayerMask.NameToLayer("Azul");
->>>>>>> Stashed changes
             model.GetComponent<SkinnedMeshRenderer>().materials = newMaterials;
+            gameObject.layer = LayerMask.NameToLayer("Azul");
         }
         else
         {
@@ -62,12 +58,8 @@ public class Enemy1 : MonoBehaviour
             newMaterials[1] = red;
             imRed = true;
             imBlue = false;
-<<<<<<< Updated upstream
-            gameObject.layer = LayerMask.NameToLayer("Color2");
-=======
-            gameObject.layer = LayerMask.NameToLayer("Rojo");
->>>>>>> Stashed changes
             model.GetComponent<SkinnedMeshRenderer>().materials = newMaterials;
+            gameObject.layer = LayerMask.NameToLayer("Rojo");
         }
     }
 
