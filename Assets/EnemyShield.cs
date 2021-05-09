@@ -22,7 +22,7 @@ public class EnemyShield : MonoBehaviour
 
     public Material eyes;
     public Material[] newMaterials;
-    string deadTag;
+    public string deadTag;
     public DisolbingController ControlParticulas;
 
     void Start()
@@ -63,7 +63,7 @@ public class EnemyShield : MonoBehaviour
             imRed = false;
             imBlue = true;
             gameObject.layer = LayerMask.NameToLayer("Azul");
-            model.GetComponent<SkinnedMeshRenderer>().material = blue;
+            model.GetComponent<SkinnedMeshRenderer>().materials = newMaterials;
         }
         else
         {
@@ -73,7 +73,7 @@ public class EnemyShield : MonoBehaviour
             imRed = true;
             imBlue = false;
             gameObject.layer = LayerMask.NameToLayer("Rojo");
-            model.GetComponent<SkinnedMeshRenderer>().material = red;
+            model.GetComponent<SkinnedMeshRenderer>().materials = newMaterials;
         }
     }
     public void DefineShieldColor()
@@ -95,12 +95,8 @@ public class EnemyShield : MonoBehaviour
             actualShield.actualShield = shieldR;
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    public void CollisionDetected(BodyCollisionEnemyShield collision)
     {
-        print("a");
-        if (collision.gameObject.CompareTag(deadTag) && !hasShield)
-        {
-            TakeDamage(1);
-        }
+        TakeDamage(1);
     }
 }
