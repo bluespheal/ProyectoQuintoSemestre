@@ -43,22 +43,30 @@ public class Enemy1 : MonoBehaviour
         //print(color);
         if(color == 0)
         {
-            deadTag = "bateRojo";
+            deadTag = "bateAzul";
             newMaterials[0] = eyes;
             newMaterials[1] = blue;
             imRed = false;
             imBlue = true;
+<<<<<<< Updated upstream
             gameObject.layer = LayerMask.NameToLayer("Color1");
+=======
+            gameObject.layer = LayerMask.NameToLayer("Azul");
+>>>>>>> Stashed changes
             model.GetComponent<SkinnedMeshRenderer>().materials = newMaterials;
         }
         else
         {
-            deadTag = "bateAzul";
+            deadTag = "bateRojo";
             newMaterials[0] = eyes;
             newMaterials[1] = red;
             imRed = true;
             imBlue = false;
+<<<<<<< Updated upstream
             gameObject.layer = LayerMask.NameToLayer("Color2");
+=======
+            gameObject.layer = LayerMask.NameToLayer("Rojo");
+>>>>>>> Stashed changes
             model.GetComponent<SkinnedMeshRenderer>().materials = newMaterials;
         }
     }
