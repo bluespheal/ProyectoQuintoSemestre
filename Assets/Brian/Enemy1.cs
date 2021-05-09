@@ -15,7 +15,7 @@ public class Enemy1 : MonoBehaviour
     public Material[] newMaterials;
     public GameObject model;
 
-    string deadTag;
+    public string deadTag;
     public DisolbingController ControlParticulas;
 
     void Start()
@@ -63,12 +63,9 @@ public class Enemy1 : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void CollisionDetected(BodyCollisionEnemyMelee collision)
     {
-        if(collision.gameObject.CompareTag(deadTag))
-        {
-            Die();
-        }
+        TakeDamage(1);
     }
 
 }

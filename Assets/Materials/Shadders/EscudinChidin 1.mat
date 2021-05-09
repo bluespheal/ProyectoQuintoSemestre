@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EscudinChidin
+  m_Name: EscudinChidin 1
   m_Shader: {fileID: -6465566751694194690, guid: 728dc4f439085804aa26133af7758cde, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -38,7 +38,7 @@ Material:
     m_Floats:
     - Vector1_e1b8263ba8d54c4382a0c87c6663c08e: 2
     m_Colors:
-    - Color_1724d0e7ea984409bcde6a3b8ffa6f36: {r: 2.3405452, g: 2.0551128, b: 10.903515, a: 1}
-    - Color_d958b49bb2024bd0b9777b41e2d10ce9: {r: 0.69399244, g: 0.58261317, b: 1.4881206, a: 1}
+    - Color_1724d0e7ea984409bcde6a3b8ffa6f36: {r: 14.557049, g: 0.65741503, b: 0, a: 1}
+    - Color_d958b49bb2024bd0b9777b41e2d10ce9: {r: 1.9867578, g: 0.051381662, b: 0, a: 1}
     - Vector3_8d8a050d10f34123901b83408d016b62: {r: 0.05, g: 0.05, b: 0.05, a: 0}
   m_BuildTextureStacks: []

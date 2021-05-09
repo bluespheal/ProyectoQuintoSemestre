@@ -5,6 +5,7 @@ using UnityEngine;
 public class BodyCollisionEnemyShield : MonoBehaviour
 {
     public EnemyShield me;
+    public Cuerpo parte;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +19,8 @@ public class BodyCollisionEnemyShield : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        print(collision.gameObject.CompareTag(me.deadTag));
         if (collision.gameObject.CompareTag(me.deadTag) && !me.hasShield)
         {
-            print("pinche juan");
             me.CollisionDetected(this);
         }
     }

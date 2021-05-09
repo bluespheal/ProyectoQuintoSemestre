@@ -4894,6 +4894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 12
 --- !u!1 &936774095136458020
 GameObject:
   m_ObjectHideFlags: 0
@@ -5168,6 +5169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 1
 --- !u!1 &1806562368499052802
 GameObject:
   m_ObjectHideFlags: 0
@@ -5230,6 +5232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 6
 --- !u!1 &2077924826100691619
 GameObject:
   m_ObjectHideFlags: 0
@@ -5429,24 +5432,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
-  maxShieldHealth: 1
-  currentHealth: 0
-  currentShieldHealth: 0
   imRed: 0
   imBlue: 0
   color: 0
   red: {fileID: 2100000, guid: 5c0f2e768f51673418def73f62b53cb3, type: 2}
   blue: {fileID: 2100000, guid: 664903215029d544b9d33c9dc9db3e08, type: 2}
+  eyes: {fileID: 2100000, guid: c960ab15235a99c4aa4e63b2df891c04, type: 2}
+  newMaterials: []
   model: {fileID: 7499812330106298001}
+  deadTag: 
+  ControlParticulas: {fileID: 2825151024804028955}
+  maxShieldHealth: 1
+  currentHealth: 0
+  currentShieldHealth: 0
   shield: {fileID: 3167607454519807915}
   shieldR: {fileID: 685390404105834978}
   shieldB: {fileID: 3167607454167762245}
   actualShield: {fileID: 6871406739847925320}
   hasShield: 0
-  eyes: {fileID: 2100000, guid: c960ab15235a99c4aa4e63b2df891c04, type: 2}
-  newMaterials: []
-  deadTag: 
-  ControlParticulas: {fileID: 2825151024804028955}
 --- !u!114 &2825151024804028945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5684,6 +5687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 4
 --- !u!1 &3167607453429514279
 GameObject:
   m_ObjectHideFlags: 0
@@ -10845,6 +10849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 7
 --- !u!1 &3788019299037668540
 GameObject:
   m_ObjectHideFlags: 0
@@ -10905,6 +10910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 3
 --- !u!1 &4076771223727217161
 GameObject:
   m_ObjectHideFlags: 0
@@ -11027,6 +11033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 10
 --- !u!1 &4445575692955280881
 GameObject:
   m_ObjectHideFlags: 0
@@ -11089,6 +11096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 2
 --- !u!1 &4494995620822341142
 GameObject:
   m_ObjectHideFlags: 0
@@ -11211,6 +11219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 0
 --- !u!1 &5769311012262750848
 GameObject:
   m_ObjectHideFlags: 0
@@ -11271,6 +11280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 15
 --- !u!1 &5775927737896824913
 GameObject:
   m_ObjectHideFlags: 0
@@ -11393,6 +11403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 5
 --- !u!1 &6125311015454333649
 GameObject:
   m_ObjectHideFlags: 0
@@ -11608,6 +11619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 8
 --- !u!1 &7337006241981182814
 GameObject:
   m_ObjectHideFlags: 0
@@ -11894,6 +11906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 11
 --- !u!1 &8225502870101597790
 GameObject:
   m_ObjectHideFlags: 0
@@ -11954,6 +11967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 13
 --- !u!1 &8260563681250533497
 GameObject:
   m_ObjectHideFlags: 0
@@ -12081,6 +12095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 9
 --- !u!1 &8915211815693519896
 GameObject:
   m_ObjectHideFlags: 0
@@ -12171,6 +12186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   me: {fileID: 887959100279955609}
+  parte: 14
 --- !u!1 &9067596363555041280
 GameObject:
   m_ObjectHideFlags: 0
@@ -12215,7 +12231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1891074724505988, guid: f124a282fc554ba40aabfad1c3f4d7a9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1891074724505988, guid: f124a282fc554ba40aabfad1c3f4d7a9, type: 3}
       propertyPath: m_TagString
