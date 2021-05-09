@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 2825151024804028955}
   - component: {fileID: 2825151024804028954}
   m_Layer: 0
-  m_Name: EnemyMelee 1
+  m_Name: EnemyMelee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -587,7 +587,10 @@ MonoBehaviour:
   color: 0
   red: {fileID: 2100000, guid: 4798e9d4ec46f87409d7d695f54e1cdd, type: 2}
   blue: {fileID: 2100000, guid: 995dabc6986811c45a7526c73509310d, type: 2}
+  eyes: {fileID: 2100000, guid: c960ab15235a99c4aa4e63b2df891c04, type: 2}
+  newMaterials: []
   model: {fileID: 7499812330106298001}
+  ControlParticulas: {fileID: 2825151024804028955}
 --- !u!114 &2825151024804028945
 MonoBehaviour:
   m_ObjectHideFlags: 0
