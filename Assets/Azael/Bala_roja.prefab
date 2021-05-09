@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3337223074418940134}
   - component: {fileID: 3337223074418940130}
   - component: {fileID: 4732367913745351031}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Bala_roja
   m_TagString: Danger
   m_Icon: {fileID: 0}
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vel: 10
   reflected: 0
+  particles: {fileID: 0}
 --- !u!54 &4732367913745351031
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,7 +141,7 @@ GameObject:
   - component: {fileID: 5618314739588659618}
   - component: {fileID: 1515913208876764600}
   - component: {fileID: 3062520052738090456}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4944,7 +4945,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2501623056192685306}
   - component: {fileID: 4751136422576092227}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
