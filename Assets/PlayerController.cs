@@ -91,10 +91,10 @@ public class PlayerController : MonoBehaviour
         controls.Player.LeftArm.performed += context => LeftArm();
         controls.Player.RightArm.performed += context => RightArm();
 
-        controls.Player.LanzarIzq.started += context => Apuntar();
+        controls.Player.LanzarIzq.started += context => ApuntarIzq();
         controls.Player.LanzarIzq.canceled += context => Lanzar(bateAzul_prefab);
 
-        controls.Player.LanzarDer.started += context => Apuntar();
+        controls.Player.LanzarDer.started += context => ApuntarDer();
         controls.Player.LanzarDer.canceled += context => Lanzar(bateRojo_prefab);
 
         vol = cam.GetComponent<Volume>();//gets Volume of camera for Post-processing
@@ -201,8 +201,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Apuntar()
+    public void ApuntarIzq()
     {
+        if (lanzadoAzul) return;
+        haircross.enabled = true;
+    }
+
+    public void ApuntarDer()
+    {
+        if (lanzadoRojo) return;
         haircross.enabled = true;
     }
 
