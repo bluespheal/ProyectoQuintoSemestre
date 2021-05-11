@@ -193,7 +193,7 @@ public class Torreta : MonoBehaviour
         {
             imRed = false;
             imBlue = true;
-            gameObject.layer = LayerMask.NameToLayer("Color1");
+            gameObject.layer = LayerMask.NameToLayer("Azul");
             modelBase.GetComponent<MeshRenderer>().material = blue;
             modelBody.GetComponent<MeshRenderer>().material = blue;
             modelHead.GetComponent<MeshRenderer>().material = blue;
@@ -202,7 +202,7 @@ public class Torreta : MonoBehaviour
         {
             imRed = true;
             imBlue = false;
-            gameObject.layer = LayerMask.NameToLayer("Color2");
+            gameObject.layer = LayerMask.NameToLayer("Rojo");
             modelBase.GetComponent<MeshRenderer>().material = red;
             modelBody.GetComponent<MeshRenderer>().material = red;
             modelHead.GetComponent<MeshRenderer>().material = red;
