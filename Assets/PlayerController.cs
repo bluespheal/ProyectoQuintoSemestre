@@ -33,8 +33,7 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("View references")]//Elements to change when the player doesn't move
-    public Light globalLight1;
-    public Light globalLight2;
+    public Light globalLight;
     public Camera cam;
 
     [Header("Timer variables")] //Timer that decreases/increases in relation to player movement.
@@ -72,13 +71,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
 
     //Post-processing settings
-    private Volume vol;
+    private Volume saturation_vol;
     private ColorAdjustments colors;
+    private Volume vignette_vol;
+    private Vignette vignette;
 
     private void Awake()
     {
-        DontDestroyOnLoad(globalLight1);
-        DontDestroyOnLoad(globalLight2);
+        //DontDestroyOnLoad(globalLight);
 
         //Assign initial values for certain variables.
         rb = gameObject.GetComponent<Rigidbody>();
@@ -97,10 +97,14 @@ public class PlayerController : MonoBehaviour
         controls.Player.LanzarDer.started += context => Apuntar();
         controls.Player.LanzarDer.canceled += context => Lanzar(bateRojo_prefab);
 
-        vol = cam.GetComponent<Volume>();//gets Volume of camera for Post-processing
-        vol.profile.TryGet(out colors); //assigns var colors the vol profile
+        saturation_vol = cam.GetComponent<Volume>();//gets Volume of camera for Post-processing
+        saturation_vol.profile.TryGet(out colors); //assigns var colors the vol profile
+        vignette_vol = cam.GetComponent<Volume>();
+        vignette_vol.profile.TryGet(out vignette);
 
         shield_Listener.AddListener(ToggleShield);
+        globalLight = GameObject.Find("Principal Light").GetComponent<Light>();
+        //globalLight.intensity = 100;
 
         SetRagdollParts();        
     }
@@ -158,10 +162,11 @@ public class PlayerController : MonoBehaviour
         }
 
         //Code that changes the light intensity according to the timer
-        globalLight1.intensity = timer / 100;
-        globalLight2.intensity = timer / 100;
+        globalLight.intensity = timer / 100;
         //Code that changes the camera's saturation, a bit memory intensive.
-        //colors.saturation.value = timer -100;
+        colors.saturation.value = timer -100;
+
+        vignette.intensity.value = 0.3f + (-(timer / 333));
 
         if (moving) //If the player is moving, timer increases, else timer decreases
         {
