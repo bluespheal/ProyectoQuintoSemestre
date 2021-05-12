@@ -34,6 +34,15 @@ public class EstadoAtaque : Estado
         else
             agente.attacking = false;
 
-        Debug.Log("Doro, monsta cado");
+        //Debug.Log("Doro, monsta cado");
+    }
+
+    public void ActivateCollider()
+    {
+        agente.arma.enabled = true;
+    }
+    public void DeactivateCollider()
+    {
+        agente.arma.enabled = false;
     }
 }

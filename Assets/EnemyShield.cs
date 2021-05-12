@@ -15,6 +15,7 @@ public class EnemyShield : Enemy1
 
     void Start()
     {
+        GameManager.Instance.ContarEnemigo(this.gameObject);
         newMaterials = new Material[2];
         currentHealth = maxHealth;
         currentShieldHealth = maxShieldHealth;
@@ -26,6 +27,7 @@ public class EnemyShield : Enemy1
     {
         if (currentShieldHealth < 1)
         {
+            GameManager.Instance.DescontarEnemigo(this.gameObject);
             this.ControlParticulas.LamarDisolve();
         }
     }
@@ -52,5 +54,12 @@ public class EnemyShield : Enemy1
     public void CollisionDetected(BodyCollisionEnemyShield collision)
     {
         TakeDamage(1);
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.DescontarEnemigo(this.gameObject);
+        if (!GameManager.Instance.puerta)
+            GameManager.Instance.puerta.SetActive(true);
     }
 }

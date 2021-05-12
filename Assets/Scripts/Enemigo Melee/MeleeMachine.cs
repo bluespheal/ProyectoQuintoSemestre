@@ -5,6 +5,7 @@ using UnityEngine;
 public class MeleeMachine : MonoBehaviour
 {
     public GameObject target;
+    public Collider arma;
     public Animator anim;
     public Rigidbody rb;
     public bool meleeRange;

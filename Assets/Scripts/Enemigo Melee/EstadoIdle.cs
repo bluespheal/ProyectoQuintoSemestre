@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EstadoIdle : Estado
 {
+    int idleInt;
     //Aun en desarrollo
     public override void OnEnable()
     {
@@ -20,5 +21,16 @@ public class EstadoIdle : Estado
     {
         base.OnDisable();
         agente.anim.SetBool("idle", false);
+    }
+
+    public void IdleSelect()
+    {
+        idleInt = Random.Range(1, 10);
+        if (idleInt == 2)
+            agente.anim.SetTrigger("Idle2");
+        else if(idleInt == 4)
+            agente.anim.SetTrigger("Idle3");
+        else
+            return;
     }
 }

@@ -14,6 +14,7 @@ public class SceneChanger : MonoBehaviour
     public void Gameover()// Changes to Gameover scene when it's called
     {
         SceneManager.LoadScene(gameoverScene);
+        GameManager.Instance.endGame(); 
     }
 
     public void ChangeLevel(string levelToLoad) //Changes scene to whatever scene is passed into the function

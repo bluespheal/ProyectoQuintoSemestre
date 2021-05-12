@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Bordes
-    second: {fileID: 2100000, guid: be3700c13689e3f458de4ec4143a1584, type: 2}
+    second: {fileID: 2138608081894791119, guid: ef9053688d34a5943877c202b85e8a1f, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Main
-    second: {fileID: 2100000, guid: c960ab15235a99c4aa4e63b2df891c04, type: 2}
+    second: {fileID: 2100000, guid: be3700c13689e3f458de4ec4143a1584, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

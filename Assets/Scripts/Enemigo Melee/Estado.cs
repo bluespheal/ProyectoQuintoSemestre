@@ -10,7 +10,6 @@ public class Estado : MonoBehaviour
     public MeleeMachine agente;
     public List<Transicion> transiciones = new List<Transicion>();
     public NavMeshAgent nav;
-    
     //protected UniversalMovement movementController;
     private void Awake()
     {

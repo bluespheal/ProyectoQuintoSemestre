@@ -38,13 +38,21 @@ public class Torreta : MonoBehaviour
     public GameObject basee, canon;
     public Animator anim;
 
+    private void OnDisable()
+    {
+        GameManager.Instance.DescontarEnemigo(this.gameObject);
+        
+    }
+
     private void Start()
     {
         DefineColor();
         posInicial = basee.transform;
         cadenciaInicial = cadencia;
         Idle();
-       //GameManager.Instance.ContarEnemigo(gameObject);
+       GameManager.Instance.ContarEnemigo(gameObject);
+        if (!GameManager.Instance.puerta)
+            GameManager.Instance.puerta.SetActive(true);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -52,6 +60,7 @@ public class Torreta : MonoBehaviour
         //Morir
         if(collision.gameObject.CompareTag("Bate") || collision.gameObject.CompareTag("Danger"))
         {
+            GameManager.Instance.DescontarEnemigo(this.gameObject);
             Destroy(gameObject);
         }
     }

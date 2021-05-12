@@ -20,12 +20,16 @@ public class Enemy1 : MonoBehaviour
 
     void Start()
     {
+        GameManager.Instance.ContarEnemigo(this.gameObject);
         newMaterials = new Material[2];
         currentHealth = maxHealth;
         DefineColor();
+        if (!GameManager.Instance.puerta)
+            GameManager.Instance.puerta.SetActive(true);
     }
     void Die()
     {
+        GameManager.Instance.DescontarEnemigo(this.gameObject);
         this.ControlParticulas.LamarDisolve();
     }
     public void TakeDamage(int damage)
@@ -38,7 +42,6 @@ public class Enemy1 : MonoBehaviour
     }
     public void DefineColor()
     {
-        Debug.Log("Entre a Color");
         color = Random.Range(0, 2);
         //print(color);
         if(color == 0)
@@ -67,5 +70,10 @@ public class Enemy1 : MonoBehaviour
     {
         TakeDamage(1);
     }
-
+    private void OnDisable()
+    {
+        GameManager.Instance.DescontarEnemigo(this.gameObject);
+        if (!GameManager.Instance.puerta)
+            GameManager.Instance.puerta.SetActive(true);
+    }
 }

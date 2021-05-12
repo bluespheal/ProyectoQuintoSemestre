@@ -5463,6 +5463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  arma: {fileID: 3104772671929442799}
   anim: {fileID: 3167607453050389568}
   rb: {fileID: 0}
   meleeRange: 0
@@ -5553,6 +5554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  arma: {fileID: 0}
   anim: {fileID: 3167607453050389568}
   rb: {fileID: 0}
   meleeRange: 0
@@ -12231,7 +12233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1891074724505988, guid: f124a282fc554ba40aabfad1c3f4d7a9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1891074724505988, guid: f124a282fc554ba40aabfad1c3f4d7a9, type: 3}
       propertyPath: m_TagString
@@ -12286,6 +12288,11 @@ PrefabInstance:
 --- !u!4 &3168984166413196161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4473350882627248, guid: f124a282fc554ba40aabfad1c3f4d7a9, type: 3}
+  m_PrefabInstance: {fileID: 3167607452928955697}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &3104772671929442799 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 64110845847942366, guid: f124a282fc554ba40aabfad1c3f4d7a9, type: 3}
   m_PrefabInstance: {fileID: 3167607452928955697}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3167607453924688734
