@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1419480081911577082}
   - component: {fileID: 1419480081911577085}
   - component: {fileID: 1419480081911577084}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bate_Rojo
-  m_TagString: Untagged
+  m_TagString: bateRojo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba22b7580a782949adac15155015dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanciaMaxima: 12
+  distanciaMaxima: 18
   velRegreso: 0.35
 --- !u!136 &1419480081911577085
 CapsuleCollider:
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 7062511982363261913}
   - component: {fileID: 7075117953290979505}
   - component: {fileID: 7096905249101774698}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BateGO
   m_TagString: Bate
   m_Icon: {fileID: 0}
