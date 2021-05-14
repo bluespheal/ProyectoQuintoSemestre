@@ -51,8 +51,7 @@ public class Torreta : MonoBehaviour
         cadenciaInicial = cadencia;
         Idle();
        GameManager.Instance.ContarEnemigo(gameObject);
-        if (!GameManager.Instance.puerta)
-            GameManager.Instance.puerta.SetActive(true);
+
     }
 
     private void OnCollisionEnter(Collision collision)

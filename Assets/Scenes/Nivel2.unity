@@ -3876,7 +3876,7 @@ PrefabInstance:
     - target: {fileID: 8357846653249421386, guid: 7e1cd9a91e4c80e4e817c78d95bf4b88, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1527881782}
+      objectReference: {fileID: 0}
     - target: {fileID: 8357846653249421386, guid: 7e1cd9a91e4c80e4e817c78d95bf4b88, type: 3}
       propertyPath: m_RenderMode
       value: 1
@@ -3989,6 +3989,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2738015829721657039, guid: 8c756073ea9a3354c86c6776e249dccd, type: 3}
+      propertyPath: haircross
+      value: 
+      objectReference: {fileID: 1499929399}
+    - target: {fileID: 2738015829721657039, guid: 8c756073ea9a3354c86c6776e249dccd, type: 3}
+      propertyPath: sceneChanger
+      value: 
+      objectReference: {fileID: 1484878203}
     - target: {fileID: 5212040689946432996, guid: 8c756073ea9a3354c86c6776e249dccd, type: 3}
       propertyPath: haircross
       value: 
@@ -4051,11 +4059,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c756073ea9a3354c86c6776e249dccd, type: 3}
---- !u!20 &1527881782 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 12451959, guid: 8c756073ea9a3354c86c6776e249dccd, type: 3}
-  m_PrefabInstance: {fileID: 1527881781}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1539074380
 PrefabInstance:
   m_ObjectHideFlags: 0

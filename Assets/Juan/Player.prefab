@@ -55,5 +55,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1303312184014730407, guid: fd5e831e3540bb449acb00ec35e888ac, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303312184014730407, guid: fd5e831e3540bb449acb00ec35e888ac, type: 3}
+      propertyPath: m_TagString
+      value: bateRojo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638303364262429064, guid: fd5e831e3540bb449acb00ec35e888ac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998586165093135286, guid: fd5e831e3540bb449acb00ec35e888ac, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998586165093135286, guid: fd5e831e3540bb449acb00ec35e888ac, type: 3}
+      propertyPath: m_TagString
+      value: bateAzul
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd5e831e3540bb449acb00ec35e888ac, type: 3}

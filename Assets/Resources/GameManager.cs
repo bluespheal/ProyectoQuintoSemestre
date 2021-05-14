@@ -49,8 +49,12 @@ public class GameManager : MonoBehaviour
     // called second
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        puerta = GameObject.FindGameObjectWithTag("Puerta");
-        nivelCargado = true;
+        if(scene.name != "GameOver")
+        {
+            puerta = GameObject.FindGameObjectWithTag("Puerta");
+            nivelCargado = true;
+        }
+        
     }
     private void OnDestroy()
     {
