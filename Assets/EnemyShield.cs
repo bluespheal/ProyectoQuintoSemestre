@@ -13,6 +13,7 @@ public class EnemyShield : Enemy1
     public Escudo actualShield;
     public bool hasShield;
 
+    public GameObject arma;
     void Start()
     {
         GameManager.Instance.ContarEnemigo(this.gameObject);
@@ -27,6 +28,9 @@ public class EnemyShield : Enemy1
     {
         if (currentShieldHealth < 1)
         {
+            arma.transform.gameObject.tag = "Untagged";
+            arma.transform.parent = null;
+            arma.GetComponent<Rigidbody>().isKinematic = false;
             GameManager.Instance.DescontarEnemigo(this.gameObject);
             this.ControlParticulas.LamarDisolve();
         }

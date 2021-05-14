@@ -14,7 +14,7 @@ public class Enemy1 : MonoBehaviour
     public Material eyes;
     public Material[] newMaterials;
     public GameObject model;
-
+    public GameObject arma;
     public string deadTag;
     public DisolbingController ControlParticulas;
 
@@ -24,11 +24,12 @@ public class Enemy1 : MonoBehaviour
         newMaterials = new Material[2];
         currentHealth = maxHealth;
         DefineColor();
-        if (!GameManager.Instance.puerta)
-            GameManager.Instance.puerta.SetActive(true);
     }
     void Die()
     {
+        arma.transform.gameObject.tag = "Untagged";
+        arma.transform.parent = null;
+        arma.GetComponent<Rigidbody>().isKinematic = false;
         GameManager.Instance.DescontarEnemigo(this.gameObject);
         this.ControlParticulas.LamarDisolve();
     }

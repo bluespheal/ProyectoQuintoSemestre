@@ -6,6 +6,7 @@ public class MeleeMachine : MonoBehaviour
 {
     public GameObject target;
     public Collider arma;
+    public GameObject weapon;
     public Animator anim;
     public Rigidbody rb;
     public bool meleeRange;
