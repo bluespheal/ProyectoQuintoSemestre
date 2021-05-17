@@ -71,10 +71,4 @@ public class Enemy1 : MonoBehaviour
     {
         TakeDamage(1);
     }
-    private void OnDisable()
-    {
-        GameManager.Instance.DescontarEnemigo(this.gameObject);
-        if (!GameManager.Instance.puerta)
-            GameManager.Instance.puerta.SetActive(true);
-    }
 }

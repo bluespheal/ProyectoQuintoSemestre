@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> cuentaEnemigos = new List<GameObject>();
     public GameObject puerta;
     public bool nivelCargado;
-    //Se hace un getter a la referencia para que se pueda acceder facilmente desde otros scripts 
+    //Se hace un getter a la referencia para que se pueda acceder facilmente desde otros scripts
     public static GameManager Instance
     {
         get
@@ -49,8 +49,19 @@ public class GameManager : MonoBehaviour
     // called second
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        puerta = GameObject.FindGameObjectWithTag("Puerta");
-        nivelCargado = true;
+        print(scene.name);
+        if(scene.name == "GameOver" || scene.name == "Menu")
+        {
+            return;
+        }
+        else
+        {
+            puerta = GameObject.FindGameObjectWithTag("Puerta");
+            puerta.GetComponent<MeshRenderer>().enabled = true;
+            puerta.GetComponent<BoxCollider>().enabled = true;
+            ///nivelCargado = true;
+        }
+
     }
     private void OnDestroy()
     {
@@ -59,7 +70,7 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        
+
     }
 
     public void startGame()
@@ -73,7 +84,7 @@ public class GameManager : MonoBehaviour
     {
         cuentaEnemigos.Clear();
         gameover = true;
-        //Condiciones para cuando termina el juego 
+        //Condiciones para cuando termina el juego
     }
     //Funcion que llaman los enemigos de cada nivel al crearse para que el GM los pueda contar
     public void ContarEnemigo(GameObject enemigo)
@@ -84,18 +95,14 @@ public class GameManager : MonoBehaviour
     //Funcion que llaman los enemigos de cada nivel al morir para que el GM los pueda contar
     public void DescontarEnemigo(GameObject enemigo)
     {
-        cuentaEnemigos.Remove(enemigo); 
+        cuentaEnemigos.Remove(enemigo);
         Debug.Log("Descontando");
         Debug.Log(cuentaEnemigos.Count);
         if (cuentaEnemigos.Count == 0/* && nivelCargado*/)
         {
-            puerta.SetActive(false);
-            puerta = null;
+            Debug.Log("Nivel Terminado");
+            puerta.GetComponent<MeshRenderer>().enabled = false;
+            puerta.GetComponent<BoxCollider>().enabled = false;
         }
-    }
-    //Funcion que llama la puerta de cada nivel al crearse para que el GM sepa cual abrir (Cambiar para que en el futuro ejecute una animacion)
-    public void ContarPuerta(GameObject _puerta)
-    {
-        puerta = _puerta;
     }
 }
