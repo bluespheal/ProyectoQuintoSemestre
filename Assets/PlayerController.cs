@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Hitbox")] //Player weapon hitboxes
     public float hitboxTime;
+    public bool isAttacking;
     public GameObject leftHitbox;
     public GameObject rightHitbox;
 
@@ -242,7 +243,7 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        if (alive)
+        if (alive && !isAttacking)
         {
             playerAnimator.SetTrigger("Left");
             EnableHitbox(leftHitbox); // Enables the left hitbox for a brief moment
@@ -255,7 +256,7 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        if (alive)
+        if (alive && !isAttacking)
         {
             playerAnimator.SetTrigger("Right");
             EnableHitbox(rightHitbox);// Enables the right hitbox for a brief moment
@@ -265,6 +266,7 @@ public class PlayerController : MonoBehaviour
     public void EnableHitbox(GameObject hitbox)//Enables the hitbox passed for a brief second
     {
         hitbox.SetActive(true);
+        isAttacking = true;
         StartCoroutine(DeactivateHitbox(hitboxTime, hitbox)); // Disables the passed hitbox after a set time.
     }
 
@@ -272,6 +274,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         hitbox.SetActive(false);
+        isAttacking = false;
     }
 
     private void OnCollisionEnter(Collision collision)
