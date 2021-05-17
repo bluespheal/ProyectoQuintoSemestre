@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyShield : Enemy1
 {
     public int maxShieldHealth = 1;
-    public int currentHealth;
     public int currentShieldHealth;
     public GameObject shield;
     public GameObject shieldR;
@@ -13,7 +12,6 @@ public class EnemyShield : Enemy1
     public Escudo actualShield;
     public bool hasShield;
 
-    public GameObject arma;
     void Start()
     {
         GameManager.Instance.ContarEnemigo(this.gameObject);
@@ -24,7 +22,7 @@ public class EnemyShield : Enemy1
         DefineShieldColor();
     }
 
-    void Die()
+    protected override void Die()
     {
         if (currentShieldHealth < 1)
         {
@@ -58,12 +56,5 @@ public class EnemyShield : Enemy1
     public void CollisionDetected(BodyCollisionEnemyShield collision)
     {
         TakeDamage(1);
-    }
-
-    private void OnDisable()
-    {
-        GameManager.Instance.DescontarEnemigo(this.gameObject);
-        if (!GameManager.Instance.puerta)
-            GameManager.Instance.puerta.SetActive(true);
     }
 }

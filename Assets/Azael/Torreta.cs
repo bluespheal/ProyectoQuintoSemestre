@@ -46,14 +46,13 @@ public class Torreta : MonoBehaviour
         cadenciaInicial = cadencia;
         Idle();
        GameManager.Instance.ContarEnemigo(gameObject);
-        if (!GameManager.Instance.puerta)
-            GameManager.Instance.puerta.SetActive(true);
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         //Morir
-        if(collision.gameObject.CompareTag("Bate") || collision.gameObject.CompareTag("Danger"))
+        if(collision.gameObject.CompareTag("bateRojo") || collision.gameObject.CompareTag("Danger") || collision.gameObject.CompareTag("bateAzul"))
         {
             GameManager.Instance.DescontarEnemigo(this.gameObject);
             Destroy(gameObject);

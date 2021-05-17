@@ -5440,18 +5440,16 @@ MonoBehaviour:
   eyes: {fileID: 2100000, guid: c960ab15235a99c4aa4e63b2df891c04, type: 2}
   newMaterials: []
   model: {fileID: 7499812330106298001}
-  arma: {fileID: 0}
+  arma: {fileID: 3166925395526646965}
   deadTag: 
   ControlParticulas: {fileID: 2825151024804028955}
   maxShieldHealth: 1
-  currentHealth: 0
   currentShieldHealth: 0
   shield: {fileID: 3167607454519807915}
   shieldR: {fileID: 685390404105834978}
   shieldB: {fileID: 3167607454167762245}
   actualShield: {fileID: 6871406739847925320}
   hasShield: 0
-  arma: {fileID: 0}
 --- !u!114 &2825151024804028945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10747,7 +10745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36fcb1a47d06f5f4e8d2639639e630d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 0}
+  Enemy: {fileID: 887959100279955609}
   actualShield: {fileID: 0}
 --- !u!1 &3288916734744632121
 GameObject:

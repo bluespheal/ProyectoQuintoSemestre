@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
             motor.rotateCam(xCamRot); // Passes on Camera rotation value
 
             if (timer <= 0) { // If timer reaches 0, you lose
-                alive = false;
+                Die();
             }
         }
         else //When player loses
@@ -158,7 +158,6 @@ public class PlayerController : MonoBehaviour
             playerAnimator.enabled = false; //Deactivates animator for Ragdoll physics
             TurnOnRagdoll(); //Activates ragdoll physics
             rb.velocity = Vector3.zero;
-            StartCoroutine(FadeOut(fadeTimer));
         }
 
         //Code that changes the light intensity according to the timer
@@ -284,14 +283,22 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.collider.gameObject.CompareTag("Danger")) // If colides with a "Danger" Tagged object, it dies
         {
-            alive = false;
+            Die();
         }
     }
 
-    private IEnumerator FadeOut(float fadeTime) //Function to fade the screen after some time
+    private void Die()
     {
-        yield return new WaitForSeconds(fadeTime);
+        alive = false;
         Fade();
+        SoundManager.playSound(SoundManager.Sound.guh);
+        StartCoroutine(FadeOut());
+    }
+
+    private IEnumerator FadeOut() //Function to fade the screen after some time
+    {
+        print("dies");
+        yield return new WaitForSeconds(fadeTimer);
         sceneChanger.Gameover();
     }
 

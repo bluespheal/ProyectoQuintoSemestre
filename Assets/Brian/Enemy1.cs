@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy1 : MonoBehaviour
 {
     public int maxHealth = 1;
-    int currentHealth;
+    protected int currentHealth;
     public bool imRed;
     public bool imBlue;
     public int color;
@@ -25,7 +25,7 @@ public class Enemy1 : MonoBehaviour
         currentHealth = maxHealth;
         DefineColor();
     }
-    void Die()
+    protected virtual void Die()
     {
         arma.transform.gameObject.tag = "Untagged";
         arma.transform.parent = null;
