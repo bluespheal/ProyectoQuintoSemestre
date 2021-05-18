@@ -61,7 +61,8 @@ public class DisolbingController : MonoBehaviour
         int IdDissolveAmount = Shader.PropertyToID("DissolveAmount_");
         if(dissolveMaterials.Length > 0)
         {
-            while(dissolveMaterials[0].GetFloat(IdDissolveAmount) < 1)
+            WaitForSeconds rr = new WaitForSeconds(refreshRate);
+            while (dissolveMaterials[0].GetFloat(IdDissolveAmount) < 1)
             {
                 counter += dissolveRate;
 
@@ -69,7 +70,7 @@ public class DisolbingController : MonoBehaviour
                 {
                     dissolveMaterials[i].SetFloat(IdDissolveAmount, counter);
                 }
-                yield return new WaitForSeconds(refreshRate);
+                yield return rr;
             }
         }
         Destroy(gameObject, 1);

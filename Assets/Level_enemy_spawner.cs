@@ -18,7 +18,7 @@ public class Level_enemy_spawner : MonoBehaviour
 
         foreach (GameObject enemy_group in formation_array)
         {
-            enemy_group.active = false;
+            enemy_group.SetActive(false);
         }
 
         selected_array = Random.Range(0, 2);

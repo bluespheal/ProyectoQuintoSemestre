@@ -38,11 +38,6 @@ public class Torreta : MonoBehaviour
     public GameObject basee, canon;
     public Animator anim;
 
-    private void OnDisable()
-    {
-        GameManager.Instance.DescontarEnemigo(this.gameObject);
-        
-    }
 
     private void Start()
     {
@@ -64,10 +59,6 @@ public class Torreta : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        //GameManager.Instance.DescontarEnemigo(gameObject);
-    }
 
     private void OnTriggerEnter(Collider other)
     {
