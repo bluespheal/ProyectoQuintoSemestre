@@ -96,8 +96,8 @@ public class GameManager : MonoBehaviour
     public void DescontarEnemigo(GameObject enemigo)
     {
         cuentaEnemigos.Remove(enemigo);
-        Debug.Log("Descontando");
-        Debug.Log(cuentaEnemigos.Count);
+        //Debug.Log("Descontando");
+        //Debug.Log(cuentaEnemigos.Count);
         if (cuentaEnemigos.Count == 0/* && nivelCargado*/)
         {
             Debug.Log("Nivel Terminado");
