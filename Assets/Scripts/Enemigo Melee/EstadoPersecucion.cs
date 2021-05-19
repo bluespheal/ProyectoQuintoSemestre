@@ -10,6 +10,7 @@ public class EstadoPersecucion : Estado
     public override void OnEnable()
     {
         base.OnEnable();
+        SoundManager.playSound(SoundManager.Sound.alerta);
         //Empesamos a ejecutar la animacion de correr
         agente.anim.SetBool("run",true);
         //Debug.Log("Entro a run");

@@ -8,11 +8,13 @@ public static class SoundManager
     public enum Sound
     {
         alerta,
-        gas,
-        puas,
-        nuevo,
+        swing,
+        reflejar,
+        lanzar,
         gah,
         guh,
+        hit,
+        destruir,
     }
     //Se declara un objeto que reproduce los sonidos y se puede reciclar
     static GameObject oneShotGameObject;
