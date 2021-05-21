@@ -2727,6 +2727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CajaRompible (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4038012226152161842, guid: 681e164ecbbf6f141843c2ae32019e67, type: 3}
+      propertyPath: m_TagString
+      value: Caja
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 681e164ecbbf6f141843c2ae32019e67, type: 3}
 --- !u!1001 &1053111234
@@ -3037,6 +3041,10 @@ PrefabInstance:
     - target: {fileID: 4038012226152161842, guid: 681e164ecbbf6f141843c2ae32019e67, type: 3}
       propertyPath: m_Name
       value: CajaRompible (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038012226152161842, guid: 681e164ecbbf6f141843c2ae32019e67, type: 3}
+      propertyPath: m_TagString
+      value: Caja
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 681e164ecbbf6f141843c2ae32019e67, type: 3}
