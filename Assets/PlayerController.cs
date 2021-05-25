@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
         vignette_vol.profile.TryGet(out vignette);
 
         shield_Listener.AddListener(ToggleShield);
-        globalLight = GameObject.Find("Principal Light").GetComponent<Light>();
+        //globalLight = GameObject.Find("Principal Light").GetComponent<Light>();
         //globalLight.intensity = 100;
 
         SetRagdollParts();        

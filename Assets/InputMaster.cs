@@ -242,6 +242,61 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""56bb168c-4c29-4332-b253-55168402d6a2"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""632c0594-351e-4970-8c5e-91f7c1d41bce"",
+                    ""path"": ""<OculusTouchController>/thumbstick/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Clamp(max=1)"",
+                    ""groups"": ""Oculus"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""8f92931f-e3b1-46e9-8af8-06d875673598"",
+                    ""path"": ""<OculusTouchController>/thumbstick/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Clamp(min=-1)"",
+                    ""groups"": ""Oculus"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ba50d6e7-bedd-4ec5-b859-2edd920e56db"",
+                    ""path"": ""<OculusTouchController>/thumbstick/x"",
+                    ""interactions"": """",
+                    ""processors"": ""Clamp(min=-1)"",
+                    ""groups"": ""Oculus"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""2fab56dd-f669-459e-b95a-e7bf175d6ee2"",
+                    ""path"": ""<OculusTouchController>/thumbstick/x"",
+                    ""interactions"": """",
+                    ""processors"": ""Clamp(max=1)"",
+                    ""groups"": ""Oculus"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""a7e61a26-ef7f-4aa7-b847-6f5b73e81720"",
                     ""path"": ""<Gamepad>/leftTrigger"",
@@ -458,6 +513,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Oculus"",
+            ""bindingGroup"": ""Oculus"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<XRController>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
@@ -612,6 +678,15 @@ public class @InputMaster : IInputActionCollection, IDisposable
         {
             if (m_keyboardandmouseSchemeIndex == -1) m_keyboardandmouseSchemeIndex = asset.FindControlSchemeIndex(" keyboard and mouse");
             return asset.controlSchemes[m_keyboardandmouseSchemeIndex];
+        }
+    }
+    private int m_OculusSchemeIndex = -1;
+    public InputControlScheme OculusScheme
+    {
+        get
+        {
+            if (m_OculusSchemeIndex == -1) m_OculusSchemeIndex = asset.FindControlSchemeIndex("Oculus");
+            return asset.controlSchemes[m_OculusSchemeIndex];
         }
     }
     public interface IPlayerActions

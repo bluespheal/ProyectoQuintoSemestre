@@ -12,7 +12,7 @@ public class PlayerControllerVR : MonoBehaviour
 {
     [Header("Input variables")]
     public InputMaster controls; // input manager
-    public PlayerMovement motor; // movement manager
+    public PlayerMovementVR motor; // movement manager
 
     [Header("Scene Changer")]
     public SceneChanger sceneChanger; //scene manager
@@ -85,7 +85,7 @@ public class PlayerControllerVR : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         alive = true;
         playerAnimator = gameObject.GetComponent<Animator>();
-        motor = GetComponent<PlayerMovement>();
+        motor = GetComponent<PlayerMovementVR>();
 
         //Inputs
         controls = new InputMaster();

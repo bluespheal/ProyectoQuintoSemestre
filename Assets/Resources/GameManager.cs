@@ -57,8 +57,8 @@ public class GameManager : MonoBehaviour
         else
         {
             puerta = GameObject.FindGameObjectWithTag("Puerta");
-            puerta.GetComponent<MeshRenderer>().enabled = true;
-            puerta.GetComponent<BoxCollider>().enabled = true;
+            //puerta.GetComponent<MeshRenderer>().enabled = true;
+            //puerta.GetComponent<BoxCollider>().enabled = true;
             ///nivelCargado = true;
         }
 

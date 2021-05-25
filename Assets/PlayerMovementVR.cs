@@ -12,7 +12,7 @@ public class PlayerMovementVR : MonoBehaviour
     public float currentCamRotationX;
     public float camRotLimit = 45f; //Limits Camera rotation
 
-    public PlayerController player;
+    public PlayerControllerVR player;
     public Rigidbody rb;
 
     private Vector3 finalVel = Vector3.zero;
@@ -21,7 +21,7 @@ public class PlayerMovementVR : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        player = GetComponent<PlayerController>();
+        player = GetComponent<PlayerControllerVR>();
     }
 
     private void FixedUpdate()
@@ -51,6 +51,7 @@ public class PlayerMovementVR : MonoBehaviour
         {
             rb.MovePosition(rb.position + finalVel * Time.fixedDeltaTime);//Calculates RB position
             player.moving = true;//Tells player that is moving
+            Debug.Log("Me estoy moviendo");
         } else
         {
             player.moving = false;//Tells player that is not moving
