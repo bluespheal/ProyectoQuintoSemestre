@@ -46,7 +46,7 @@ Material:
     m_Floats:
     - Disolveamount: 0.5
     - Disolveamount_: 0
-    - DissolveAmount_: 1.05
+    - DissolveAmount_: 0
     - Dissolveamount_: 0.5
     - Vector1_1025cb75f54446cf90e7c7d8fd5d5b08: 0
     - Vector1_3d882112f5ff4bd097853e4a8d49caac: 0
