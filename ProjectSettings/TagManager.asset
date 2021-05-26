@@ -10,6 +10,8 @@ TagManager:
   - bateAzul
   - bateRojo
   - Puerta
+  - Escudo
+  - Caja
   layers:
   - Default
   - TransparentFX

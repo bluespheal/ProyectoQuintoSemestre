@@ -10699,7 +10699,7 @@ GameObject:
   - component: {fileID: 6871406739847925320}
   m_Layer: 2
   m_Name: EscudoParticula
-  m_TagString: Untagged
+  m_TagString: Escudo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

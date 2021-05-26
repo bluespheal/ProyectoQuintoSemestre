@@ -20,6 +20,7 @@ public class EnemyShield : Enemy1
         currentShieldHealth = maxShieldHealth;
         DefineColor();
         DefineShieldColor();
+        hasShield = true;
     }
 
     protected override void Die()
@@ -55,6 +56,7 @@ public class EnemyShield : Enemy1
     }
     public void CollisionDetected(BodyCollisionEnemyShield collision)
     {
+        SoundManager.playSound(SoundManager.Sound.hit);
         TakeDamage(1);
     }
 }

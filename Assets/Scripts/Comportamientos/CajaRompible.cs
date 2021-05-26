@@ -25,6 +25,7 @@ public class CajaRompible : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Danger"))
         {
+            SoundManager.playSound(SoundManager.Sound.destruir);
             Rompete();
         }
     }
