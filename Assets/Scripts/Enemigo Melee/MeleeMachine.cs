@@ -11,6 +11,7 @@ public class MeleeMachine : MonoBehaviour
     public Rigidbody rb;
     public bool meleeRange;
     public bool attacking;
+    public bool muerto;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
