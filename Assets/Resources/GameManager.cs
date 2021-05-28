@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public List<GameObject> cuentaEnemigos = new List<GameObject>();
     public GameObject puerta;
     public bool nivelCargado;
+    public deathRain rain;
+    public int deaths;
     //Se hace un getter a la referencia para que se pueda acceder facilmente desde otros scripts
     public static GameManager Instance
     {
@@ -50,6 +52,13 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         print(scene.name);
+        if(scene.name == "GameOver")
+        {
+            rain = GameObject.Find("Death rain").GetComponent<deathRain>();
+            deaths++;
+            rain.deaths = deaths;
+        }
+
         if(scene.name == "GameOver" || scene.name == "Menu")
         {
             return;
