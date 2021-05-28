@@ -24,7 +24,7 @@ public class RespawnEnemy : MonoBehaviour
             if (!miEnemigo.activeInHierarchy)
             {
                 miEnemigo.SetActive(true);
-                miEnemigo.transform.position = spawnPoint;
+                miEnemigo.transform.position = spawnPoint.position;
             }
         }
     }

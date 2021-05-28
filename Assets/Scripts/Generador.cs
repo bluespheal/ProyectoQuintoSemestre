@@ -7,12 +7,16 @@ public class Generador : MonoBehaviour
     public bool imRed;
     public bool imBlue;
     public int color;
+    public MeshRenderer areaColor;
+    public MeshRenderer areaColor2;
     public Material rojo;
     public Material azul;
     public float TiempoMovimiento;
+    public bool bajando;
 
     void Start()
     {
+        bajando = false;
         DefineColor();
     }
 
@@ -29,13 +33,19 @@ public class Generador : MonoBehaviour
 
     public void BajarGenerador()
     {
-        LeanTween.moveY(gameObject, -1.2f, TiempoMovimiento);
+        bajando = true;
+        LeanTween.moveY(gameObject, -4.5f, TiempoMovimiento).setOnComplete(Desactivar);
     }
 
     public void SubirGenerador()
     {
         DefineColor();
-        LeanTween.moveY(gameObject, 1.0f, TiempoMovimiento);
+        LeanTween.moveY(gameObject, 0.0f, TiempoMovimiento);
+    }
+
+    void Desactivar()
+    {
+        bajando = false;
     }
 
     public void DefineColor()
@@ -47,7 +57,8 @@ public class Generador : MonoBehaviour
             imRed = false;
             imBlue = true;
             gameObject.layer = LayerMask.NameToLayer("Azul");
-            gameObject.GetComponent<MeshRenderer>().material = azul;
+            areaColor2.material = azul;
+            areaColor.material = azul;
 
         }
         else
@@ -55,7 +66,8 @@ public class Generador : MonoBehaviour
             imRed = true;
             imBlue = false;
             gameObject.layer = LayerMask.NameToLayer("Rojo");
-            gameObject.GetComponent<MeshRenderer>().material = rojo;
+            areaColor2.material = rojo;
+            areaColor.material = rojo;
         }
     }
 }
