@@ -16,7 +16,7 @@ public class Generador : MonoBehaviour
 
     void Start()
     {
-        bajando = false;
+        this.bajando = false;
         DefineColor();
     }
 
@@ -33,19 +33,21 @@ public class Generador : MonoBehaviour
 
     public void BajarGenerador()
     {
-        bajando = true;
+        this.bajando = true;
         LeanTween.moveY(gameObject, -4.5f, TiempoMovimiento).setOnComplete(Desactivar);
     }
 
     public void SubirGenerador()
     {
+        this.bajando = false;
         DefineColor();
         LeanTween.moveY(gameObject, 0.0f, TiempoMovimiento);
     }
 
     void Desactivar()
     {
-        bajando = false;
+        this.bajando = false;
+        this.gameObject.SetActive(false);
     }
 
     public void DefineColor()

@@ -9,46 +9,29 @@ public class ControladorDeGeneradores : MonoBehaviour
     float segundos;
     int generadorActivo;
     int numAnterior;
+    bool moviendo;
 
     private void Start()
     {
         segundos = segundosCambio; 
         generadorActivo = 0;
+        moviendo = false;
     }
 
     void Update()
     {
         RestarSegundos();
 
-        if(segundos <= 0.0f)
+        if(segundos <= 0.0f && !moviendo)
         {
-            segundos = segundosCambio; //Reiniciar contador
-
-            numAnterior = generadorActivo; //guardar el numero actual del generador
-
-            generadores[numAnterior].GetComponent<Generador>().BajarGenerador(); //Bajar el generador antes de activar el siguiente
-
-            generadorActivo = Random.Range(0, 4); //Generar un nuevo numero
-
-            while(generadorActivo == numAnterior) //Si el nuevo numero es igual al anterior, generar uno nuevo
-            {
-                generadorActivo = Random.Range(0, 4);
-            }
-
-            while(generadores[numAnterior].GetComponent<Generador>().bajando == true) //Si el generador anterior ya terminó de bajar
-            {
-            }
-            generadores[generadorActivo].GetComponent<Generador>().SubirGenerador(); //Subir nuevo generador
+            moviendo = true;
+            StartCoroutine(Mover());
         }
     }
 
     IEnumerator Mover()
     {
-        segundos = segundosCambio; //Reiniciar contador
-
         numAnterior = generadorActivo; //guardar el numero actual del generador
-
-        generadores[numAnterior].GetComponent<Generador>().BajarGenerador(); //Bajar el generador antes de activar el siguiente
 
         generadorActivo = Random.Range(0, 4); //Generar un nuevo numero
 
@@ -57,9 +40,17 @@ public class ControladorDeGeneradores : MonoBehaviour
             generadorActivo = Random.Range(0, 4);
         }
 
+        generadores[numAnterior].GetComponent<Generador>().BajarGenerador(); //Bajar el generador antes de activar el siguiente
+
         yield return new WaitUntil(() => generadores[numAnterior].GetComponent<Generador>().bajando == false);
 
+        generadores[generadorActivo].SetActive(true);
+
         generadores[generadorActivo].GetComponent<Generador>().SubirGenerador(); //Subir nuevo generador
+
+        segundos = segundosCambio; //Reiniciar contador
+
+        moviendo = false;
     }
 
     void RestarSegundos()
