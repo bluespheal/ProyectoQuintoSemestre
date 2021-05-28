@@ -58,7 +58,7 @@ public class Generador : MonoBehaviour
         {
             imRed = false;
             imBlue = true;
-            gameObject.layer = LayerMask.NameToLayer("Azul");
+            this.gameObject.layer = LayerMask.NameToLayer("Azul");
             areaColor2.material = azul;
             areaColor.material = azul;
 
@@ -67,7 +67,7 @@ public class Generador : MonoBehaviour
         {
             imRed = true;
             imBlue = false;
-            gameObject.layer = LayerMask.NameToLayer("Rojo");
+            this.gameObject.layer = LayerMask.NameToLayer("Rojo");
             areaColor2.material = rojo;
             areaColor.material = rojo;
         }
