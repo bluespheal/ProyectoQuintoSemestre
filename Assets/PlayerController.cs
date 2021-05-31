@@ -188,6 +188,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_bate.name == "Bate_Rojo" && !lanzadoRojo)
         {
+            SoundManager.playSound(SoundManager.Sound.lanzar);
             bateRojo.SetActive(false);
             lanzadoRojo = true;
             haircross.enabled = false;
@@ -197,6 +198,7 @@ public class PlayerController : MonoBehaviour
         }
         if (_bate.name == "Bate_Azul" && !lanzadoAzul)
         {
+            SoundManager.playSound(SoundManager.Sound.lanzar);
             bateAzul.SetActive(false);
             lanzadoAzul = true;
             haircross.enabled = false;
@@ -265,6 +267,7 @@ public class PlayerController : MonoBehaviour
 
     public void EnableHitbox(GameObject hitbox)//Enables the hitbox passed for a brief second
     {
+        SoundManager.playSound(SoundManager.Sound.swing);
         hitbox.SetActive(true);
         isAttacking = true;
         StartCoroutine(DeactivateHitbox(hitboxTime, hitbox)); // Disables the passed hitbox after a set time.

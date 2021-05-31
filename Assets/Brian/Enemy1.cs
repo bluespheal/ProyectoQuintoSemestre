@@ -69,6 +69,7 @@ public class Enemy1 : MonoBehaviour
 
     public void CollisionDetected(BodyCollisionEnemyMelee collision)
     {
+        SoundManager.playSound(SoundManager.Sound.hit);
         TakeDamage(1);
     }
 }

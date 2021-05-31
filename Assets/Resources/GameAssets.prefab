@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4666292578615916783}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -44,15 +44,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundAudioClipArray:
+  - sound: 0
+    audioClip: {fileID: 8300000, guid: 24b98f01e2630ad4ca598095f32df4c3, type: 3}
+  - sound: 1
+    audioClip: {fileID: 8300000, guid: 1c316174d64f2e14babab7e771e82d05, type: 3}
+  - sound: 2
+    audioClip: {fileID: 8300000, guid: f757de6e46b430442894c0c544f7eb52, type: 3}
   - sound: 3
-    audioClip: {fileID: 8300000, guid: 4246937255350854a9b44bba4f5f42bf, type: 3}
-  - sound: 3
-    audioClip: {fileID: 8300000, guid: 4246937255350854a9b44bba4f5f42bf, type: 3}
-  - sound: 3
-    audioClip: {fileID: 8300000, guid: 4246937255350854a9b44bba4f5f42bf, type: 3}
-  - sound: 3
-    audioClip: {fileID: 8300000, guid: 4246937255350854a9b44bba4f5f42bf, type: 3}
+    audioClip: {fileID: 8300000, guid: 673a98730e157394091c574c5f1918d8, type: 3}
   - sound: 4
     audioClip: {fileID: 8300000, guid: 46962848c3246ef47baa466dbf0eb0d2, type: 3}
   - sound: 5
     audioClip: {fileID: 8300000, guid: 0b10ea8affcfb794380e7d23a36dc171, type: 3}
+  - sound: 6
+    audioClip: {fileID: 8300000, guid: ad28da9908cc9b0489e30c3d18e9e565, type: 3}
+  - sound: 7
+    audioClip: {fileID: 8300000, guid: eb038b8e1a397a242853d70fc90809dd, type: 3}
