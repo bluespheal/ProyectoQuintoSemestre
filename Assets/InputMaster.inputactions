@@ -38,14 +38,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Mouse",
-                    "type": "Value",
-                    "id": "863f254c-6630-4a76-ab6b-77fc3391e45e",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "LanzarIzq",
                     "type": "Button",
                     "id": "c3a80876-b0a4-4203-bdff-1637463adcb8",
@@ -242,7 +234,7 @@
                 {
                     "name": "up",
                     "id": "632c0594-351e-4970-8c5e-91f7c1d41bce",
-                    "path": "<OculusTouchController>/thumbstick/y",
+                    "path": "<XRController>{LeftHand}/joystick",
                     "interactions": "",
                     "processors": "Clamp(max=1)",
                     "groups": "Oculus",
@@ -253,7 +245,7 @@
                 {
                     "name": "down",
                     "id": "8f92931f-e3b1-46e9-8af8-06d875673598",
-                    "path": "<OculusTouchController>/thumbstick/y",
+                    "path": "<XRController>{LeftHand}/joystick",
                     "interactions": "",
                     "processors": "Clamp(min=-1)",
                     "groups": "Oculus",
@@ -264,7 +256,7 @@
                 {
                     "name": "left",
                     "id": "ba50d6e7-bedd-4ec5-b859-2edd920e56db",
-                    "path": "<OculusTouchController>/thumbstick/x",
+                    "path": "<XRController>{LeftHand}/joystick",
                     "interactions": "",
                     "processors": "Clamp(min=-1)",
                     "groups": "Oculus",
@@ -275,7 +267,7 @@
                 {
                     "name": "right",
                     "id": "2fab56dd-f669-459e-b95a-e7bf175d6ee2",
-                    "path": "<OculusTouchController>/thumbstick/x",
+                    "path": "<XRController>{LeftHand}/joystick",
                     "interactions": "",
                     "processors": "Clamp(max=1)",
                     "groups": "Oculus",
@@ -436,17 +428,6 @@
                     "action": "Camera",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "0138671d-ec14-490e-a1bd-e1ea40e38ee6",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": " keyboard and mouse",
-                    "action": "Mouse",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 },
                 {
                     "name": "",

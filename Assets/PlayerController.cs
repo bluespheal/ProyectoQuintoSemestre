@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
             moveInput = controls.Player.Move.ReadValue<Vector2>(); //Gets vectors for player movement
             motor.Move(getFinalVel(moveInput.x, moveInput.y)); //Passes on movement Vectors
 
-            lookInput = controls.Player.Mouse.ReadValue<Vector2>(); //Gets vectors for Camera control
+            //lookInput = controls.Player.Mouse.ReadValue<Vector2>(); //Gets vectors for Camera control
             Vector3 yRot = new Vector3(0f, lookInput.x, 0f) * lookSpeed; //asigns Vector 2 values into a Vector 3
             motor.rotate(yRot); // Passes on camera Vectors
 

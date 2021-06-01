@@ -51,7 +51,7 @@ public class PlayerMovementVR : MonoBehaviour
         {
             rb.MovePosition(rb.position + finalVel * Time.fixedDeltaTime);//Calculates RB position
             player.moving = true;//Tells player that is moving
-            Debug.Log("Me estoy moviendo");
+            //Debug.Log("Me estoy moviendo");
         } else
         {
             player.moving = false;//Tells player that is not moving

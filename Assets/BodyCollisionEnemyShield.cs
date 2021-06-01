@@ -15,7 +15,7 @@ public class BodyCollisionEnemyShield : MonoBehaviour
         me = GetComponentInParent<EnemyShield>();
         active = true;
         coll = GetComponent<Collider>();
-        print(coll);
+        //print(coll);
         coll.isTrigger = active;
     }
 

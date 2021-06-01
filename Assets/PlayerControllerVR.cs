@@ -42,15 +42,6 @@ public class PlayerControllerVR : MonoBehaviour
     public float timerWinRate;
     public float timerLoseRate;
 
-    [Header("Animation")]
-    public Animator playerAnimator;
-
-    [Header("Hitbox")] //Player weapon hitboxes
-    public float hitboxTime;
-    public bool isAttacking;
-    public GameObject leftHitbox;
-    public GameObject rightHitbox;
-
 
     [Header("Ragdoll Parts List")] //Bodyparts for ragdoll physics
     public List<Collider> ragdollParts = new List<Collider>();
@@ -84,13 +75,10 @@ public class PlayerControllerVR : MonoBehaviour
         //Assign initial values for certain variables.
         rb = gameObject.GetComponent<Rigidbody>();
         alive = true;
-        playerAnimator = gameObject.GetComponent<Animator>();
         motor = GetComponent<PlayerMovementVR>();
 
         //Inputs
         controls = new InputMaster();
-        controls.Player.LeftArm.performed += context => LeftArm();
-        controls.Player.RightArm.performed += context => RightArm();
 
         controls.Player.LanzarIzq.started += context => ApuntarIzq();
         controls.Player.LanzarIzq.canceled += context => Lanzar(bateAzul_prefab);
@@ -127,7 +115,7 @@ public class PlayerControllerVR : MonoBehaviour
     private void TurnOnRagdoll()// Turns on Ragdoll physics
     {
         rb.useGravity = false;
-        this.gameObject.GetComponent<CapsuleCollider>().enabled = false; //deactivates this object collider
+        this.gameObject.GetComponent<BoxCollider>().enabled = false; //deactivates this object collider
         foreach (Collider collider in ragdollParts) //Activates colliders for Ragdoll parts and sets their speed to 0
         {
             collider.isTrigger = false;
@@ -137,12 +125,13 @@ public class PlayerControllerVR : MonoBehaviour
 
     private void Update()
     {
+        //Debug.Log("Camara player" + cam.transform.rotation.eulerAngles);
         if (alive) // While the player is alive
         {
             moveInput = controls.Player.Move.ReadValue<Vector2>(); //Gets vectors for player movement
             motor.Move(getFinalVel(moveInput.x, moveInput.y)); //Passes on movement Vectors
 
-            lookInput = controls.Player.Mouse.ReadValue<Vector2>(); //Gets vectors for Camera control
+            //lookInput = controls.Player.Mouse.ReadValue<Vector2>(); //Gets vectors for Camera control
             Vector3 yRot = new Vector3(0f, lookInput.x, 0f) * lookSpeed; //asigns Vector 2 values into a Vector 3
             motor.rotate(yRot); // Passes on camera Vectors
 
@@ -157,7 +146,6 @@ public class PlayerControllerVR : MonoBehaviour
         else //When player loses
         {
             rb.constraints = RigidbodyConstraints.None; //Enables player rotation
-            playerAnimator.enabled = false; //Deactivates animator for Ragdoll physics
             TurnOnRagdoll(); //Activates ragdoll physics
             rb.velocity = Vector3.zero;
         }
@@ -237,46 +225,6 @@ public class PlayerControllerVR : MonoBehaviour
     private void OnDisable() // Disables input control
     {
         controls.Disable();
-    }
-
-    public void LeftArm() //Code that runs when the left arm action is triggered
-    {
-        if (lanzadoAzul)
-        {
-            return;
-        }
-        if (alive && !isAttacking)
-        {
-            playerAnimator.SetTrigger("Left");
-            EnableHitbox(leftHitbox); // Enables the left hitbox for a brief moment
-        }
-    }
-
-    public void RightArm() //Code that runs when the right arm action is triggered
-    {
-        if (lanzadoRojo)
-        {
-            return;
-        }
-        if (alive && !isAttacking)
-        {
-            playerAnimator.SetTrigger("Right");
-            EnableHitbox(rightHitbox);// Enables the right hitbox for a brief moment
-        }
-    }
-
-    public void EnableHitbox(GameObject hitbox)//Enables the hitbox passed for a brief second
-    {
-        hitbox.SetActive(true);
-        isAttacking = true;
-        StartCoroutine(DeactivateHitbox(hitboxTime, hitbox)); // Disables the passed hitbox after a set time.
-    }
-
-    private IEnumerator DeactivateHitbox(float waitTime, GameObject hitbox)// Disables the passed hitbox after a set time.
-    {
-        yield return new WaitForSeconds(waitTime);
-        hitbox.SetActive(false);
-        isAttacking = false;
     }
 
     private void OnCollisionEnter(Collision collision)

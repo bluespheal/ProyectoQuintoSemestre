@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("OnEnable called");
+        //Debug.Log("OnEnable called");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     // called second
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
     }
     private void OnDestroy()
     {
-        Debug.Log("OnDisable");
+        //Debug.Log("OnDisable");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     void Update()
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
     public void ContarEnemigo(GameObject enemigo)
     {
         cuentaEnemigos.Add(enemigo);
-        Debug.Log(cuentaEnemigos.Count);
+        //Debug.Log(cuentaEnemigos.Count);
     }
     //Funcion que llaman los enemigos de cada nivel al morir para que el GM los pueda contar
     public void DescontarEnemigo(GameObject enemigo)

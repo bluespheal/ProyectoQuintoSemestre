@@ -34,12 +34,19 @@ public class Bala : MonoBehaviour
 
     public void Reflejar(Transform direccion)
     {
-        transform.rotation = direccion.rotation; 
+        transform.eulerAngles = direccion.rotation.eulerAngles; 
+        //print(direccion.localRotation);
+    }
+    public void Reflejar(Vector3 direccion)
+    {
+        transform.eulerAngles = direccion;
+        print(direccion);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         particles.Play();
+        
         //Destriur al chocar con el jugador
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Barrera") || collision.gameObject.CompareTag("Caja"))
         {

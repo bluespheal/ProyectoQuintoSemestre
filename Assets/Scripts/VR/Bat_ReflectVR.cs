@@ -6,12 +6,18 @@ public class Bat_ReflectVR : MonoBehaviour
 {
     [Header("Bat Layer")]
     public int color_layer; //Bat Layer
-    public Camera player;
+    public Transform player;
+    Vector3 goal;
 
-    private void Awake()
+    private void Start()
     {
         color_layer = gameObject.layer; //Assigns current layer as layer to reflect
-        player = GetComponent<Camera>();
+        player = GameObject.Find("PlayerCamera").GetComponent<Transform>();
+    }
+
+    private void LateUpdate()
+    {
+        goal = player.eulerAngles;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -20,7 +26,7 @@ public class Bat_ReflectVR : MonoBehaviour
         {
             if (collision.collider.gameObject.GetComponent<Bala>()) //If the hit object is a bullet
             {
-                collision.collider.gameObject.GetComponent<Bala>().Reflejar(player.transform);
+                collision.collider.gameObject.GetComponent<Bala>().Reflejar(goal);
                 collision.collider.gameObject.GetComponent<Bala>().reflected = true; //Sets bullet reflected state as true
             }
         }

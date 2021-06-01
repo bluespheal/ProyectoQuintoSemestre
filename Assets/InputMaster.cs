@@ -51,14 +51,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Mouse"",
-                    ""type"": ""Value"",
-                    ""id"": ""863f254c-6630-4a76-ab6b-77fc3391e45e"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""LanzarIzq"",
                     ""type"": ""Button"",
                     ""id"": ""c3a80876-b0a4-4203-bdff-1637463adcb8"",
@@ -255,7 +247,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""632c0594-351e-4970-8c5e-91f7c1d41bce"",
-                    ""path"": ""<OculusTouchController>/thumbstick/y"",
+                    ""path"": ""<XRController>{LeftHand}/joystick"",
                     ""interactions"": """",
                     ""processors"": ""Clamp(max=1)"",
                     ""groups"": ""Oculus"",
@@ -266,7 +258,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""8f92931f-e3b1-46e9-8af8-06d875673598"",
-                    ""path"": ""<OculusTouchController>/thumbstick/y"",
+                    ""path"": ""<XRController>{LeftHand}/joystick"",
                     ""interactions"": """",
                     ""processors"": ""Clamp(min=-1)"",
                     ""groups"": ""Oculus"",
@@ -277,7 +269,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""ba50d6e7-bedd-4ec5-b859-2edd920e56db"",
-                    ""path"": ""<OculusTouchController>/thumbstick/x"",
+                    ""path"": ""<XRController>{LeftHand}/joystick"",
                     ""interactions"": """",
                     ""processors"": ""Clamp(min=-1)"",
                     ""groups"": ""Oculus"",
@@ -288,7 +280,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""2fab56dd-f669-459e-b95a-e7bf175d6ee2"",
-                    ""path"": ""<OculusTouchController>/thumbstick/x"",
+                    ""path"": ""<XRController>{LeftHand}/joystick"",
                     ""interactions"": """",
                     ""processors"": ""Clamp(max=1)"",
                     ""groups"": ""Oculus"",
@@ -452,17 +444,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0138671d-ec14-490e-a1bd-e1ea40e38ee6"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "" keyboard and mouse"",
-                    ""action"": ""Mouse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""59e41219-5f6d-4e30-b5da-9e0bcb3df9d2"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
@@ -533,7 +514,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_Player_LeftArm = m_Player.FindAction("LeftArm", throwIfNotFound: true);
         m_Player_RightArm = m_Player.FindAction("RightArm", throwIfNotFound: true);
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
-        m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
         m_Player_LanzarIzq = m_Player.FindAction("LanzarIzq", throwIfNotFound: true);
         m_Player_LanzarDer = m_Player.FindAction("LanzarDer", throwIfNotFound: true);
     }
@@ -589,7 +569,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_LeftArm;
     private readonly InputAction m_Player_RightArm;
     private readonly InputAction m_Player_Camera;
-    private readonly InputAction m_Player_Mouse;
     private readonly InputAction m_Player_LanzarIzq;
     private readonly InputAction m_Player_LanzarDer;
     public struct PlayerActions
@@ -600,7 +579,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
         public InputAction @LeftArm => m_Wrapper.m_Player_LeftArm;
         public InputAction @RightArm => m_Wrapper.m_Player_RightArm;
         public InputAction @Camera => m_Wrapper.m_Player_Camera;
-        public InputAction @Mouse => m_Wrapper.m_Player_Mouse;
         public InputAction @LanzarIzq => m_Wrapper.m_Player_LanzarIzq;
         public InputAction @LanzarDer => m_Wrapper.m_Player_LanzarDer;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -624,9 +602,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Camera.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
                 @Camera.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
                 @Camera.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
-                @Mouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
-                @Mouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
-                @Mouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
                 @LanzarIzq.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLanzarIzq;
                 @LanzarIzq.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLanzarIzq;
                 @LanzarIzq.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLanzarIzq;
@@ -649,9 +624,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Camera.started += instance.OnCamera;
                 @Camera.performed += instance.OnCamera;
                 @Camera.canceled += instance.OnCamera;
-                @Mouse.started += instance.OnMouse;
-                @Mouse.performed += instance.OnMouse;
-                @Mouse.canceled += instance.OnMouse;
                 @LanzarIzq.started += instance.OnLanzarIzq;
                 @LanzarIzq.performed += instance.OnLanzarIzq;
                 @LanzarIzq.canceled += instance.OnLanzarIzq;
@@ -695,7 +667,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
         void OnLeftArm(InputAction.CallbackContext context);
         void OnRightArm(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
-        void OnMouse(InputAction.CallbackContext context);
         void OnLanzarIzq(InputAction.CallbackContext context);
         void OnLanzarDer(InputAction.CallbackContext context);
     }
