@@ -16,20 +16,18 @@ public class EnemyTraining : MonoBehaviour
     public GameObject model;
     public GameObject arma;
     public string deadTag;
-    public DisolbingController ControlParticulas;
+    public DisolveTraining ControlParticulas;
 
-    void Start()
+    private void OnEnable()
     {
-        newMaterials = new Material[2];
+        if(newMaterials.Length == 0)
+            newMaterials = new Material[2];
         currentHealth = maxHealth;
         DefineColor();
     }
     protected virtual void Die()
     {
-        arma.transform.gameObject.tag = "Untagged";
-        arma.transform.parent = null;
-        arma.GetComponent<Rigidbody>().isKinematic = false;
-        GameManager.Instance.DescontarEnemigo(this.gameObject);
+        //GameManager.Instance.DescontarEnemigo(this.gameObject);
         this.ControlParticulas.LamarDisolve();
     }
     public void TakeDamage(int damage)
@@ -68,6 +66,12 @@ public class EnemyTraining : MonoBehaviour
 
     public void CollisionDetected(BodyCollisionEnemyMelee collision)
     {
-        TakeDamage(1);
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.CompareTag(deadTag))
+            TakeDamage(1);
     }
 }

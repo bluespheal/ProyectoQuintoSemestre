@@ -9,7 +9,7 @@ public class EnemyShield : Enemy1
     public GameObject shield;
     public GameObject shieldR;
     public GameObject shieldB;
-    public Escudo actualShield;
+    public EscudoTraining actualShield;
     public bool hasShield;
 
     void Start()

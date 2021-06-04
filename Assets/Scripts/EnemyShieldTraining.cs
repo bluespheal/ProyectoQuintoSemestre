@@ -12,27 +12,15 @@ public class EnemyShieldTraining : EnemyTraining
     public Escudo actualShield;
     public bool hasShield;
 
-    void Start()
+    
+    private void OnEnable()
     {
-        GameManager.Instance.ContarEnemigo(this.gameObject);
-        newMaterials = new Material[2];
         currentHealth = maxHealth;
         currentShieldHealth = maxShieldHealth;
         DefineColor();
         DefineShieldColor();
     }
 
-    protected override void Die()
-    {
-        if (currentShieldHealth < 1)
-        {
-            arma.transform.gameObject.tag = "Untagged";
-            arma.transform.parent = null;
-            arma.GetComponent<Rigidbody>().isKinematic = false;
-            GameManager.Instance.DescontarEnemigo(this.gameObject);
-            this.ControlParticulas.LamarDisolve();
-        }
-    }
 
     public void DefineShieldColor()
     {

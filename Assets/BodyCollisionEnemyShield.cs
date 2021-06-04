@@ -15,16 +15,20 @@ public class BodyCollisionEnemyShield : MonoBehaviour
         me = GetComponentInParent<EnemyShield>();
         active = true;
         coll = GetComponent<Collider>();
-        print(coll);
+        //print(coll);
         coll.isTrigger = active;
     }
 
     private void Update()
     {
-        if(!me.hasShield && !yasta)
+        if (me)
         {
-            StartCoroutine(activarColl());
+           if(!me.hasShield && !yasta)
+            {
+                StartCoroutine(activarColl());
+            }
         }
+        
     }
 
     IEnumerator activarColl()

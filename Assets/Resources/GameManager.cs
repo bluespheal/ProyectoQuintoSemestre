@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
     public void ContarEnemigo(GameObject enemigo)
     {
         cuentaEnemigos.Add(enemigo);
-        Debug.Log(cuentaEnemigos.Count);
+        //Debug.Log(cuentaEnemigos.Count);
     }
     //Funcion que llaman los enemigos de cada nivel al morir para que el GM los pueda contar
     public void DescontarEnemigo(GameObject enemigo)

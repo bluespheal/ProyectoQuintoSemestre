@@ -24,10 +24,14 @@ public class BodyCollisionEnemyMelee : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        print(collision.gameObject.CompareTag(me.deadTag));
-        if (collision.gameObject.CompareTag(me.deadTag))
+        if (me)
         {
-            me.CollisionDetected(this);
+            print(collision.gameObject.CompareTag(me.deadTag));
+            if (collision.gameObject.CompareTag(me.deadTag))
+            {
+                me.CollisionDetected(this);
+            }
         }
+        
     }
 }
