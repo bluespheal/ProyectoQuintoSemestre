@@ -18,10 +18,10 @@ public class EnemyTraining : MonoBehaviour
     public string deadTag;
     public DisolveTraining ControlParticulas;
 
-    private void OnEnable()
+    void Start()
     {
-        if(newMaterials.Length == 0)
-            newMaterials = new Material[2];
+        Debug.Log("aber");
+        newMaterials = new Material[2];
         currentHealth = maxHealth;
         DefineColor();
     }
@@ -40,6 +40,8 @@ public class EnemyTraining : MonoBehaviour
     }
     public void DefineColor()
     {
+        Debug.Log(newMaterials[0]);
+        Debug.Log(newMaterials[1]);
         //color = Random.Range(0, 2);
         //print(color);
         if (color == 0)

@@ -9,21 +9,26 @@ public class EnemyShieldTraining : EnemyTraining
     public GameObject shield;
     public GameObject shieldR;
     public GameObject shieldB;
-    public Escudo actualShield;
+    public EscudoTraining actualShield;
     public bool hasShield;
 
     
     private void OnEnable()
     {
+        
+    }
+    private void Start()
+    {
         currentHealth = maxHealth;
         currentShieldHealth = maxShieldHealth;
+        newMaterials = new Material[2];
         DefineColor();
         DefineShieldColor();
     }
 
-
     public void DefineShieldColor()
     {
+        print("entre a define shield");
         color = Random.Range(0, 2);
         //print(color);
         if (color == 0)
