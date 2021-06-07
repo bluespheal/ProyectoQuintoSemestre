@@ -21,10 +21,14 @@ public class BodyCollisionEnemyShield : MonoBehaviour
 
     private void Update()
     {
-        if(!me.hasShield && !yasta)
+        if (me)
         {
-            StartCoroutine(activarColl());
+           if(!me.hasShield && !yasta)
+            {
+                StartCoroutine(activarColl());
+            }
         }
+        
     }
 
     IEnumerator activarColl()

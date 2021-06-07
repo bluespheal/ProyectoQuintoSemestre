@@ -12,6 +12,7 @@ TagManager:
   - Puerta
   - Escudo
   - Caja
+  - muro
   layers:
   - Default
   - TransparentFX

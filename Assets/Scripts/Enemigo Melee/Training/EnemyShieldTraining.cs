@@ -9,33 +9,26 @@ public class EnemyShieldTraining : EnemyTraining
     public GameObject shield;
     public GameObject shieldR;
     public GameObject shieldB;
-    public Escudo actualShield;
+    public EscudoTraining actualShield;
     public bool hasShield;
 
-    void Start()
+    
+    private void OnEnable()
     {
-        GameManager.Instance.ContarEnemigo(this.gameObject);
-        newMaterials = new Material[2];
+        
+    }
+    private void Start()
+    {
         currentHealth = maxHealth;
         currentShieldHealth = maxShieldHealth;
+        newMaterials = new Material[2];
         DefineColor();
         DefineShieldColor();
     }
 
-    protected override void Die()
-    {
-        if (currentShieldHealth < 1)
-        {
-            arma.transform.gameObject.tag = "Untagged";
-            arma.transform.parent = null;
-            arma.GetComponent<Rigidbody>().isKinematic = false;
-            GameManager.Instance.DescontarEnemigo(this.gameObject);
-            this.ControlParticulas.LamarDisolve();
-        }
-    }
-
     public void DefineShieldColor()
     {
+        print("entre a define shield");
         color = Random.Range(0, 2);
         //print(color);
         if (color == 0)

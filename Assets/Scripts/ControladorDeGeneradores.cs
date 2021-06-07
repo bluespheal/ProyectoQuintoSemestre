@@ -11,6 +11,9 @@ public class ControladorDeGeneradores : MonoBehaviour
     int numAnterior;
     bool moviendo;
 
+    static Generador gen;
+    WaitUntil wuEsperar = new WaitUntil(Esperar);
+
     private void Start()
     {
         segundos = segundosCambio; 
@@ -40,9 +43,11 @@ public class ControladorDeGeneradores : MonoBehaviour
             generadorActivo = Random.Range(0, 4);
         }
 
-        generadores[numAnterior].GetComponent<Generador>().BajarGenerador(); //Bajar el generador antes de activar el siguiente
+        gen = generadores[numAnterior].GetComponent<Generador>();
 
-        yield return new WaitUntil(() => generadores[numAnterior].GetComponent<Generador>().bajando == false);
+        gen.BajarGenerador(); //Bajar el generador antes de activar el siguiente
+
+        yield return wuEsperar;
 
         generadores[generadorActivo].SetActive(true);
 
@@ -51,6 +56,11 @@ public class ControladorDeGeneradores : MonoBehaviour
         segundos = segundosCambio; //Reiniciar contador
 
         moviendo = false;
+    }
+
+    static bool Esperar()
+    {
+        return gen.bajando == false;
     }
 
     void RestarSegundos()
