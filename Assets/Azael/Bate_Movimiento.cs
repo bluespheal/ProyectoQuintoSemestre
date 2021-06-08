@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bate_Movimiento : MonoBehaviour
 {
     GameObject player;
+    GameObject playerCamara;
     Vector3 playerPos;
     bool choque = false;
     public float distanciaMaxima;
@@ -15,16 +16,18 @@ public class Bate_Movimiento : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(transform.position);
         //Obtener referencia al jugador
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("PlayerFoot");
+        playerCamara = GameObject.FindGameObjectWithTag("Player");
         posInicial = transform.position;
-        transform.rotation = player.transform.rotation;
+        //transform.rotation = player.transform.rotation;
     }
 
-    void Update()
+    void LateUpdate()
     {
         //Obtener posicion del jugador en todo momento
-        playerPos = player.transform.position;
+        playerPos = playerCamara.transform.position;
         //Obtener posicion actual del bate
         posActual = transform.position;
         //Calcular la distancia que ha avanzado
@@ -75,7 +78,7 @@ public class Bate_Movimiento : MonoBehaviour
 
     private void OnDestroy()
     {
-        PlayerController pc = player.GetComponent<PlayerController>();
+        PlayerControllerVR pc = player.GetComponent<PlayerControllerVR>();
         if (this.gameObject.name == "Bate_Rojo(Clone)")
         {
             pc.lanzadoRojo = false;

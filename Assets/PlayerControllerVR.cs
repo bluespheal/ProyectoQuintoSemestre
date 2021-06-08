@@ -81,10 +81,10 @@ public class PlayerControllerVR : MonoBehaviour
         controls = new InputMaster();
 
         controls.Player.LanzarIzq.started += context => ApuntarIzq();
-        controls.Player.LanzarIzq.canceled += context => Lanzar(bateAzul_prefab);
+        controls.Player.LanzarIzq.started += context => Lanzar(bateAzul);
 
         controls.Player.LanzarDer.started += context => ApuntarDer();
-        controls.Player.LanzarDer.canceled += context => Lanzar(bateRojo_prefab);
+        controls.Player.LanzarDer.started += context => Lanzar(bateRojo);
 
         saturation_vol = cam.GetComponent<Volume>();//gets Volume of camera for Post-processing
         saturation_vol.profile.TryGet(out colors); //assigns var colors the vol profile
@@ -173,21 +173,33 @@ public class PlayerControllerVR : MonoBehaviour
 
     }
 
+    private void LateUpdate()
+    {
+        Debug.Log(lanzamientoPos.position);
+
+    }
+
+
     //Lanzar bate
     public void Lanzar(GameObject _bate)
     {
+        Debug.LogError(lanzamientoPos.position);
         if (_bate.name == "Bate_Rojo" && !lanzadoRojo)
         {
-            bateRojo.SetActive(false);
+            Debug.Log("Se lanzo ROJO!!");
+
+            bateRojo_prefab.SetActive(false);
             lanzadoRojo = true;
             haircross.enabled = false;
             GameObject bate = Instantiate(_bate, lanzamientoPos.position, lanzamientoPos.localRotation);
+            Debug.Log(lanzamientoPos.position);
             Rigidbody rb = bate.GetComponent<Rigidbody>();
             rb.AddForce(cam.transform.forward * fuerza, ForceMode.Impulse);
         }
         if (_bate.name == "Bate_Azul" && !lanzadoAzul)
         {
-            bateAzul.SetActive(false);
+            Debug.Log("Se lanzo Azul!!");
+            bateAzul_prefab.SetActive(false);
             lanzadoAzul = true;
             haircross.enabled = false;
             GameObject bate = Instantiate(_bate, lanzamientoPos.position, lanzamientoPos.localRotation);
@@ -198,12 +210,14 @@ public class PlayerControllerVR : MonoBehaviour
 
     public void ApuntarIzq()
     {
+        //Debug.Log("Estoy apuntando IZQ");
         if (lanzadoAzul) return;
         haircross.enabled = true;
     }
 
     public void ApuntarDer()
     {
+        Debug.Log("Estoy apuntando Der");
         if (lanzadoRojo) return;
         haircross.enabled = true;
     }

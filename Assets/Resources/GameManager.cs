@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
         instance = this;
         //Se le dice que no se destruya entre escenas
         DontDestroyOnLoad(gameObject);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
 
