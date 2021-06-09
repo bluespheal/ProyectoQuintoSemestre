@@ -10,26 +10,47 @@ public class ControladorDeGeneradores : MonoBehaviour
     int generadorActivo;
     int numAnterior;
     bool moviendo;
+    public bool golpeado;
 
     static Generador gen;
     WaitUntil wuEsperar = new WaitUntil(Esperar);
+    WaitForSecondsRealtime wsEsperar = new WaitForSecondsRealtime(12.0f);
 
     private void Start()
     {
         segundos = segundosCambio; 
         generadorActivo = 0;
         moviendo = false;
+        golpeado = false;
     }
 
     void Update()
     {
-        RestarSegundos();
-
-        if(segundos <= 0.0f && !moviendo)
+        if (!golpeado)
         {
-            moviendo = true;
-            StartCoroutine(Mover());
+            RestarSegundos();
+
+            if (segundos <= 0.0f && !moviendo)
+            {
+                moviendo = true;
+                StartCoroutine(Mover());
+            }
         }
+        else
+        {
+            StartCoroutine(EsperarGolpe());
+        }
+    }
+
+    IEnumerator EsperarGolpe()
+    {
+        //Desactivar el escudo del jefe--------------
+        //Ya que este el escudo lo ponen aqui
+        //-------------------------------------------
+        yield return wuEsperar;
+        golpeado = false;
+        segundos = 0.0f;
+        //Aqui activan el escudo de nuevo, cuando lo agreguen
     }
 
     IEnumerator Mover()
