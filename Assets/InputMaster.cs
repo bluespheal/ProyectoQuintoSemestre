@@ -279,22 +279,11 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""59e41219-5f6d-4e30-b5da-9e0bcb3df9d2"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""LanzarIzq"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""78dcb2a2-428d-4499-a9fa-34cbfb8a690a"",
-                    ""path"": ""<XRController>{LeftHand}/triggerButton"",
+                    ""path"": ""<XRController>{LeftHand}/primaryButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Oculus"",
                     ""action"": ""LanzarIzq"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -302,7 +291,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""97aaf8e6-1ef7-42b4-b8bc-f192864a7b8d"",
-                    ""path"": ""<XRController>{RightHand}/triggerButton"",
+                    ""path"": ""<XRController>{RightHand}/primaryButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Oculus; keyboard and mouse"",
@@ -318,6 +307,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""LanzarDer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59e41219-5f6d-4e30-b5da-9e0bcb3df9d2"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LanzarIzq"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }

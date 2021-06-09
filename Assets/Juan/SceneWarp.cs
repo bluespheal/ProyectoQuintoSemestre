@@ -9,9 +9,9 @@ public class SceneWarp : MonoBehaviour
 
     void OnCollisionEnter(Collision collision) //If player enters the collision, it warps to the designated scene.
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("PlayerFoot"))
         {
-            collision.gameObject.GetComponent<PlayerController>().Fade();
+            collision.gameObject.GetComponent<PlayerControllerVR>().Fade();
             sceneChanger.ChangeLevel(levelToWarpTo);
         }
     }

@@ -16,12 +16,12 @@ public class Bate_Movimiento : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
         //Obtener referencia al jugador
         player = GameObject.FindGameObjectWithTag("PlayerFoot");
         playerCamara = GameObject.FindGameObjectWithTag("Player");
         posInicial = transform.position;
-        //transform.rotation = player.transform.rotation;
+        transform.rotation = playerCamara.transform.rotation;
     }
 
     void LateUpdate()
@@ -75,6 +75,11 @@ public class Bate_Movimiento : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        print("Se desactivo");
+    }
+
 
     private void OnDestroy()
     {
@@ -82,12 +87,12 @@ public class Bate_Movimiento : MonoBehaviour
         if (this.gameObject.name == "Bate_Rojo(Clone)")
         {
             pc.lanzadoRojo = false;
-            pc.bateRojo.SetActive(true);
+            pc.bateRojo_prefab.SetActive(true);
         }
         if (this.gameObject.name == "Bate_Azul(Clone)")
         {
             pc.lanzadoAzul = false;
-            pc.bateAzul.SetActive(true);
+            pc.bateAzul_prefab.SetActive(true);
         }
         choque = false;
     }

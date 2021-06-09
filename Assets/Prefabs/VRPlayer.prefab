@@ -151,8 +151,9 @@ Transform:
   - {fileID: 2544804499449350907}
   - {fileID: 2544804500838607312}
   - {fileID: 2544804500251509388}
+  - {fileID: 2544804500441029093}
   m_Father: {fileID: 2544804499593925700}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!20 &2544804499488180148
 Camera:
@@ -314,7 +315,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2544804500441029093}
   - {fileID: 2544804499488180149}
   - {fileID: 2544804500034068030}
   - {fileID: 2544804499989832000}
@@ -5157,7 +5157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2544804499593925700}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2544804499989831996
 MonoBehaviour:
@@ -5380,7 +5380,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2544804499989832003}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
@@ -5507,7 +5507,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2544804499593925700}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2544804500034068026
 MonoBehaviour:
@@ -5730,7 +5730,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2544804500034068033}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
@@ -10698,12 +10698,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2544804500441029092}
-  m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 0.7990303, y: 0, z: 0.7990303}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2544804499593925700}
-  m_RootOrder: 0
+  m_Father: {fileID: 2544804499488180149}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2544804500765889603
 GameObject:
@@ -10724,7 +10724,7 @@ GameObject:
   - component: {fileID: 319787314}
   m_Layer: 4
   m_Name: VRPlayer
-  m_TagString: Untagged
+  m_TagString: PlayerFoot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10897,15 +10897,14 @@ MonoBehaviour:
   timerWinRate: 0.08
   timerLoseRate: 0
   ragdollParts: []
-  bateAzul_prefab: {fileID: 148287088234513695, guid: 4ec468bc884e70a49941a33743bc7a2d, type: 3}
-  bateRojo_prefab: {fileID: 237813669442652114, guid: 2c15bd22d3e21434c926972a448d3349, type: 3}
+  bateAzul_prefab: {fileID: 2544804500034068033}
+  bateRojo_prefab: {fileID: 2544804499989832003}
   lanzamientoPos: {fileID: 2544804500441029093}
-  haircross: {fileID: 0}
   fuerza: 15
   lanzadoAzul: 0
   lanzadoRojo: 0
-  bateRojo: {fileID: 0}
-  bateAzul: {fileID: 0}
+  bateRojo: {fileID: 1419480081911577081, guid: 3d4d10bd6c8c9eb4eb848b5e09bafaec, type: 3}
+  bateAzul: {fileID: 1419480081911577081, guid: f877bc7e1ddf0fc4486e4505e69238fd, type: 3}
 --- !u!114 &2544804500765889592
 MonoBehaviour:
   m_ObjectHideFlags: 0

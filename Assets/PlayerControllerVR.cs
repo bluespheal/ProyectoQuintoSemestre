@@ -50,12 +50,12 @@ public class PlayerControllerVR : MonoBehaviour
     public GameObject bateAzul_prefab;
     public GameObject bateRojo_prefab;
     public Transform lanzamientoPos; //De donde saldra el arma
-    public Image haircross; //Imagen de la mira
     public float fuerza;
     public bool lanzadoAzul;
     public bool lanzadoRojo;
     public GameObject bateRojo;
     public GameObject bateAzul;
+    WaitForEndOfFrame finFrame = new WaitForEndOfFrame();
 
     //Player and Camera movement vectors
     Vector2 moveInput;
@@ -80,10 +80,8 @@ public class PlayerControllerVR : MonoBehaviour
         //Inputs
         controls = new InputMaster();
 
-        controls.Player.LanzarIzq.started += context => ApuntarIzq();
         controls.Player.LanzarIzq.started += context => Lanzar(bateAzul);
 
-        controls.Player.LanzarDer.started += context => ApuntarDer();
         controls.Player.LanzarDer.started += context => Lanzar(bateRojo);
 
         saturation_vol = cam.GetComponent<Volume>();//gets Volume of camera for Post-processing
@@ -112,16 +110,7 @@ public class PlayerControllerVR : MonoBehaviour
         }
     }
 
-    private void TurnOnRagdoll()// Turns on Ragdoll physics
-    {
-        rb.useGravity = false;
-        this.gameObject.GetComponent<BoxCollider>().enabled = false; //deactivates this object collider
-        foreach (Collider collider in ragdollParts) //Activates colliders for Ragdoll parts and sets their speed to 0
-        {
-            collider.isTrigger = false;
-            collider.attachedRigidbody.velocity = Vector3.zero;
-        }
-    }
+    
 
     private void Update()
     {
@@ -146,7 +135,6 @@ public class PlayerControllerVR : MonoBehaviour
         else //When player loses
         {
             rb.constraints = RigidbodyConstraints.None; //Enables player rotation
-            TurnOnRagdoll(); //Activates ragdoll physics
             rb.velocity = Vector3.zero;
         }
 
@@ -173,54 +161,35 @@ public class PlayerControllerVR : MonoBehaviour
 
     }
 
-    private void LateUpdate()
-    {
-        Debug.Log(lanzamientoPos.position);
-
-    }
 
 
     //Lanzar bate
     public void Lanzar(GameObject _bate)
     {
-        Debug.LogError(lanzamientoPos.position);
+        StartCoroutine(Lanzar2(_bate));
+        
+    }
+    IEnumerator Lanzar2(GameObject _bate)
+    {
+        yield return finFrame;
         if (_bate.name == "Bate_Rojo" && !lanzadoRojo)
         {
-            Debug.Log("Se lanzo ROJO!!");
-
             bateRojo_prefab.SetActive(false);
             lanzadoRojo = true;
-            haircross.enabled = false;
             GameObject bate = Instantiate(_bate, lanzamientoPos.position, lanzamientoPos.localRotation);
-            Debug.Log(lanzamientoPos.position);
             Rigidbody rb = bate.GetComponent<Rigidbody>();
             rb.AddForce(cam.transform.forward * fuerza, ForceMode.Impulse);
         }
         if (_bate.name == "Bate_Azul" && !lanzadoAzul)
         {
-            Debug.Log("Se lanzo Azul!!");
             bateAzul_prefab.SetActive(false);
             lanzadoAzul = true;
-            haircross.enabled = false;
             GameObject bate = Instantiate(_bate, lanzamientoPos.position, lanzamientoPos.localRotation);
             Rigidbody rb = bate.GetComponent<Rigidbody>();
             rb.AddForce(cam.transform.forward * fuerza, ForceMode.Impulse);
         }
     }
 
-    public void ApuntarIzq()
-    {
-        //Debug.Log("Estoy apuntando IZQ");
-        if (lanzadoAzul) return;
-        haircross.enabled = true;
-    }
-
-    public void ApuntarDer()
-    {
-        Debug.Log("Estoy apuntando Der");
-        if (lanzadoRojo) return;
-        haircross.enabled = true;
-    }
 
     Vector3 getFinalVel(float x_axis, float z_axis) //Calculates movement vectors in the correct axes
     {

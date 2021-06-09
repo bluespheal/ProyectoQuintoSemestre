@@ -10,7 +10,6 @@ public class Bala : MonoBehaviour
 
     void Start()
     {
-        //Invoke("Destructor", 10);//Destruir el objeto si no choca
         Destroy(gameObject, 10.0f);
         transform.parent = null;
 
@@ -40,7 +39,6 @@ public class Bala : MonoBehaviour
     public void Reflejar(Vector3 direccion)
     {
         transform.eulerAngles = direccion;
-        print(direccion);
     }
 
     private void OnCollisionEnter(Collision collision)
