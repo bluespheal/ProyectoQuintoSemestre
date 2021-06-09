@@ -1468,6 +1468,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 681e164ecbbf6f141843c2ae32019e67, type: 3}
+--- !u!4 &484935183 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2544804500765889601, guid: f7e030c7355fd5b4dadda83c5c8b7a5a, type: 3}
+  m_PrefabInstance: {fileID: 1507572494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &486990563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4750,7 +4755,7 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  Target: {fileID: 0}
+  Target: {fileID: 484935183}
   forceMultiplier: 1000
   reward: 0
   valCastigo: 0
@@ -4813,16 +4818,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 9
+    VectorObservationSize: 12
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
-      BranchSizes: 0300000002000000
-    VectorActionSize: 0300000002000000
+      BranchSizes: 060000000200000002000000
+    VectorActionSize: 060000000200000002000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: c9f6aaaa867847743b6a9e29f5075139, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 379c693b2c9667b489c6813521af0c8d, type: 3}
   m_InferenceDevice: 2
   m_BehaviorType: 0
   m_BehaviorName: Torretin
