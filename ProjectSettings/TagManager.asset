@@ -13,6 +13,7 @@ TagManager:
   - Escudo
   - Caja
   - muro
+  - balaReflejada
   layers:
   - Default
   - TransparentFX

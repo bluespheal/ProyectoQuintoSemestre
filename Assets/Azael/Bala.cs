@@ -34,6 +34,7 @@ public class Bala : MonoBehaviour
 
     public void Reflejar(Transform direccion)
     {
+        this.tag = "balaReflejada";
         transform.rotation = direccion.rotation; 
     }
 
