@@ -13,6 +13,7 @@ public class Generador : MonoBehaviour
     public Material azul;
     public float TiempoMovimiento;
     public bool bajando;
+    public ControladorDeGeneradores control;
 
     void Start()
     {
@@ -24,10 +25,7 @@ public class Generador : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("bateRojo") || collision.gameObject.CompareTag("bateAzul"))
         {
-            //Desactivar el escudo del jefe
-
-            //Bajar generador
-            BajarGenerador();
+            control.golpeado = true;
         }
     }
 

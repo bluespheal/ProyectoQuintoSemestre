@@ -40,34 +40,8 @@ public class TorretaIA : Agent
                 ShotAvaliable = true;
 
         }
-        /*int layerMask = 1 << LayerMask.NameToLayer("Player");
-        Vector3 direction = transform.forward;
-        Debug.DrawRay(start: shootingPoint.position, dir: direction * 40f, Color.green, duration: 2f);
-        //Ojos
-        float angle = 360 / 8;
-        Quaternion quat = Quaternion.AngleAxis(angle, Vector3.up);
-        Vector3 vec = transform.right;
-        for (int i = 0; i <= 360; i = i + 45)
-        {
-            Debug.DrawRay(start: transform.position, dir: vec * 40f, Color.red, duration: 0.5f);
-            if (Physics.Raycast(origin: transform.position, vec, out var eyehit, maxDistance: 40f, layerMask))
-            {
-                Target = eyehit.transform;
-            }
-            vec = quat * vec;
-        }
-        //Mira
-        
-        if (Physics.Raycast(origin: shootingPoint.position, direction, out var hit, maxDistance: 40f, layerMask))
-        {           
-            SetReward(0.01f);
-        }
-        else
-        {
-            SetReward(-0.03f);
-        }*/
-
     }
+
 
     public void movimiento(float angulo)
     {
@@ -104,6 +78,7 @@ public class TorretaIA : Agent
         sensor.AddObservation(this.transform.localRotation);
         sensor.AddObservation(this.Target != null);
         sensor.AddObservation(this.ShotAvaliable);
+        sensor.AddObservation(this.aim);
         if (Target)
         {
             sensor.AddObservation(Target.localPosition);
@@ -115,12 +90,16 @@ public class TorretaIA : Agent
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         //ojos.RaySensor.Perception();
-        SetReward(-0.01f);
+        GiveReward(-0.01f);
         //Vectores de accion
         Aim();
         float controlSignal = 0.0f;
+        int direction;
         controlSignal = actionBuffers.DiscreteActions[0];
         int accionDisparo = actionBuffers.DiscreteActions[1];
+        direction = actionBuffers.DiscreteActions[2];
+        //float angle = Mathf.Clamp(controlSignal, 0.0f, 5.0f);
+        //Debug.LogError("Angle: " + controlSignal);
         dispara(accionDisparo);
         if (Target)
         {
@@ -130,29 +109,29 @@ public class TorretaIA : Agent
             //print(anguloDiferencial);
             if (anguloDiferencial < 10.0f)
             {
-                SetReward(0.015f);
+                GiveReward(0.15f);
                 aim = true;
             }
-            else if (anguloDiferencial >= 20.0f)
+            else if (anguloDiferencial >= 10.0f)
             {
-                SetReward(-0.03f);
+                GiveReward(-0.05f);
                 aim = false;
             }
             //transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f));
         }
-        movimiento(Mathf.Clamp(controlSignal, -5.0f, 5.0f));
 
-
-        if (ShotAvaliable && aim)
+        if (direction == 1)
         {
-            dispara(1);
-
+            movimiento(controlSignal);
         }
-
+        else
+        {
+            movimiento(controlSignal * -1);
+        }
 
         if (contador >= 2400)
         {
-            SetReward(-0.1f);
+            GiveReward(-0.1f);
             //contador = 0;
         }
 
@@ -161,11 +140,11 @@ public class TorretaIA : Agent
     public void Acertar()
     {
         contador = 0;
-        SetReward(1.5f);
+        GiveReward(2.0f);
         aciertos++;
         if (aciertos >= 5)
         {
-            SetReward(valRecompenza);
+            GiveReward(valRecompenza);
             valRecompenza++;
             EndEpisode();
         }
@@ -173,30 +152,21 @@ public class TorretaIA : Agent
     public void Fallar()
     {
         //Debug.Log("fallo");
-        SetReward(-2.0f);
+        //GiveReward(-3.0f);
         fallos++;
-        if (fallos >= 5)
+        /*if (fallos >= 5)
         {
-            SetReward(valCastigo);
+            GiveReward(valCastigo);
             valCastigo--;
             EndEpisode();
-        }
+        }*/
     }
     public void GiveReward(float _reward)
     {
         SetReward(_reward);
         reward += _reward;
-        //RefreshPointsOnCanvas();
     }
-    /*
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            dispara();
-        }
-    }
-    */
+
     void dispara(int accion)
     {
         if (accion == 1 && ShotAvaliable)
@@ -231,4 +201,6 @@ public class TorretaIA : Agent
         AddReward(1.0f);
         EndEpisode();
     }
+
+
 }

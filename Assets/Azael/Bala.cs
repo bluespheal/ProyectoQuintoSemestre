@@ -10,6 +10,7 @@ public class Bala : MonoBehaviour
 
     void Start()
     {
+        //Invoke("Destructor", 10);//Destruir el objeto si no choca
         Destroy(gameObject, 10.0f);
         transform.parent = null;
 
@@ -33,18 +34,13 @@ public class Bala : MonoBehaviour
 
     public void Reflejar(Transform direccion)
     {
-        transform.eulerAngles = direccion.rotation.eulerAngles; 
-        //print(direccion.localRotation);
-    }
-    public void Reflejar(Vector3 direccion)
-    {
-        transform.eulerAngles = direccion;
+        this.tag = "balaReflejada";
+        transform.rotation = direccion.rotation; 
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         particles.Play();
-        
         //Destriur al chocar con el jugador
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Barrera") || collision.gameObject.CompareTag("Caja"))
         {
