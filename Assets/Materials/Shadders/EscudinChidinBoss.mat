@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Agua
-  m_Shader: {fileID: -6465566751694194690, guid: 881ce126831027d4a8857ce5d9aa0cb3, type: 3}
+  m_Name: EscudinChidinBoss
+  m_Shader: {fileID: -6465566751694194690, guid: 728dc4f439085804aa26133af7758cde, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_e5bf8113732049c7a42f3e21ceb1d59e:
+        m_Texture: {fileID: 2800000, guid: e0db4417ab1d51344a69b4240e126f3b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -32,15 +36,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_0f2d3e3a7e484d9cacee3f59c87ac471: 3.55
-    - Vector1_20b0066b4a2b4cee93cc617565378d5e: 32.61
-    - Vector1_2aabfd6a784446cab554db4b030abe2d: 4
-    - Vector1_41cba43dd4994950902f77ac86f8b079: 8.69
-    - Vector1_497a3203d0c4456e94b759a218c5e818: 1.01
-    - Vector1_5e52cd30a28b4d47bae627cd16ef182f: 0.55
-    - Vector1_bb96cf360ee1466ea21f0c65ced1cca3: 1
+    - Vector1_e1b8263ba8d54c4382a0c87c6663c08e: 3.5
     m_Colors:
-    - Color_11ecb1d81b5a4c2097bad45532370177: {r: 0.17647058, g: 0.6509804, b: 0.53289545, a: 0}
-    - Color_5cd7ef454ee542deab148779322f66e9: {r: 0, g: 0, b: 0, a: 0}
-    - Vector2_6ad3174e18484bacb26243537ae95bce: {r: -0.03, g: 0, b: 0, a: 0}
+    - Color_1724d0e7ea984409bcde6a3b8ffa6f36: {r: 14.557048, g: 10.506841, b: 4.3442497, a: 1}
+    - Color_d958b49bb2024bd0b9777b41e2d10ce9: {r: 1.9060811, g: 1.9867578, b: 0, a: 1}
+    - Vector3_8d8a050d10f34123901b83408d016b62: {r: 0.05, g: 0.05, b: 0.18, a: 0}
   m_BuildTextureStacks: []

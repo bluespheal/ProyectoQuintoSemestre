@@ -11,7 +11,7 @@ public class ControladorDeGeneradores : MonoBehaviour
     int numAnterior;
     bool moviendo;
     public bool golpeado;
-
+    public GameObject escudo;
     static Generador gen;
     WaitUntil wuEsperar = new WaitUntil(Esperar);
     WaitForSecondsRealtime wsEsperar = new WaitForSecondsRealtime(12.0f);
@@ -46,12 +46,12 @@ public class ControladorDeGeneradores : MonoBehaviour
     IEnumerator EsperarGolpe()
     {
         //Desactivar el escudo del jefe--------------
-        //Ya que este el escudo lo ponen aqui
-        //-------------------------------------------
+        escudo.SetActive(false);
         yield return wsEsperar;
         golpeado = false;
         segundos = 0.0f;
         //Aqui activan el escudo de nuevo, cuando lo agreguen
+        escudo.SetActive(true);
     }
 
     IEnumerator Mover()

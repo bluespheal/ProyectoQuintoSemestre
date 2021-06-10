@@ -8,7 +8,7 @@ public class ShielCollider : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Bate") || collision.gameObject.CompareTag("BalaReflejada"))
+        if (collision.gameObject.CompareTag("bateAzul") || collision.gameObject.CompareTag("balaReflejada") || collision.gameObject.CompareTag("bateRojo"))
         {
             me.CollisionDetectedShield(this);
         }

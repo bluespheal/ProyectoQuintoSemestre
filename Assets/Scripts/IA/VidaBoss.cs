@@ -15,6 +15,7 @@ public class VidaBoss : MonoBehaviour
     public SceneChanger sc;
     public GameObject cuerpo;
     Vector3 origen = new Vector3(0, 0, 0);
+    public GameObject Escudin;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,10 +48,9 @@ public class VidaBoss : MonoBehaviour
         }
     }
 
-    
-
     IEnumerator Muerte()
     {
+        Escudin.SetActive(false);
         yield return new WaitForSeconds(2);
         ia.enabled = false;
         ps1.SetActive(true);
@@ -64,6 +64,7 @@ public class VidaBoss : MonoBehaviour
         ps2.SetActive(false);
         ps3.SetActive(false);
         ps4.SetActive(true);
+        
         yield return tiempo;
         yield return tiempo;
         sc.ChangeLevel("Menu");

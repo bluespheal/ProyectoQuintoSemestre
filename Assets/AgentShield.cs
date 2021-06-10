@@ -114,7 +114,7 @@ public class AgentShield : Agent
 
     public void RefreshPointsOnCanvas()
     {
-        points.text = reward.ToString();
+        //points.text = reward.ToString();
     }
 
     public void GiveReward(float _reward)
