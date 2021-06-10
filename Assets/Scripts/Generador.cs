@@ -14,7 +14,12 @@ public class Generador : MonoBehaviour
     public float TiempoMovimiento;
     public bool bajando;
     public ControladorDeGeneradores control;
-
+    public ParticleSystem particulas;
+    public ParticleSystem particulas2;
+    public ParticleSystem particulas3;
+    public GameObject PS1;
+    public GameObject PS2;
+    public GameObject PS3;
     void Start()
     {
         this.bajando = false;
@@ -25,6 +30,12 @@ public class Generador : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("bateRojo") || collision.gameObject.CompareTag("bateAzul"))
         {
+            PS1.SetActive(true);
+            PS2.SetActive(true);
+            PS3.SetActive(true);
+            particulas.Play();
+            particulas2.Play();
+            particulas3.Play();
             control.golpeado = true;
         }
     }

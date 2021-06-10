@@ -69,7 +69,7 @@ public class Bate_Movimiento : MonoBehaviour
         { 
             Destroy(gameObject);
         }
-        else if(other.gameObject.CompareTag("Escudo"))
+        else if(other.gameObject.CompareTag("Escudo") || other.gameObject.CompareTag("Boss"))
         {
             choque = true;
         }

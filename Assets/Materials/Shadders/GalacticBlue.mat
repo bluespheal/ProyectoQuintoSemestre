@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GalacticBlue
+  m_Shader: {fileID: -6465566751694194690, guid: d54dd5e4b61fcbe4c9d2b42f04b6b58d, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Cubemap_757f6e4f6ce3473290c00b4f4adbb849:
+        m_Texture: {fileID: 8900000, guid: f618b52224474d840a7f34001594205d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Cubemap_7f97cf56b7a64674b202065b831a63c0:
+        m_Texture: {fileID: 8900000, guid: 84530adcf460a4549872cbeef9381ab5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_4ec51185b1314bf49b710c9bdda932a4: 1.5
+    - Vector1_6d8e37ef8eec474d9dd95f4b2a99bd0f: 0.33
+    - Vector1_77889c02606d4268af0709cec1545806: 1
+    - Vector1_b00344cfb93e4c5db7d81ec665e39b08: 25
+    - Vector1_b068d197447c4e218daa3de08d597f6a: -1.01
+    m_Colors:
+    - Color_ccf979bc9ef74feba0b02f940baf68f9: {r: 0.113725476, g: 0.13372074, b: 0.9529412, a: 1}
+    - Color_e5208816c7a743d5b63e789eb5f0eee7: {r: 0, g: 0.046190023, b: 1, a: 1}
+    - Color_f9e535802fd3478097bf6baf1a95c8da: {r: 1, g: 0.94725055, b: 0, a: 1}
+    - Vector3_1c89ed5e89c34c5d90cd75294efeee95: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

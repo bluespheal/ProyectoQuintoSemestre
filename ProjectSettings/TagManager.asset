@@ -15,6 +15,9 @@ TagManager:
   - muro
   - PlayerFoot
   - balaReflejada
+  - generador
+  - FxTemporaire
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -28,7 +31,7 @@ TagManager:
   - Despedazado
   - Player
   - Fade
-  - 
+  - EscudoBoss
   - 
   - 
   - 
