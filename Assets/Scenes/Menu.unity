@@ -738,6 +738,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7715605413576056921, guid: 45ea6fe9e109baa4fa920cb50302b1dd, type: 3}
+      propertyPath: puntos
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45ea6fe9e109baa4fa920cb50302b1dd, type: 3}
 --- !u!1001 &422133494
@@ -3502,6 +3506,17 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8aa7a33ec074d5f429b993c5c857614b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
+--- !u!114 &1677803527 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7715605413576056921, guid: 45ea6fe9e109baa4fa920cb50302b1dd, type: 3}
+  m_PrefabInstance: {fileID: 277729283}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20196d79166116140b025aee6da2fda3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1704880500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4883762814713038, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
@@ -3622,6 +3637,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameoverScene: 
+  givesPoints: 0
+  gamemanager: {fileID: 1677803527}
 --- !u!4 &1922303571
 Transform:
   m_ObjectHideFlags: 0
