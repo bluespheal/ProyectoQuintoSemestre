@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CampodeVision : MonoBehaviour
 {
-    public string tagObjetivo = "Player";
+    public string tagObjetivo = "PlayerFoot";
     public MeleeMachine infoMelee;
     Vector3 posicionActual;
     Vector3 posicionObjetico;
@@ -26,7 +26,7 @@ public class CampodeVision : MonoBehaviour
     {
         //Debug.Log(other);
         //Analiza el objeto con el que colisiona
-        if(other.gameObject.CompareTag("Player"))
+        if(other.gameObject.CompareTag("PlayerFoot"))
         {
                 //Si es el jugador guarda  su posicion
             posicionActual = gameObject.transform.position;
@@ -39,7 +39,7 @@ public class CampodeVision : MonoBehaviour
             if(Physics.Raycast(ray, out hit, direccion.magnitude))
             {
                 //Si tiene una vista directa lo vuelve su objetivo
-                if (hit.collider.gameObject.CompareTag("Player"))
+                if (hit.collider.gameObject.CompareTag("PlayerFoot"))
                 {
                     infoMelee.target = other.gameObject;
                     return;
@@ -53,7 +53,7 @@ public class CampodeVision : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         //Si el jugador sale de nuestro campo de vision...
-        if(infoMelee.target!=null && other.gameObject.CompareTag("Player"))
+        if(infoMelee.target!=null && other.gameObject.CompareTag("PlayerFoot"))
         {
             //... perdemos el "taeget" del jugador
             infoMelee.target = null;

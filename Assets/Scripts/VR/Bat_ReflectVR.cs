@@ -7,7 +7,7 @@ public class Bat_ReflectVR : MonoBehaviour
     [Header("Bat Layer")]
     public int color_layer; //Bat Layer
     public Transform player;
-    Vector3 goal;
+    Transform goal;
 
     private void Start()
     {
@@ -17,7 +17,7 @@ public class Bat_ReflectVR : MonoBehaviour
 
     private void LateUpdate()
     {
-        goal = player.eulerAngles;
+        goal = player;
     }
 
     private void OnCollisionEnter(Collision collision)

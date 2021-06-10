@@ -13,7 +13,7 @@ public class Proyectil : MonoBehaviour
         {
             torretin.Fallar();
             this.gameObject.SetActive(false);
-        }else if (collision.gameObject.CompareTag("Player"))
+        }else if (collision.gameObject.CompareTag("PlayerFoot"))
         {
             torretin.Acertar();
             this.gameObject.SetActive(false);

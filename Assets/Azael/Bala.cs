@@ -7,6 +7,7 @@ public class Bala : MonoBehaviour
     public float vel; //Velocidad
     public bool reflected = false;
     public ParticleSystem particles;
+    
 
     void Start()
     {

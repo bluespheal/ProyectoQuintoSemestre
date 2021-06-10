@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9158210140708518513}
   - component: {fileID: 8468051522916173287}
   - component: {fileID: 3406837511314550529}
+  - component: {fileID: 1396105180315167147}
   m_Layer: 0
   m_Name: Balita
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8640534486858868758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.838234, y: -19.981401, z: 19.372362}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -126,3 +127,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1396105180315167147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8640534486858868758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e37f49ee2926249bd814b9bd84dddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vel: 0
+  reflected: 0
+  particles: {fileID: 0}

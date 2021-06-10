@@ -223,7 +223,7 @@ public class PlayerControllerVR : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         alive = false;
         Fade();
