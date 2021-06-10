@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VidaBoss : MonoBehaviour
 {
-    int vidaMax;
+    public int vidaMax;
     WaitForSeconds tiempo;
     TorretaIA ia;
     public GameObject ps1;
@@ -14,6 +14,7 @@ public class VidaBoss : MonoBehaviour
     public GameObject psh;
     public SceneChanger sc;
     public GameObject cuerpo;
+    Vector3 origen = new Vector3(0, 0, 0);
     // Start is called before the first frame update
     void Start()
     {
@@ -23,15 +24,20 @@ public class VidaBoss : MonoBehaviour
         //StartCoroutine(Muerte());
     }
 
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("balaReflejada") || other.gameObject.CompareTag("bateAzul") || other.gameObject.CompareTag("bateRojo"))
         {
+            if (transform.position != origen)
+                transform.position = origen;
             psh.SetActive(true);
             disminuirVida();
         }
     }
-    
+
+
+
     void disminuirVida()
     {
         vidaMax--;

@@ -11,7 +11,7 @@ public class Proyectil : MonoBehaviour
     private void OnEnable()
     {
         int color = Random.Range(0, 2);
-        string layer;
+        gameObject.tag = "Danger";
         if (color == 1)
         {
             gameObject.layer = LayerMask.NameToLayer("Azul");
@@ -33,7 +33,14 @@ public class Proyectil : MonoBehaviour
         }else if (collision.gameObject.CompareTag("Player"))
         {
             torretin.Acertar();
+        }
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Boss") && other.CompareTag("balaReflejada"))
+        {
+            gameObject.SetActive(false);
         }
     }
 }

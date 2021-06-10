@@ -178,6 +178,7 @@ public class TorretaIA : Agent
                 {
                     balas[i].gameObject.SetActive(true);
                     balas[i].transform.position = shootingPoint.position;
+                    balas[i].transform.rotation = shootingPoint.rotation;
                     balas[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
                     balas[i].GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                     balas[i].GetComponent<Rigidbody>().AddForce(transform.forward * forceMultiplier);

@@ -11,6 +11,7 @@ public class Bala : MonoBehaviour
     void Start()
     {
         //Invoke("Destructor", 10);//Destruir el objeto si no choca
+        
         if (!bossBullet)
         {
             Destroy(gameObject, 10.0f);
@@ -21,12 +22,12 @@ public class Bala : MonoBehaviour
 
     void Update()
     {
-        if (!reflected)
+        if (!reflected && !bossBullet)
         {
             transform.Translate(Vector3.forward * vel * Time.deltaTime);//Mover hacia adelante
             //transform.Translate(Vector3.down * Time.deltaTime * (vel / 15));//Mover hacia abajo
         }
-        else
+        else if(reflected)
         {
             //transform.Translate(Vector3.back * (vel * 3) * Time.deltaTime);//Mover hacia atrás si es reflejado
             transform.Translate(Vector3.forward * (vel * 3) * Time.deltaTime);
@@ -55,5 +56,10 @@ public class Bala : MonoBehaviour
             }
 
         }
+    }
+
+    private void OnDisable()
+    {
+        reflected = false;
     }
 }

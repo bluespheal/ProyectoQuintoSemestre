@@ -48,7 +48,7 @@ public class ControladorDeGeneradores : MonoBehaviour
         //Desactivar el escudo del jefe--------------
         //Ya que este el escudo lo ponen aqui
         //-------------------------------------------
-        yield return wuEsperar;
+        yield return wsEsperar;
         golpeado = false;
         segundos = 0.0f;
         //Aqui activan el escudo de nuevo, cuando lo agreguen

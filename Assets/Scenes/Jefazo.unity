@@ -5152,7 +5152,7 @@ GameObject:
   - component: {fileID: 1265483690014065125}
   m_Layer: 0
   m_Name: FattyCannonG02
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5174,7 +5174,7 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   Target: {fileID: 2112251972}
-  forceMultiplier: 1000
+  forceMultiplier: 800
   reward: 0
   valCastigo: 0
   valRecompenza: 0
@@ -5278,6 +5278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c448d4a9eec81c49b8d3979ba53d5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vidaMax: 0
   ps1: {fileID: 323362821}
   ps2: {fileID: 428024054}
   ps3: {fileID: 135759685}
