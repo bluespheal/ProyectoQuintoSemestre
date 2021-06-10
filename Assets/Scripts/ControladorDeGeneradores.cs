@@ -18,6 +18,7 @@ public class ControladorDeGeneradores : MonoBehaviour
 
     private void Start()
     {
+        gen = generadores[0].GetComponent<Generador>();
         segundos = segundosCambio; 
         generadorActivo = 0;
         moviendo = false;

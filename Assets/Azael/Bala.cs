@@ -7,14 +7,16 @@ public class Bala : MonoBehaviour
     public float vel; //Velocidad
     public bool reflected = false;
     public ParticleSystem particles;
-
+    public bool bossBullet;
     void Start()
     {
         //Invoke("Destructor", 10);//Destruir el objeto si no choca
-        Destroy(gameObject, 10.0f);
-        transform.parent = null;
-
-        particles = this.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>();
+        if (!bossBullet)
+        {
+            Destroy(gameObject, 10.0f);
+            transform.parent = null;
+        }
+        
     }
 
     void Update()
@@ -40,11 +42,18 @@ public class Bala : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        
         particles.Play();
         //Destriur al chocar con el jugador
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Barrera") || collision.gameObject.CompareTag("Caja"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Barrera") || collision.gameObject.CompareTag("Caja") || collision.gameObject.CompareTag("generador")|| collision.gameObject.CompareTag("muro"))
         {
-            Destroy(gameObject);
+            if (!bossBullet)
+                Destroy(gameObject);
+            else
+            {
+                gameObject.SetActive(false);
+            }
+
         }
     }
 }

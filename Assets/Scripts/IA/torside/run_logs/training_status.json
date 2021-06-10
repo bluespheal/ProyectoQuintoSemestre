@@ -1,0 +1,29 @@
+{
+    "Torretin": {
+        "checkpoints": [
+            {
+                "steps": 499967,
+                "file_path": "results\\torside\\Torretin\\Torretin-499967.onnx",
+                "reward": 360.78123980388045,
+                "creation_time": 1623219319.197081
+            },
+            {
+                "steps": 500064,
+                "file_path": "results\\torside\\Torretin\\Torretin-500064.onnx",
+                "reward": 360.07776944339275,
+                "creation_time": 1623219319.4941666
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500064,
+            "file_path": "results\\torside\\Torretin.onnx",
+            "reward": 360.07776944339275,
+            "creation_time": 1623219319.4941666
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.25.0.dev0",
+        "torch_version": "1.7.0+cu110"
+    }
+}
