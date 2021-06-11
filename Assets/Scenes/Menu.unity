@@ -3546,6 +3546,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4883762814713038, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
   m_PrefabInstance: {fileID: 422133494}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1886500797 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8357846653225687763, guid: 7e1cd9a91e4c80e4e817c78d95bf4b88, type: 3}
+  m_PrefabInstance: {fileID: 691244887}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1922303569
 GameObject:
   m_ObjectHideFlags: 0
@@ -3599,6 +3610,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2738015829721657039, guid: 8c756073ea9a3354c86c6776e249dccd, type: 3}
+      propertyPath: haircross
+      value: 
+      objectReference: {fileID: 1886500797}
     - target: {fileID: 2738015829721657039, guid: 8c756073ea9a3354c86c6776e249dccd, type: 3}
       propertyPath: globalLight
       value: 

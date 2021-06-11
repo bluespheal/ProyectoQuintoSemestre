@@ -52,7 +52,7 @@ public class Torreta : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //Morir
-        if(collision.gameObject.CompareTag("bateRojo") || collision.gameObject.CompareTag("Danger") || collision.gameObject.CompareTag("bateAzul"))
+        if(collision.gameObject.CompareTag("bateRojo") || collision.gameObject.CompareTag("balaReflejada") || collision.gameObject.CompareTag("bateAzul"))
         {
             SoundManager.playSound(SoundManager.Sound.hit);
             GameManager.Instance.DescontarEnemigo(this.gameObject);

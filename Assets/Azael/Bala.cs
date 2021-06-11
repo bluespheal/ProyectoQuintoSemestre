@@ -46,7 +46,7 @@ public class Bala : MonoBehaviour
         
         particles.Play();
         //Destriur al chocar con el jugador
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Barrera") || collision.gameObject.CompareTag("Caja") || collision.gameObject.CompareTag("generador")|| collision.gameObject.CompareTag("muro"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Barrera") || collision.gameObject.CompareTag("Caja") || collision.gameObject.CompareTag("generador")|| collision.gameObject.CompareTag("muro") || collision.gameObject.CompareTag("Torreta"))
         {
             if (!bossBullet)
                 Destroy(gameObject);
