@@ -696,7 +696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4812186390656868, guid: 7a452e5924cd9994487b6bf6e78c5b14, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -44.4
+      value: -44.21
       objectReference: {fileID: 0}
     - target: {fileID: 4812186390656868, guid: 7a452e5924cd9994487b6bf6e78c5b14, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3859,6 +3859,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameoverScene: 
+  givesPoints: 1
+  gamemanager: {fileID: 0}
 --- !u!4 &1484878204
 Transform:
   m_ObjectHideFlags: 0

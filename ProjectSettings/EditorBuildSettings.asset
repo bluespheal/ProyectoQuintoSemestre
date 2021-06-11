@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestZone.unity
     guid: 645c0e8d544874c4992e02979c9f0481
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: c778f2fa04b6e5b468984f642500c9a2
+  - enabled: 1
+    path: Assets/Scenes/Jefazo.unity
+    guid: 916197ad13a790a4b8491830f42cfec8
   m_configObjects: {}

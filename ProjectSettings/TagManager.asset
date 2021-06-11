@@ -17,6 +17,7 @@ TagManager:
   - generador
   - FxTemporaire
   - Boss
+  - Torreta
   layers:
   - Default
   - TransparentFX

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba22b7580a782949adac15155015dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanciaMaxima: 18
+  distanciaMaxima: 12
   velRegreso: 0.35
 --- !u!136 &1419480081911577085
 CapsuleCollider:

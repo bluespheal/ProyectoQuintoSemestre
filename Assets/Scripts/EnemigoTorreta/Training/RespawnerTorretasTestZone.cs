@@ -11,7 +11,7 @@ public class RespawnerTorretasTestZone : MonoBehaviour
         //Activar las torretas nuevamente al golpear el boton
         if(collision.gameObject.CompareTag("bateRojo") || collision.gameObject.CompareTag("bateAzul"))
         {
-            LeanTween.pauseAll();
+            //LeanTween.pauseAll();
             for(int i = 0; i < 4; i++)
             {
                 //Revisar si estan desactivadas y activarlas si es el caso

@@ -113,7 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vel: 10
   reflected: 0
-  particles: {fileID: 0}
+  particles: {fileID: 1515913208876764600}
+  bossBullet: 0
 --- !u!54 &4732367913745351031
 Rigidbody:
   m_ObjectHideFlags: 0

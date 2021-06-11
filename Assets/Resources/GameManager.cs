@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
             rain.deaths = deaths;
         }
 
-        if(scene.name == "GameOver" || scene.name == "Menu")
+        if(scene.name == "GameOver" || scene.name == "Menu" || scene.name == "Credits")
         {
             return;
         }

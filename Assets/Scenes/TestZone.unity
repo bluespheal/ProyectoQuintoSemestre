@@ -135,6 +135,10 @@ PrefabInstance:
       value: SM_Buildings_Door_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1623399650922026, guid: f01cdc6f362babd47ada234fc65a0401, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623399650922026, guid: f01cdc6f362babd47ada234fc65a0401, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -376,6 +380,10 @@ PrefabInstance:
     - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
       propertyPath: m_Name
       value: SM_Buildings_Wall_5x3_01P (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
+      propertyPath: m_TagString
+      value: muro
       objectReference: {fileID: 0}
     - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5896,6 +5904,10 @@ PrefabInstance:
       value: SM_Buildings_Block_1x1_01P (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -5959,6 +5971,10 @@ PrefabInstance:
     - target: {fileID: 1543033834470240, guid: df0de12ef64f6854ba7a94013ffbff7e, type: 3}
       propertyPath: m_Name
       value: SM_Buildings_Wall_1x3_01P (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543033834470240, guid: df0de12ef64f6854ba7a94013ffbff7e, type: 3}
+      propertyPath: m_TagString
+      value: muro
       objectReference: {fileID: 0}
     - target: {fileID: 1543033834470240, guid: df0de12ef64f6854ba7a94013ffbff7e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10961,6 +10977,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1886818569}
     m_Modifications:
     - target: {fileID: 1124332603172438, guid: 22d9af586ef4a6149be2e7f541bfd2e7, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124332603172438, guid: 22d9af586ef4a6149be2e7f541bfd2e7, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -11083,6 +11103,10 @@ PrefabInstance:
     - target: {fileID: 1543033834470240, guid: df0de12ef64f6854ba7a94013ffbff7e, type: 3}
       propertyPath: m_Name
       value: SM_Buildings_Wall_1x3_01P (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543033834470240, guid: df0de12ef64f6854ba7a94013ffbff7e, type: 3}
+      propertyPath: m_TagString
+      value: muro
       objectReference: {fileID: 0}
     - target: {fileID: 1543033834470240, guid: df0de12ef64f6854ba7a94013ffbff7e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12130,6 +12154,10 @@ PrefabInstance:
       value: SM_Buildings_Wall_5x3_01P (5)
       objectReference: {fileID: 0}
     - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -12300,6 +12328,10 @@ PrefabInstance:
     - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
       propertyPath: m_Name
       value: SM_Buildings_Wall_5x3_01P
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
+      propertyPath: m_TagString
+      value: muro
       objectReference: {fileID: 0}
     - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12702,6 +12734,10 @@ PrefabInstance:
       value: SM_Buildings_Wall_5x3_01P (4)
       objectReference: {fileID: 0}
     - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -12902,6 +12938,10 @@ PrefabInstance:
     - target: {fileID: 1139096716249668, guid: 1a0c2535c014dc54cadd2f2172c087e0, type: 3}
       propertyPath: m_Name
       value: SM_Buildings_WallChamfered_2x2_01P (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139096716249668, guid: 1a0c2535c014dc54cadd2f2172c087e0, type: 3}
+      propertyPath: m_TagString
+      value: muro
       objectReference: {fileID: 0}
     - target: {fileID: 1139096716249668, guid: 1a0c2535c014dc54cadd2f2172c087e0, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13600,6 +13640,10 @@ PrefabInstance:
       value: SM_Buildings_Wall_5x3_01P (6)
       objectReference: {fileID: 0}
     - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -13733,6 +13777,10 @@ PrefabInstance:
     - target: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_Name
       value: SM_Buildings_Block_1x1_01P (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
+      propertyPath: m_TagString
+      value: muro
       objectReference: {fileID: 0}
     - target: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13998,6 +14046,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Buildings_Door_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1623399650922026, guid: f01cdc6f362babd47ada234fc65a0401, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
     - target: {fileID: 4996223375324104, guid: f01cdc6f362babd47ada234fc65a0401, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -14058,6 +14110,10 @@ PrefabInstance:
     - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
       propertyPath: m_Name
       value: SM_Buildings_Wall_5x3_01P (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
+      propertyPath: m_TagString
+      value: muro
       objectReference: {fileID: 0}
     - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14121,6 +14177,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 142703310}
     m_Modifications:
+    - target: {fileID: 1139096716249668, guid: 1a0c2535c014dc54cadd2f2172c087e0, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
     - target: {fileID: 1139096716249668, guid: 1a0c2535c014dc54cadd2f2172c087e0, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -14255,6 +14315,10 @@ PrefabInstance:
     - target: {fileID: 1000599048822866, guid: 5171d5eb12e0f184a8761aa4157f7d00, type: 3}
       propertyPath: m_Name
       value: SM_Buildings_Floor_5x5_01P (63)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000599048822866, guid: 5171d5eb12e0f184a8761aa4157f7d00, type: 3}
+      propertyPath: m_TagString
+      value: muro
       objectReference: {fileID: 0}
     - target: {fileID: 1000599048822866, guid: 5171d5eb12e0f184a8761aa4157f7d00, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14642,6 +14706,10 @@ PrefabInstance:
     - target: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_Name
       value: SM_Buildings_Block_1x1_01P
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
+      propertyPath: m_TagString
+      value: muro
       objectReference: {fileID: 0}
     - target: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15558,6 +15626,10 @@ PrefabInstance:
       value: SM_Buildings_Wall_1x3_01P (21)
       objectReference: {fileID: 0}
     - target: {fileID: 1543033834470240, guid: df0de12ef64f6854ba7a94013ffbff7e, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543033834470240, guid: df0de12ef64f6854ba7a94013ffbff7e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -15628,6 +15700,10 @@ PrefabInstance:
       value: SM_Buildings_Floor_5x5_01P (68)
       objectReference: {fileID: 0}
     - target: {fileID: 1000599048822866, guid: 5171d5eb12e0f184a8761aa4157f7d00, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000599048822866, guid: 5171d5eb12e0f184a8761aa4157f7d00, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -15692,6 +15768,10 @@ PrefabInstance:
     - target: {fileID: 1962685672368708, guid: ae8ce1c258125ac4db2163e712c99949, type: 3}
       propertyPath: m_Name
       value: SM_Buildings_WallDoor_2x3_01P (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962685672368708, guid: ae8ce1c258125ac4db2163e712c99949, type: 3}
+      propertyPath: m_TagString
+      value: muro
       objectReference: {fileID: 0}
     - target: {fileID: 1962685672368708, guid: ae8ce1c258125ac4db2163e712c99949, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15944,6 +16024,10 @@ PrefabInstance:
       value: SM_Buildings_Block_1x1_01P (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -16141,6 +16225,10 @@ PrefabInstance:
     - target: {fileID: 1623399650922026, guid: f01cdc6f362babd47ada234fc65a0401, type: 3}
       propertyPath: m_Name
       value: SM_Buildings_Door_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623399650922026, guid: f01cdc6f362babd47ada234fc65a0401, type: 3}
+      propertyPath: m_TagString
+      value: muro
       objectReference: {fileID: 0}
     - target: {fileID: 4996223375324104, guid: f01cdc6f362babd47ada234fc65a0401, type: 3}
       propertyPath: m_RootOrder
@@ -16376,6 +16464,10 @@ PrefabInstance:
       value: SM_Buildings_Wall_1x3_01P (30)
       objectReference: {fileID: 0}
     - target: {fileID: 1543033834470240, guid: df0de12ef64f6854ba7a94013ffbff7e, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543033834470240, guid: df0de12ef64f6854ba7a94013ffbff7e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -16580,6 +16672,10 @@ PrefabInstance:
     - target: {fileID: 1043177438711678, guid: dcd38533c298b0c4a9f5335ba411b0de, type: 3}
       propertyPath: m_Name
       value: SM_Buildings_WallWindow_2x3_01P (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043177438711678, guid: dcd38533c298b0c4a9f5335ba411b0de, type: 3}
+      propertyPath: m_TagString
+      value: muro
       objectReference: {fileID: 0}
     - target: {fileID: 1043177438711678, guid: dcd38533c298b0c4a9f5335ba411b0de, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -21568,6 +21664,10 @@ PrefabInstance:
       value: SM_Buildings_Floor_5x5_01P (71)
       objectReference: {fileID: 0}
     - target: {fileID: 1000599048822866, guid: 5171d5eb12e0f184a8761aa4157f7d00, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000599048822866, guid: 5171d5eb12e0f184a8761aa4157f7d00, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -21781,6 +21881,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Buildings_Door_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1623399650922026, guid: f01cdc6f362babd47ada234fc65a0401, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
     - target: {fileID: 4996223375324104, guid: f01cdc6f362babd47ada234fc65a0401, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -21843,6 +21947,10 @@ PrefabInstance:
       value: SM_Buildings_Door_01P (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1024562954466752, guid: e025362a5346a474ba28d4f1c1eee293, type: 3}
+      propertyPath: m_TagString
+      value: muro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024562954466752, guid: e025362a5346a474ba28d4f1c1eee293, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -21902,6 +22010,10 @@ PrefabInstance:
     - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
       propertyPath: m_Name
       value: SM_Buildings_Wall_5x3_01P (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
+      propertyPath: m_TagString
+      value: muro
       objectReference: {fileID: 0}
     - target: {fileID: 1194301909540060, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -21968,6 +22080,10 @@ PrefabInstance:
     - target: {fileID: 1623399650922026, guid: f01cdc6f362babd47ada234fc65a0401, type: 3}
       propertyPath: m_Name
       value: SM_Buildings_Door_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623399650922026, guid: f01cdc6f362babd47ada234fc65a0401, type: 3}
+      propertyPath: m_TagString
+      value: muro
       objectReference: {fileID: 0}
     - target: {fileID: 4996223375324104, guid: f01cdc6f362babd47ada234fc65a0401, type: 3}
       propertyPath: m_RootOrder
@@ -22064,7 +22180,7 @@ GameObject:
   - component: {fileID: 64390203276683809}
   m_Layer: 0
   m_Name: SM_Buildings_Door_01P
-  m_TagString: Untagged
+  m_TagString: muro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22083,7 +22199,7 @@ GameObject:
   - component: {fileID: 64390202830079349}
   m_Layer: 0
   m_Name: SM_Buildings_Door_01P (1)
-  m_TagString: Untagged
+  m_TagString: muro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22102,7 +22218,7 @@ GameObject:
   - component: {fileID: 64099311322106571}
   m_Layer: 0
   m_Name: SM_Buildings_Door_01 (6)
-  m_TagString: Untagged
+  m_TagString: muro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22121,7 +22237,7 @@ GameObject:
   - component: {fileID: 64099310049988010}
   m_Layer: 0
   m_Name: SM_Buildings_Door_01
-  m_TagString: Untagged
+  m_TagString: muro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
