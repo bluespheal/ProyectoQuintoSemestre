@@ -45,13 +45,11 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("OnEnable called");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     // called second
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        print(scene.name);
         if(scene.name == "GameOver")
         {
             rain = GameObject.Find("Death rain").GetComponent<deathRain>();
@@ -74,7 +72,6 @@ public class GameManager : MonoBehaviour
     }
     private void OnDestroy()
     {
-        Debug.Log("OnDisable");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     void Update()

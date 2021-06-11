@@ -1506,10 +1506,10 @@ GameObject:
   - component: {fileID: 6966253021401921165}
   - component: {fileID: 6966253021401921164}
   - component: {fileID: 6966253021401921167}
-  - component: {fileID: 6966253021401921166}
   - component: {fileID: 6966253021401921152}
   - component: {fileID: 6966253021401921153}
   - component: {fileID: 6966253021401921154}
+  - component: {fileID: -2385266937420319392}
   m_Layer: 0
   m_Name: EnemyMeleeTraining
   m_TagString: Untagged
@@ -1647,26 +1647,6 @@ MonoBehaviour:
   skinneMesh: {fileID: 8513472180694030819}
   VFXGraph: {fileID: 7812746891366143160}
   refreshRate: 0.02
---- !u!114 &6966253021401921166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6966253021401921155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d4201135c764b34aa1dd2df359a981f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  arma: {fileID: 0}
-  weapon: {fileID: 0}
-  anim: {fileID: 7812746891444326618}
-  rb: {fileID: 0}
-  meleeRange: 0
-  attacking: 0
-  muerto: 0
 --- !u!195 &6966253021401921152
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1731,6 +1711,22 @@ MonoBehaviour:
   dissolveRate: 0.2
   refreshRate: 0.05
   dieDelay: 0.2
+--- !u!54 &-2385266937420319392
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6966253021401921155}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7137984143357575837
 GameObject:
   m_ObjectHideFlags: 0

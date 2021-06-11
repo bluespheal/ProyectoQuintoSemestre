@@ -6,22 +6,22 @@ public class RespanerTestZone : MonoBehaviour
 {
 
     public GameObject Enemigo;
+    public GameObject ne;
     public Transform SpawnPos;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    public bool creado;
     private void OnCollisionEnter(Collision collision)
     {
-        
-    }
+        //Activar las torretas nuevamente al golpear el boton
+        if (collision.gameObject.CompareTag("bateRojo") || collision.gameObject.CompareTag("bateAzul"))
+        {
+            //Revisar si estan desactivadas y activarlas si es el caso
+            if (!creado)
+            {
+                creado = true;
+                ne = Instantiate(Enemigo, SpawnPos.position, SpawnPos.rotation);
+                ne.GetComponent<DisolveTraining>().spawner = this;
+            }
+        }
 
+    }
 }

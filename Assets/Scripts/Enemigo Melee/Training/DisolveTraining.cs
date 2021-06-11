@@ -11,11 +11,13 @@ public class DisolveTraining : MonoBehaviour
     public float dissolveRate = 0.2f;
     public float refreshRate;
     public float dieDelay;
+    public RespanerTestZone spawner;
 
     private Material[] dissolveMaterials;
     // Start is called before the first frame update
     void Start()
     {
+        spawner.creado = true;
         if (VFXGraph != null)
         {
             VFXGraph.Stop();
@@ -73,6 +75,7 @@ public class DisolveTraining : MonoBehaviour
                 yield return rr;
             }
         }
-        gameObject.SetActive(false);
+        spawner.creado = false;
+        Destroy(this.gameObject);
     }
 }

@@ -20,7 +20,6 @@ public class EnemyTraining : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("aber");
         newMaterials = new Material[2];
         currentHealth = maxHealth;
         DefineColor();
@@ -40,8 +39,6 @@ public class EnemyTraining : MonoBehaviour
     }
     public void DefineColor()
     {
-        Debug.Log(newMaterials[0]);
-        Debug.Log(newMaterials[1]);
         //color = Random.Range(0, 2);
         //print(color);
         if (color == 0)

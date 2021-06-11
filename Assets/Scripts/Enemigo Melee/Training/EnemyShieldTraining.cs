@@ -28,7 +28,6 @@ public class EnemyShieldTraining : EnemyTraining
 
     public void DefineShieldColor()
     {
-        print("entre a define shield");
         color = Random.Range(0, 2);
         //print(color);
         if (color == 0)
