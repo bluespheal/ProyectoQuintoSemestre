@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2116792625}
-  m_IndirectSpecularColor: {r: 0.17104745, g: 0.24160892, b: 0.36095336, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5507,6 +5507,10 @@ PrefabInstance:
     - target: {fileID: 8125832928091303958, guid: 3a05464fca7295f428d888911749d918, type: 3}
       propertyPath: m_Name
       value: Scene Changer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8125832928091303959, guid: 3a05464fca7295f428d888911749d918, type: 3}
+      propertyPath: givesPoints
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a05464fca7295f428d888911749d918, type: 3}
