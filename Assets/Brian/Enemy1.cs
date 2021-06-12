@@ -15,7 +15,7 @@ public class Enemy1 : MonoBehaviour
     public Material[] newMaterials;
     public GameObject model;
     public GameObject arma;
-    public string deadTag;
+    public string deadTag = "";
     public DisolbingController ControlParticulas;
 
     void Start()
@@ -71,5 +71,13 @@ public class Enemy1 : MonoBehaviour
     {
         SoundManager.playSound(SoundManager.Sound.hit);
         TakeDamage(1);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag(deadTag))
+        {
+            TakeDamage(1);
+        }
     }
 }

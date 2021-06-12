@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bate_Movimiento : MonoBehaviour
 {
     GameObject player;
-    GameObject playerCamara;
+    public GameObject playerCamara;
     Vector3 playerPos;
     bool choque = false;
     public float distanciaMaxima;

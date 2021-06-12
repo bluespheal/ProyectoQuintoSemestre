@@ -22,7 +22,6 @@ public class Bat_ReflectVR : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        print(collision.gameObject.name);
         if (color_layer == collision.collider.gameObject.layer) //Compares the collider layer with color_layer
         {
             if (collision.collider.gameObject.GetComponent<Bala>()) //If the hit object is a bullet
